@@ -9,6 +9,7 @@ var contacts;
             function AddContactsCtrl($modalInstance) {
                 this.$modalInstance = $modalInstance;
                 this.modalInstance = $modalInstance;
+                this.title = "Add Contact";
             }
             //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
             AddContactsCtrl.prototype.addContact = function (contact) {

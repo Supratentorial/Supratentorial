@@ -106,7 +106,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
     <Content Include="app\contacts\addContactsPartial.html" />
     <Content Include="app\contacts\contactsPartial.html" />
     <Content Include="app\dashboard\dashboard.js" />

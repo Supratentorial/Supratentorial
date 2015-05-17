@@ -9,10 +9,12 @@ module contacts.controllers {
     export class AddContactsCtrl implements IAddContactsCtrl {
         static controllerId: string = "AddContactsCtrl";
         modalInstance: angular.ui.bootstrap.IModalServiceInstance;
+        title: string;
 
         static $inject = ['$modalInstance'];
         constructor(private $modalInstance : angular.ui.bootstrap.IModalServiceInstance) {
             this.modalInstance = $modalInstance;
+            this.title = "Add Contact";
         }
 
         //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
