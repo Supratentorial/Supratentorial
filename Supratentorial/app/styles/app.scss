@@ -1,0 +1,62 @@
+﻿@import "colours";
+$navbar-default-bg: $material-design-grey-800;
+$navbar-border-radius: 0px;
+$navbar-default-brand-color: $white;
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body {
+    background-color: lightgray;
+}
+
+.navbar-default {
+    min-height: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
+    border: 0;
+}
+
+.navbar-header {
+    padding: 0;
+
+    .logo {
+        display: inline-block;
+        margin-left: 10px;
+        height: 50px;
+        width: 50px;
+    }
+
+    a.navbar-brand {
+        color: $white;
+        text-decoration: none;
+        font-family: Raleway;
+        font-size: 1.3em;
+        padding: 0;
+        margin-right: 10px;
+    }
+
+    a.span {
+    }
+}
+
+.nav {
+    li {
+        a {
+            font-size: 1.1em;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
+}
+
+.content {
+    padding: 10px;
+}
+
+.contact-list-item{
+
+
+
+}

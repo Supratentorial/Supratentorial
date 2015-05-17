@@ -1,0 +1,37 @@
+﻿
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <base href="/">
+    <title>Meridian Legal</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../wwwroot/css/app.css" />
+    <link href='http://fonts.googleapis.com/css?family=Antic' rel='stylesheet' type='text/css'>
+    <!-- endinject -->
+</head>
+<body ng-app="app">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a ui-sref="dashboard" ui-sref-active="" class="navbar-brand">
+                    <img src="img/meridian_logo.svg" class="logo" />
+                    <span>Meridian</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="dashboard"><img src="img/dashboard.svg"/>Dashboard</a></li>
+                    <li><a ui-sref="matters"><img src="img/matters.svg"/>Matters</a></li>
+                    <li><a ui-sref="contacts"><img src="img/contacts.svg"/>Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content" ui-view></div>
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- inject:js -->
+    <!-- endinject -->
+</body>
+</html>
