@@ -5,7 +5,7 @@ module app {
     export class StateConfig {
         static $inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-        constructor(private $stateProvider:ng.ui.IStateProvider, private $urlRouterProvider:ng.ui.IUrlRouterProvider, private $locationProvider:ng.ILocationProvider) {
+        constructor(private $stateProvider: ng.ui.IStateProvider, private $urlRouterProvider: ng.ui.IUrlRouterProvider, private $locationProvider: ng.ILocationProvider) {
             this.$stateProvider
                 .state('matters', <ng.ui.IState>{
                 url: '/matters',
@@ -19,11 +19,16 @@ module app {
                 url: '/contacts',
                 templateUrl: '/html/contacts/contactsPartial.html',
                 controller: 'ContactsCtrl as vm'
-                });
+            })
+                .state('addContact', <ng.ui.IState>{
+                url: '/add-contacts',
+                templateUrl: 'html/contacts/addContactPartial.html',
+                controller: 'AddContactCtrl as vm'
+            });
 
             this.$locationProvider.html5Mode(true);
         }
     }
-    export var app:ng.IModule = angular.module('app', ['ui.router', 'app.contacts', 'app.matters']);
+    export var app: ng.IModule = angular.module('app', ['ui.router', 'app.contacts', 'app.matters']);
     app.config(StateConfig);
 }

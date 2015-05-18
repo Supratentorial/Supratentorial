@@ -2,6 +2,7 @@
 $navbar-default-bg: $material-design-grey-800;
 $navbar-border-radius: 0px;
 $navbar-default-brand-color: $white;
+@import url('../../bower_components/angular-material/angular-material.css');
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {

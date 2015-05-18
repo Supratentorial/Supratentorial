@@ -106,7 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\contacts\addContactsPartial.html" />
+    <Content Include="app\contacts\addContactPartial.html" />
     <Content Include="app\contacts\contactsPartial.html" />
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />
@@ -124,7 +124,7 @@
     </Content>
     <Content Include="dist\css\app.css" />
     <Content Include="dist\css\colours.css" />
-    <Content Include="dist\html\contacts\addContactsPartial.html" />
+    <Content Include="dist\html\contacts\addContactPartial.html" />
     <Content Include="dist\html\contacts\contactsPartial.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
     <Content Include="dist\html\matters\mattersPartial.html" />
@@ -137,7 +137,7 @@
     <Content Include="dist\img\search.svg" />
     <Content Include="dist\index.html" />
     <Content Include="dist\js\app.js" />
-    <Content Include="dist\js\contacts\addContactsCtrl.js" />
+    <Content Include="dist\js\contacts\addContactCtrl.js" />
     <Content Include="dist\js\contacts\contacts.js" />
     <Content Include="dist\js\contacts\contactsCtrl.js" />
     <Content Include="dist\js\contacts\contactsInterfaces.js" />
@@ -148,6 +148,9 @@
     <Content Include="dist\js\matters\matters.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
+    <Content Include="dist\lib\angular-animate.js" />
+    <Content Include="dist\lib\angular-aria.js" />
+    <Content Include="dist\lib\angular-material.js" />
     <Content Include="dist\lib\angular-ui-router.js" />
     <Content Include="dist\lib\angular.js" />
     <Content Include="dist\lib\bootstrap.js" />
@@ -207,7 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
-    <TypeScriptCompile Include="app\contacts\addContactsCtrl.ts" />
+    <TypeScriptCompile Include="app\contacts\addContactCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contacts.ts" />
     <TypeScriptCompile Include="app\contacts\contactsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contactsInterfaces.ts" />

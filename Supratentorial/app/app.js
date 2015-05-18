@@ -20,6 +20,11 @@ var app;
                 url: '/contacts',
                 templateUrl: '/html/contacts/contactsPartial.html',
                 controller: 'ContactsCtrl as vm'
+            })
+                .state('addContact', {
+                url: '/add-contacts',
+                templateUrl: 'html/contacts/addContactPartial.html',
+                controller: 'AddContactCtrl as vm'
             });
             this.$locationProvider.html5Mode(true);
         }

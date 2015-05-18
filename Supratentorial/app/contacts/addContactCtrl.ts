@@ -2,24 +2,24 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 module contacts.controllers {
     "use strict"
-    interface IAddContactsCtrl {
+    interface IAddContactCtrl {
         addContact(contact : interfaces.IContact): any;
     }
 
-    export class AddContactsCtrl implements IAddContactsCtrl {
-        static controllerId: string = "AddContactsCtrl";
-        modalInstance: angular.ui.bootstrap.IModalServiceInstance;
+    export class AddContactCtrl implements IAddContactCtrl {
+        static controllerId: string = "AddContactCtrl";
+
         title: string;
 
-        static $inject = ['$modalInstance'];
-        constructor(private $modalInstance : angular.ui.bootstrap.IModalServiceInstance) {
-            this.modalInstance = $modalInstance;
+        static $inject = [];
+        constructor() {
+
             this.title = "Add Contact";
         }
 
         //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
         addContact(contact: interfaces.IContact) {
-            this.modalInstance.close();
+            
             return true;
         }
     }
