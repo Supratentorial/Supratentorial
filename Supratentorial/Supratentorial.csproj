@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
     <Compile Include="Migrations\201505140513313_Initial.cs" />
     <Compile Include="Migrations\201505140513313_Initial.Designer.cs">

@@ -1,30 +1,109 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="panel panel-default col-lg-8">
+        <a><img src=""/> Back</a>
+    </div>
+    <div class="row">
+        <div class="panel panel-default col-lg-6">
             <div class=" panel-heading">
-                <h3 class="panel-title">Add Contact</h3>
+                <h3 class="panel-title">Basic Details</h3>
             </div>
             <div class="panel-body">
                 <form>
-                    <div class="form-group">
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label>Last Name</label>
+                            <input class="form-control" ng-model="vm.lastName"/>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>First Name</label>
+                            <input class="form-control" ng-model="vm.firstName"/>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <label>Middle Names</label>
+                            <input class="form-control" ng-model="vm.middleNames"/>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label>Title</label>
+                            <select class="form-control" ng-model="vm.title"
+                                    ng-options="t as t for t in vm.titleOptions">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label>Date of Birth</label>
+                            <input class="form-control" placeholder="dd/mm/yyyy" type="date"/>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
-                            <label>Last Name:</label>
-                            <input class="form-control" />
+                            <label>Phone Number:</label>
+                            <input class="form-control" type="tel"/>
                         </div>
+                        <div class="form-group col-lg-2">
+                            <label>Type</label>
+                            <select class="form-control" ng-model="vm.phoneNumberType"
+                                    ng-options="p as p for p in vm.phoneOptions">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Email</label>
+                            <input type="email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="col-lg-6">
+
+                        </ul>
+                        <ul class="col-lg-6" ng-repeat="email in vm.emailAddresses">
+                            <li>
+                                <input class="form-control" ng-model="{{email.email}}" />
+                                <label class="radio-inline"><input type="radio" ng-model="{{email.preferred}}">Preferred</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a class="pull-left">Add Phone</a>
+                        </div>
+                        <div class="col-lg-6">
+                            <a class="pull-left">Add Email</a>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="form-group col-lg-4">
-                            <label>First Name:</label>
-                            <input class="form-control" />
+                            <label>Unit/Shop Number</label>
+                            <input class="form-control" placeholder="E.g. Unit 1" type="text" />
+                        </div>
+                        <div class="form-group col-lg-8">
+                            <label>Street Address</label>
+                            <input class="form-control" placeholder="E.g. 39 Bagshot Row" />
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="panel panel-default col-lg-4">
+        <div class="panel panel-default col-lg-6">
+            <div class="panel-heading">
+                <h3 class="panel-title">Biographical Details</h3>
+            </div>
             <div class="panel-body">
-                Contact may already exist...
+                <form>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label>Date of Death</label>
+                            <input class="form-control" type="date" ng-model="vm.dateOfDeath"/>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+<div class="row pull-right">
+    <button class="btn btn-success" ng-click="vm.saveContact()">Save</button>
+    <button class="btn btn-default">Cancel</button>
 </div>

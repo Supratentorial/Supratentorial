@@ -43,9 +43,9 @@ module interfaces {
     }
 
     export interface IEmailAddress {
-        id: number;
+        id?: number;
         email: string;
-        isPreferred: boolean;
+        isPreferred?: boolean;
     }
 
     export interface IPhoneNumber {

@@ -3,24 +3,57 @@
 module contacts.controllers {
     "use strict"
     interface IAddContactCtrl {
-        addContact(contact : interfaces.IContact): any;
+        titleOptions: string[]//E.g. Mr, Mrs...
+        phoneOptions: string[];//E.g. Work, mobile, home...
+        title: string;
+        lastName: string;
+        firstName: string;
+        dateOfBirthString: string;
+        dateOfBirth: Date;
+        saveContact(): any;
+
     }
 
     export class AddContactCtrl implements IAddContactCtrl {
         static controllerId: string = "AddContactCtrl";
 
+        httpService: ng.IHttpService;
+
         title: string;
+        lastName: string;
+        firstName: string;
+        dateOfBirthString: string;
+        dateOfBirth: Date;
 
-        static $inject = [];
-        constructor() {
+        phoneNumberType: string;
+        email: string;
+        emailAddresses: interfaces.IEmailAddress[];
+        titleOptions: string[];
+        phoneOptions: string[];
 
-            this.title = "Add Contact";
+        static $inject = ['$http'];
+        constructor(private $http: ng.IHttpService) {
+            this.httpService = $http;
+            this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
+            this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
         }
 
         //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
-        addContact(contact: interfaces.IContact) {
-            
+        saveContact() {
+            var contact = <interfaces.IContact>{ id: 0, lastName: this.lastName, firstName: this.firstName, dateOfBirth: this.dateOfBirth };
+            this.httpService.post('api/contacts', contact)
+                .success(function (data, status, headers, statusText) {
+                console.log("Contact saved successfullly");
+            })
+                .error(function () {
+                console.log("Contact did not save.");
+            });
             return true;
+        }
+
+        addEmail() {
+            var email = <interfaces.IEmailAddress>{};
+            email.email = this.email;
         }
     }
 }
