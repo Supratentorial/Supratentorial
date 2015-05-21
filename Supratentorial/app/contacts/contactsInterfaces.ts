@@ -4,30 +4,29 @@ module interfaces {
         title : string;
         firstName : string;
         lastName : string;
-        middleNames : IMiddleName[];
+        middleNames : string[];
         dateOfBirth : Date;
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
+        staffProfile?: IStaffProfile;
         address : IAddress[];
     }
 
-    export interface IClient extends IContact {
+    export interface IClientProfile {
         dateOfDeath : Date;
         dateOfSeparation: Date;
         dateOfDivorce: Date;
-        Children : IChild[];
+        childrenId : number[];
     }
 
-    export interface IChild {
-        id: number;
-        firstName: string;
-        lastNmae: string;
-        middleNames : IMiddleName[];
-        dateOfBirth: Date;
-    }
-
-    export interface ISolicitor extends IContact {
+    export interface ISolicitorProfile {
         practice : IPractice;
+    }
+
+    export interface IStaffProfile {
+        commencementDate: Date;
+        terminationDate: Date;
+        position: string;
     }
 
     export interface IPractice{
@@ -37,13 +36,8 @@ module interfaces {
         address : IAddress;
     }
 
-    export interface IMiddleName {
-        id: number;
-        name: string;
-    }
-
     export interface IEmailAddress {
-        id?: number;
+        id: number;
         email: string;
         isPreferred?: boolean;
     }
@@ -66,6 +60,5 @@ module interfaces {
         postCode : number;
         isMailing : boolean;
         isResidential : boolean;
-
     }
 }

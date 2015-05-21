@@ -6,6 +6,7 @@
     "ui-router": "0.2.14",
     "angular-bootstrap": "0.13.0",
     "bootstrap-sass": "3.3.4",
-    "angular-material": "~0.9.4"
+    "angular-material": "~0.9.4",
+    "moment": "~2.10.3"
   }
 }

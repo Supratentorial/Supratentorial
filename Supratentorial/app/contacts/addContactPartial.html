@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <a><img src=""/> Back</a>
+        <a ui-sref="contacts"><img src=""/> Back</a>
     </div>
     <div class="row">
         <div class="panel panel-default col-lg-6">
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <label>Middle Names</label>
-                            <input class="form-control" ng-model="vm.middleNames"/>
+                            <input class="form-control" ng-model="vm.middleNamesString"/>
                         </div>
                         <div class="form-group col-lg-3">
                             <label>Title</label>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group col-lg-3">
                             <label>Date of Birth</label>
-                            <input class="form-control" placeholder="dd/mm/yyyy" type="date"/>
+                            <input class="form-control" placeholder="dd/mm/yyyy" type="string" ng-model="vm.dateOfBirthString"/>
                         </div>
                     </div>
                     <div class="row">
@@ -61,26 +61,35 @@
                         <ul class="col-lg-6" ng-repeat="email in vm.emailAddresses">
                             <li>
                                 <input class="form-control" ng-model="{{email.email}}" />
-                                <label class="radio-inline"><input type="radio" ng-model="{{email.preferred}}">Preferred</label>
                             </li>
                         </ul>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <a class="pull-left">Add Phone</a>
+                            <button class="btn btn-default">Add Phone</button>
                         </div>
                         <div class="col-lg-6">
-                            <a class="pull-left">Add Email</a>
+                            <button class="btn btn-default" ng-click="vm.addEmail()">Add Email</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label>Unit/Shop Number</label>
-                            <input class="form-control" placeholder="E.g. Unit 1" type="text" />
+                            <input class="form-control" type="text" />
                         </div>
                         <div class="form-group col-lg-8">
                             <label>Street Address</label>
-                            <input class="form-control" placeholder="E.g. 39 Bagshot Row" />
+                            <input class="form-control" type="text"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-4">
+                            <label>Suburb</label>
+                            <input class="form-control" />
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label>State</label>
+                            <input class="form-control" />
                         </div>
                     </div>
                 </form>
@@ -96,6 +105,10 @@
                         <div class="form-group col-lg-4">
                             <label>Date of Death</label>
                             <input class="form-control" type="date" ng-model="vm.dateOfDeath"/>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label>Date of Marriage</label>
+                            <input class="form-control" type="date" ng-model="vm.dateOfMarriage"
                         </div>
                     </div>
                 </form>

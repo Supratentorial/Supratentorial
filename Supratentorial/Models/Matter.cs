@@ -6,8 +6,8 @@ namespace Supratentorial.Models
     {
         public int Id { get; set; }
         public string Type { get; set; }
-        public virtual ICollection<Client> Client { get; set; }
+        public virtual ICollection<ClientProfile> Client { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-        public virtual ICollection<Staff> StaffResponsible { get; set; }
+        public virtual ICollection<StaffProfile> StaffResponsible { get; set; }
     }
 }

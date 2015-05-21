@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Supratentorial.Models
 {
     //TODO: Inherit from contact when EF7 supports inheritance.
-    public class Client : Contact
+    public class ClientProfile : Contact
     {
         public DateTime DivorceDate { get; set; }
         public DateTime MarriageDate { get; set; }

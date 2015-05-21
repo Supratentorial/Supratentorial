@@ -1,5 +1,7 @@
 /// <reference path="contactsinterfaces.ts" />
 /// <reference path="../typings/angularjs/angular.d.ts" />
+/// <reference path="../typings/moment/moment.d.ts" />
+
 module contacts.controllers {
     "use strict"
     interface IAddContactCtrl {
@@ -8,10 +10,9 @@ module contacts.controllers {
         title: string;
         lastName: string;
         firstName: string;
+        middleNamesString: string;
         dateOfBirthString: string;
-        dateOfBirth: Date;
         saveContact(): any;
-
     }
 
     export class AddContactCtrl implements IAddContactCtrl {
@@ -19,15 +20,17 @@ module contacts.controllers {
 
         httpService: ng.IHttpService;
 
-        title: string;
-        lastName: string;
-        firstName: string;
-        dateOfBirthString: string;
-        dateOfBirth: Date;
+        title: string = "";
+        lastName: string = "";
+        firstName: string = "";
+        middleNamesString: string = "";
 
-        phoneNumberType: string;
-        email: string;
+        dateOfBirthString: string = "";
+        emailString: string = "";
         emailAddresses: interfaces.IEmailAddress[];
+        phoneNumbers: interfaces.IPhoneNumber[];
+        phoneNumberString: string = "";
+        phoneNumberType: string = "";
         titleOptions: string[];
         phoneOptions: string[];
 
@@ -36,24 +39,50 @@ module contacts.controllers {
             this.httpService = $http;
             this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
             this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
+            //TODO: Load email addresses from service.
+            this.emailAddresses = [];
         }
 
         //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
+        //TODO: Refactor into service and mapping method.
+        //TODO: Write unit test for mapping code.
         saveContact() {
-            var contact = <interfaces.IContact>{ id: 0, lastName: this.lastName, firstName: this.firstName, dateOfBirth: this.dateOfBirth };
-            this.httpService.post('api/contacts', contact)
+            var dateOfBirth = moment(this.dateOfBirthString, "DD-MM-YYYY").toDate();
+            var middleNames = this.middleNamesString.split(" ");
+            var currentPhoneNumber = <interfaces.IPhoneNumber>{ };
+
+            var contact = <interfaces.IContact>{
+                id: 0,
+                lastName: this.lastName,
+                firstName: this.firstName,
+                middleNames: middleNames,
+                dateOfBirth: dateOfBirth,
+                title: this.title,
+                phoneNumbers: this.phoneNumbers,
+                emailAddresses: this.emailAddresses
+            };
+            console.log(contact);
+            this.httpService.post(
+                'api/contacts',
+                JSON.stringify(contact),
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
                 .success(function (data, status, headers, statusText) {
                 console.log("Contact saved successfullly");
             })
-                .error(function () {
-                console.log("Contact did not save.");
+                .error(function (data, satus, headers, config) {
+                console.log(JSON.stringify(data, null, 4));
             });
             return true;
         }
 
         addEmail() {
-            var email = <interfaces.IEmailAddress>{};
-            email.email = this.email;
+            var email = <interfaces.IEmailAddress>{ id: 0, email: this.emailString};
+            this.emailAddresses.push(email);
+            this.emailString = "";
         }
     }
 }

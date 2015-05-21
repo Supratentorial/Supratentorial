@@ -155,6 +155,7 @@
     <Content Include="dist\lib\angular.js" />
     <Content Include="dist\lib\bootstrap.js" />
     <Content Include="dist\lib\jquery.js" />
+    <Content Include="dist\lib\moment.js" />
     <Content Include="dist\lib\ui-bootstrap-tpls.js" />
     <Content Include="Gulpfile.js" />
     <Content Include="Web.config">
@@ -165,25 +166,22 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
-    <Compile Include="Migrations\201505140513313_Initial.cs" />
-    <Compile Include="Migrations\201505140513313_Initial.Designer.cs">
-      <DependentUpon>201505140513313_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505140531272_Added DBSet for Staff.cs" />
-    <Compile Include="Migrations\201505140531272_Added DBSet for Staff.Designer.cs">
-      <DependentUpon>201505140531272_Added DBSet for Staff.cs</DependentUpon>
+    <Compile Include="Migrations\201505210358509_Removed inheritance.cs" />
+    <Compile Include="Migrations\201505210358509_Removed inheritance.Designer.cs">
+      <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
-    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientProfile.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\DoctorProfile.cs" />
     <Compile Include="Models\EmailAddress.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\LegalFirm.cs" />
     <Compile Include="Models\Matter.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
-    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\StaffProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -226,13 +224,11 @@
     <TypeScriptCompile Include="app\typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="app\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="app\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="app\typings\moment\moment.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505140513313_Initial.resx">
-      <DependentUpon>201505140513313_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505140531272_Added DBSet for Staff.resx">
-      <DependentUpon>201505140531272_Added DBSet for Staff.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201505210358509_Removed inheritance.resx">
+      <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

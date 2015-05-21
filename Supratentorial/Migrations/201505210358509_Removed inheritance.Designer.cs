@@ -7,13 +7,13 @@ namespace Supratentorial.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class AddedDBSetforStaff : IMigrationMetadata
+    public sealed partial class Removedinheritance : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedDBSetforStaff));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Removedinheritance));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505140531272_Added DBSet for Staff"; }
+            get { return "201505210358509_Removed inheritance"; }
         }
         
         string IMigrationMetadata.Source

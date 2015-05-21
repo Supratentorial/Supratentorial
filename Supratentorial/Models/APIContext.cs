@@ -21,7 +21,5 @@ namespace Supratentorial.Models
 
         public DbSet<Matter> Matters { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Staff> StaffMembers { get; set; }
-    
     }
 }
