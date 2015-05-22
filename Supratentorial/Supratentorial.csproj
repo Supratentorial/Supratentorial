@@ -124,6 +124,7 @@
     </Content>
     <Content Include="dist\css\app.css" />
     <Content Include="dist\css\colours.css" />
+    <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="dist\html\contacts\addContactPartial.html" />
     <Content Include="dist\html\contacts\contactsPartial.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
@@ -198,6 +199,10 @@
     <Content Include="app\styles\app.css.map">
       <DependentUpon>app.css</DependentUpon>
     </Content>
+    <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\supratentorial - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\supratentorial - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -231,6 +236,7 @@
       <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

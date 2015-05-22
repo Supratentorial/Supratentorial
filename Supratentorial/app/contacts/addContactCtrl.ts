@@ -41,6 +41,7 @@ module contacts.controllers {
             this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
             //TODO: Load email addresses from service.
             this.emailAddresses = [];
+            this.phoneNumbers = [];
         }
 
         //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
@@ -49,7 +50,7 @@ module contacts.controllers {
         saveContact() {
             var dateOfBirth = moment(this.dateOfBirthString, "DD-MM-YYYY").toDate();
             var middleNames = this.middleNamesString.split(" ");
-            var currentPhoneNumber = <interfaces.IPhoneNumber>{ };
+            var currentPhoneNumber = <interfaces.IPhoneNumber>{};
 
             var contact = <interfaces.IContact>{
                 id: 0,
@@ -80,9 +81,13 @@ module contacts.controllers {
         }
 
         addEmail() {
-            var email = <interfaces.IEmailAddress>{ id: 0, email: this.emailString};
+            var email = <interfaces.IEmailAddress>{ id: 0, email: "" };
             this.emailAddresses.push(email);
-            this.emailString = "";
+        }
+
+        addPhone() {
+            var phone = <interfaces.IPhoneNumber>{ id: 0, number: null };
+            this.phoneNumbers.push(phone);
         }
 
         cancel() {

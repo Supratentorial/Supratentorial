@@ -22,6 +22,7 @@ var contacts;
                 this.phoneOptions = ["Home", "Work", "Mobile", "Fax"];
                 //TODO: Load email addresses from service.
                 this.emailAddresses = [];
+                this.phoneNumbers = [];
             }
             //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
             //TODO: Refactor into service and mapping method.
@@ -55,9 +56,12 @@ var contacts;
                 return true;
             };
             AddContactCtrl.prototype.addEmail = function () {
-                var email = { id: 0, email: this.emailString };
+                var email = { id: 0, email: "" };
                 this.emailAddresses.push(email);
-                this.emailString = "";
+            };
+            AddContactCtrl.prototype.addPhone = function () {
+                var phone = { id: 0, number: null };
+                this.phoneNumbers.push(phone);
             };
             AddContactCtrl.prototype.cancel = function () {
                 console.log("cancel button clicked");

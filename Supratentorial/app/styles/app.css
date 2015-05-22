@@ -1,5 +1,4 @@
-﻿@import url('../../bower_components/angular-material/angular-material.css');
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+﻿/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -5145,6 +5144,10 @@ button.close {
 
 body {
   background-color: lightgray; }
+
+.panel {
+  padding-left: 0;
+  padding-right: 0; }
 
 .navbar-default {
   min-height: 50px;

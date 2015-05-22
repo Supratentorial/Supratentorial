@@ -3,7 +3,7 @@
         <a ui-sref="contacts"><img src="" /> Back</a>
     </div>
     <div class="row">
-        <div class="panel panel-default col-lg-6">
+        <div class="panel panel-default col-lg-8">
             <div class=" panel-heading">
                 <h3 class="panel-title">Basic Details</h3>
             </div>
@@ -38,41 +38,39 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-lg-4">
-                            <label>Phone Number:</label>
-                            <input class="form-control" type="tel" />
-                        </div>
-                        <div class="form-group col-lg-2">
-                            <label>Type</label>
-                            <select class="form-control" ng-model="vm.phoneNumberType"
-                                    ng-options="p as p for p in vm.phoneOptions">
-                                <option value=""></option>
-                            </select>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <label>Email</label>
-                            <input type="email" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6">
                             <div class="row" ng-repeat="phone in vm.phoneNumbers">
-                                <div class="form-group col-lg-12">
+                                <div class="form-group col-lg-8">
                                     <label>Phone Number:</label>
-                                    <input class="form-control" ng-model="{{phone.number}}" />
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input type="radio" name="defaultPhoneGroup" /> Preferred
+                                        </span>
+                                        <input class="form-control" ng-model="{{phone.number}}" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Type</label>
+                                    <select class="form-control" ng-model="vm.phoneNumberType"
+                                            ng-options="p as p for p in vm.phoneOptions">
+                                        <option value=""></option>
+                                    </select>
                                 </div>
                             </div>
-                            <button class="btn btn-default">Add Phone</button>
+                            <button class="btn btn-default" ng-click="vm.addPhone()">Add Phone</button>
                         </div>
                         <div class="col-lg-6">
                             <div class="row" ng-repeat="email in vm.emailAddresses">
-                                <div class="form-group col-lg-11">
+                                <div class="form-group col-lg-12">
                                     <label>Email</label>
                                     <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input type="radio" name="defaultEmailGroup" /> Preferred
+                                        </span>
                                         <input type="email" class="form-control" ng-model="{{email.email}}" />
-                                        <div class="input-group-btn">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                                        </div>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -106,9 +104,9 @@
                 </form>
             </div>
         </div>
-        <div class="panel panel-default col-lg-6">
+        <div class="panel panel-default col-lg-4">
             <div class="panel-heading">
-                <h3 class="panel-title">Biographical Details</h3>
+                <h3 class="panel-title">Associated Matters</h3>
             </div>
             <div class="panel-body">
                 <form>
