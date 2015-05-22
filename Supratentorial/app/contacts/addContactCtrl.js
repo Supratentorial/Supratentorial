@@ -59,6 +59,9 @@ var contacts;
                 this.emailAddresses.push(email);
                 this.emailString = "";
             };
+            AddContactCtrl.prototype.cancel = function () {
+                console.log("cancel button clicked");
+            };
             AddContactCtrl.controllerId = "AddContactCtrl";
             AddContactCtrl.$inject = ['$http'];
             return AddContactCtrl;

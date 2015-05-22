@@ -84,5 +84,9 @@ module contacts.controllers {
             this.emailAddresses.push(email);
             this.emailString = "";
         }
+
+        cancel() {
+            console.log("cancel button clicked");
+        }
     }
 }
