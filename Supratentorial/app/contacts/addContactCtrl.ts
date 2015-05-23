@@ -5,8 +5,8 @@
 module contacts.controllers {
     "use strict"
     interface IAddContactCtrl {
-        titleOptions: string[]//E.g. Mr, Mrs...
-        phoneOptions: string[];//E.g. Work, mobile, home...
+        titleOptions: string[];
+        phoneOptions: string[];
         title: string;
         lastName: string;
         firstName: string;
@@ -42,6 +42,13 @@ module contacts.controllers {
             //TODO: Load email addresses from service.
             this.emailAddresses = [];
             this.phoneNumbers = [];
+            if (this.emailAddresses.length === 0) {
+                var email = <interfaces.IEmailAddress>{ id: 0, email: "", isPreferred: true }
+                this.emailAddresses.push(email);
+            }
+            if (this.phoneNumbers.length === 0) {
+                this.addPhone();
+            }
         }
 
         //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
@@ -72,21 +79,31 @@ module contacts.controllers {
                     }
                 })
                 .success(function (data, status, headers, statusText) {
+                //TODO: Display confirmation of successful save to user.
                 console.log("Contact saved successfullly");
             })
                 .error(function (data, satus, headers, config) {
+                //TODO: Display error to user if one occurs.
                 console.log(JSON.stringify(data, null, 4));
             });
             return true;
         }
 
         addEmail() {
-            var email = <interfaces.IEmailAddress>{ id: 0, email: "" };
+            var email = <interfaces.IEmailAddress>{ id: 0, email: "", isPreferred: false };
             this.emailAddresses.push(email);
         }
 
+        deleteEmail(index, email: interfaces.IEmailAddress) {
+            //TODO: If id == 0 don't require save
+            //TODO: If only 1 email, don't allow it to be deleted
+            if (email.id === 0 && this.emailAddresses.length > 1) {
+                if (index > -1) { this.emailAddresses.splice(index, 1) }
+            }
+        }
+
         addPhone() {
-            var phone = <interfaces.IPhoneNumber>{ id: 0, number: null };
+            var phone = <interfaces.IPhoneNumber>{ id: 0, number: null, isPreferred: false };
             this.phoneNumbers.push(phone);
         }
 

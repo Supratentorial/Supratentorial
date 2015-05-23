@@ -23,6 +23,13 @@ var contacts;
                 //TODO: Load email addresses from service.
                 this.emailAddresses = [];
                 this.phoneNumbers = [];
+                if (this.emailAddresses.length === 0) {
+                    var email = { id: 0, email: "", isPreferred: true };
+                    this.emailAddresses.push(email);
+                }
+                if (this.phoneNumbers.length === 0) {
+                    this.addPhone();
+                }
             }
             //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
             //TODO: Refactor into service and mapping method.
@@ -48,19 +55,30 @@ var contacts;
                     }
                 })
                     .success(function (data, status, headers, statusText) {
+                    //TODO: Display confirmation of successful save to user.
                     console.log("Contact saved successfullly");
                 })
                     .error(function (data, satus, headers, config) {
+                    //TODO: Display error to user if one occurs.
                     console.log(JSON.stringify(data, null, 4));
                 });
                 return true;
             };
             AddContactCtrl.prototype.addEmail = function () {
-                var email = { id: 0, email: "" };
+                var email = { id: 0, email: "", isPreferred: false };
                 this.emailAddresses.push(email);
             };
+            AddContactCtrl.prototype.deleteEmail = function (index, email) {
+                //TODO: If id == 0 don't require save
+                //TODO: If only 1 email, don't allow it to be deleted
+                if (email.id === 0 && this.emailAddresses.length > 1) {
+                    if (index > -1) {
+                        this.emailAddresses.splice(index, 1);
+                    }
+                }
+            };
             AddContactCtrl.prototype.addPhone = function () {
-                var phone = { id: 0, number: null };
+                var phone = { id: 0, number: null, isPreferred: false };
                 this.phoneNumbers.push(phone);
             };
             AddContactCtrl.prototype.cancel = function () {
