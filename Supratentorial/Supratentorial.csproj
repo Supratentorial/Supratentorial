@@ -108,7 +108,7 @@
   <ItemGroup>
     <Content Include="app\contacts\contact-details.html" />
     <Content Include="app\contacts\contact-details.basic.html" />
-    <Content Include="app\contacts\contact-details.biographic.html" />
+    <Content Include="app\contacts\contact-details.biographical.html" />
     <Content Include="app\contacts\contacts.html" />
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />

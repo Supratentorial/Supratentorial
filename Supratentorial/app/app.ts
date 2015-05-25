@@ -29,9 +29,9 @@ module app {
                 url: '/basic',
                 templateUrl: 'html/contacts/contact-details.basic.html'
             })
-                .state('contact-details.biographic', <ng.ui.IState>{
+                .state('contact-details.biographical', <ng.ui.IState>{
                 url: '/biographic',
-                templateUrl: 'html/contacts/contact-details.biographic.html'
+                templateUrl: 'html/contacts/contact-details.biographical.html'
             })
             this.$locationProvider.html5Mode(true);
         }

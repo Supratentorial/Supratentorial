@@ -9,12 +9,6 @@ var contacts;
                 this.modalService = $modal;
                 this.title = "Contacts";
             }
-            ContactsCtrl.prototype.openModal = function () {
-                this.modalService.open({
-                    templateUrl: 'html/contacts/addContactsPartial.html',
-                    controller: 'AddContactsCtrl as vm'
-                });
-            };
             ContactsCtrl.$inject = ["$modal"];
             return ContactsCtrl;
         })();

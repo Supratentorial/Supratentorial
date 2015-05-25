@@ -30,9 +30,9 @@ var app;
                 url: '/basic',
                 templateUrl: 'html/contacts/contact-details.basic.html'
             })
-                .state('contact-details.biographic', {
+                .state('contact-details.biographical', {
                 url: '/biographic',
-                templateUrl: 'html/contacts/contact-details.biographic.html'
+                templateUrl: 'html/contacts/contact-details.biographical.html'
             });
             this.$locationProvider.html5Mode(true);
         }

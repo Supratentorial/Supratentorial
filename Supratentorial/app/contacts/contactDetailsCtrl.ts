@@ -43,7 +43,7 @@ module contacts.controllers {
                 }, 
                 {
                     heading: "Biographic",
-                    route: "contact-details.biographic"
+                    route: "contact-details.biographical"
                 }
             ]
             this.httpService = $http;

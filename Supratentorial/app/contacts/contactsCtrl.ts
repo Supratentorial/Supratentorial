@@ -11,12 +11,6 @@ module contacts.controllers {
             this.modalService = $modal;
             this.title = "Contacts";
         }
-        openModal() {
-            this.modalService.open({
-                templateUrl: 'html/contacts/addContactsPartial.html',
-                controller: 'AddContactsCtrl as vm'
-            })
-        }
     }
 
 }
