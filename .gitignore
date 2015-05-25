@@ -160,6 +160,7 @@ Supratentorial/node_modules/
 Supratentorial/app/*/*.js
 Supratentorial/app/*/*.js.map
 Supratentorial/dist/lib
-Supratentorial/dist/styles
+Supratentorial/dist/css
 Supratentorial/dist/js
 Supratentorial/dist/html
+Supratentorial/dist/index.html
