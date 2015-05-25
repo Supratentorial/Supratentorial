@@ -106,8 +106,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\contacts\addContactPartial.html" />
-    <Content Include="app\contacts\contactsPartial.html" />
+    <Content Include="app\contacts\contact-details.html" />
+    <Content Include="app\contacts\contact-details.basic.html" />
+    <Content Include="app\contacts\contact-details.biographic.html" />
+    <Content Include="app\contacts\contacts.html" />
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />
     <Content Include="app\index.html" />
@@ -118,6 +120,12 @@
     <Content Include="app\styles\app.min.css">
       <DependentUpon>app.css</DependentUpon>
     </Content>
+    <Content Include="app\styles\colours.css">
+      <DependentUpon>colours.scss</DependentUpon>
+    </Content>
+    <Content Include="app\styles\colours.min.css">
+      <DependentUpon>colours.css</DependentUpon>
+    </Content>
     <Content Include="App_Data\APIContext-20150513231025.mdf" />
     <Content Include="App_Data\APIContext-20150513231025_log.ldf">
       <DependentUpon>APIContext-20150513231025.mdf</DependentUpon>
@@ -125,11 +133,14 @@
     <Content Include="dist\css\app.css" />
     <Content Include="dist\css\colours.css" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
-    <Content Include="dist\html\contacts\addContactPartial.html" />
-    <Content Include="dist\html\contacts\contactsPartial.html" />
+    <Content Include="dist\html\contacts\contact-details.basic.html" />
+    <Content Include="dist\html\contacts\contact-details.biographic.html" />
+    <Content Include="dist\html\contacts\contact-details.html" />
+    <Content Include="dist\html\contacts\contacts.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
     <Content Include="dist\html\matters\mattersPartial.html" />
     <Content Include="dist\img\add.svg" />
+    <Content Include="dist\img\back.svg" />
     <Content Include="dist\img\contacts.svg" />
     <Content Include="dist\img\dashboard.svg" />
     <Content Include="dist\img\matters.svg" />
@@ -138,7 +149,7 @@
     <Content Include="dist\img\search.svg" />
     <Content Include="dist\index.html" />
     <Content Include="dist\js\app.js" />
-    <Content Include="dist\js\contacts\addContactCtrl.js" />
+    <Content Include="dist\js\contacts\contactDetailsCtrl.js" />
     <Content Include="dist\js\contacts\contacts.js" />
     <Content Include="dist\js\contacts\contactsCtrl.js" />
     <Content Include="dist\js\contacts\contactsInterfaces.js" />
@@ -149,15 +160,13 @@
     <Content Include="dist\js\matters\matters.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
-    <Content Include="dist\lib\angular-animate.js" />
-    <Content Include="dist\lib\angular-aria.js" />
-    <Content Include="dist\lib\angular-material.js" />
     <Content Include="dist\lib\angular-ui-router.js" />
     <Content Include="dist\lib\angular.js" />
     <Content Include="dist\lib\bootstrap.js" />
     <Content Include="dist\lib\jquery.js" />
     <Content Include="dist\lib\moment.js" />
     <Content Include="dist\lib\ui-bootstrap-tpls.js" />
+    <Content Include="dist\lib\ui-router-tabs.js" />
     <Content Include="Gulpfile.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -203,6 +212,9 @@
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\styles\colours.css.map">
+      <DependentUpon>colours.css</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\supratentorial - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\supratentorial - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -214,7 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
-    <TypeScriptCompile Include="app\contacts\addContactCtrl.ts" />
+    <TypeScriptCompile Include="app\contacts\contactDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contacts.ts" />
     <TypeScriptCompile Include="app\contacts\contactsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contactsInterfaces.ts" />

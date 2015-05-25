@@ -4,7 +4,7 @@
 
 module contacts.controllers {
     "use strict"
-    interface IAddContactCtrl {
+    interface IContactDetailsCtrl {
         titleOptions: string[];
         phoneOptions: string[];
         title: string;
@@ -15,8 +15,7 @@ module contacts.controllers {
         saveContact(): any;
     }
 
-    export class AddContactCtrl implements IAddContactCtrl {
-        static controllerId: string = "AddContactCtrl";
+    export class ContactDetailsCtrl implements IContactDetailsCtrl {
 
         httpService: ng.IHttpService;
 
@@ -33,9 +32,20 @@ module contacts.controllers {
         phoneNumberType: string = "";
         titleOptions: string[];
         phoneOptions: string[];
+        tabData: any;
 
         static $inject = ['$http'];
         constructor(private $http: ng.IHttpService) {
+            this.tabData = [
+                {
+                    heading: "Basic Details",
+                    route: "contact-details.basic"
+                }, 
+                {
+                    heading: "Biographic",
+                    route: "contact-details.biographic"
+                }
+            ]
             this.httpService = $http;
             this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
             this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
@@ -47,7 +57,8 @@ module contacts.controllers {
                 this.emailAddresses.push(email);
             }
             if (this.phoneNumbers.length === 0) {
-                this.addPhone();
+                var phone = <interfaces.IPhoneNumber>{ id: 0, isPreferred: true, type: this.phoneOptions[2] }
+                this.phoneNumbers.push(phone);
             }
         }
 

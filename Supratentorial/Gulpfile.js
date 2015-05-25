@@ -1,4 +1,4 @@
-/// <vs BeforeBuild='default' />
+/// <vs SolutionOpened='watch' />
 var gulp = require("gulp");
 var rename = require("gulp-rename");
 var minifycss = require("gulp-minify-css");
@@ -111,6 +111,7 @@ gulp.task("watch", function () {
     gulp.watch(paths.srcSCSSFiles, ["wiredep"]);
     gulp.watch(paths.srcTSFiles, ["wiredep"]);
     gulp.watch(paths.srcIndexFile, ["wiredep"]);
+    gulp.watch(paths.srcHTMLFiles, ["wiredep"]);
 });
 
 gulp.task("default", ["wiredep"], function () { });

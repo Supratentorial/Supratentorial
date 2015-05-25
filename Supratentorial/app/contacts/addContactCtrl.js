@@ -28,7 +28,8 @@ var contacts;
                     this.emailAddresses.push(email);
                 }
                 if (this.phoneNumbers.length === 0) {
-                    this.addPhone();
+                    var phone = { id: 0, isPreferred: true, type: this.phoneOptions[2] };
+                    this.phoneNumbers.push(phone);
                 }
             }
             //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string

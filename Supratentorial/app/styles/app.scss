@@ -9,7 +9,7 @@ body {
     background-color: lightgray;
 }
 
-.panel{
+.panel {
     padding-left: 0;
     padding-right: 0;
 }
@@ -49,20 +49,56 @@ body {
     li {
         a {
             font-size: 1.1em;
-            padding-top: 0;
-            padding-bottom: 0;
+            padding: 0, 10px, 0, 10px;
             padding-right: 10px;
             padding-left: 10px;
         }
     }
 }
 
-.content {
-    padding: 10px;
+.nav-tabs {
+    border-bottom: 1px solid $nav-tabs-border-color;
+    background-color: $panel-default-heading-bg;
+    border-top-left-radius: $panel-border-radius;
+    border-top-right-radius: $panel-border-radius;
+
+    > li {
+        float: left;
+        // Make the list-items overlay the bottom border
+        margin-bottom: -1px;
+        // Actual tabs (as links)
+        > a {
+            margin-right: 2px;
+            line-height: $line-height-base;
+            border: 1px solid transparent;
+            border-radius: 0;
+
+            &:hover {
+                border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+            }
+        }
+        // Active state, and its :hover to override normal :hover
+        &.active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: $nav-tabs-active-link-hover-color;
+                background-color: $panel-default-heading-bg;
+                border-bottom: 2px solid;
+                border-bottom-color: $primary-color;
+                cursor: default;
+            }
+        }
+    }
 }
 
-.contact-list-item{
+.tab-body{
+    background-color: white;
+    padding: 15px;
+    border-bottom-left-radius: $panel-border-radius;
+    border-bottom-right-radius: $panel-border-radius;
+}
 
-
-
+.content {
+    padding: 10px;
 }

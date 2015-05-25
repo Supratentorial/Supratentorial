@@ -157,4 +157,9 @@ $RECYCLE.BIN/
 
 Supratentorial/bower_components/
 Supratentorial/node_modules/
-Supratentorial/dist
+Supratentorial/app/*/*.js
+Supratentorial/app/*/*.js.map
+Supratentorial/dist/lib
+Supratentorial/dist/styles
+Supratentorial/dist/js
+Supratentorial/dist/html

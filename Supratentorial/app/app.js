@@ -18,13 +18,21 @@ var app;
             })
                 .state('contacts', {
                 url: '/contacts',
-                templateUrl: '/html/contacts/contactsPartial.html',
+                templateUrl: '/html/contacts/contacts.html',
                 controller: 'ContactsCtrl as vm'
             })
-                .state('addContact', {
-                url: '/add-contacts',
-                templateUrl: 'html/contacts/addContactPartial.html',
-                controller: 'AddContactCtrl as vm'
+                .state('contact-details', {
+                url: '/contact-details',
+                templateUrl: 'html/contacts/contact-details.html',
+                controller: 'ContactDetailsCtrl as vm'
+            })
+                .state('contact-details.basic', {
+                url: '/basic',
+                templateUrl: 'html/contacts/contact-details.basic.html'
+            })
+                .state('contact-details.biographic', {
+                url: '/biographic',
+                templateUrl: 'html/contacts/contact-details.biographic.html'
             });
             this.$locationProvider.html5Mode(true);
         }
@@ -32,7 +40,7 @@ var app;
         return StateConfig;
     })();
     app_1.StateConfig = StateConfig;
-    app_1.app = angular.module('app', ['ui.router', 'app.contacts', 'app.matters']);
+    app_1.app = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters']);
     app_1.app.config(StateConfig);
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map
