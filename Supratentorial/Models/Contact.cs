@@ -20,5 +20,8 @@ namespace Supratentorial.Models
 
         //Real estate agent properties
         
+
+        //iographical properties
+        public BiographicalProperties BiographicalProperties { get; set; }
     }
 }

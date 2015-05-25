@@ -33,6 +33,10 @@ var app;
                 .state('contact-details.biographical', {
                 url: '/biographic',
                 templateUrl: 'html/contacts/contact-details.biographical.html'
+            })
+                .state('contact-details.financial', {
+                url: '/financial',
+                templateUrl: 'html/contacts/contact-details.financial.html'
             });
             this.$locationProvider.html5Mode(true);
         }

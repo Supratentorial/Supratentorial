@@ -106,6 +106,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\contacts\contact-details.financial.html" />
     <Content Include="app\contacts\contact-details.html" />
     <Content Include="app\contacts\contact-details.basic.html" />
     <Content Include="app\contacts\contact-details.biographical.html" />
@@ -180,9 +181,18 @@
     <Compile Include="Migrations\201505210358509_Removed inheritance.Designer.cs">
       <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505251202487_Added biographic properties.cs" />
+    <Compile Include="Migrations\201505251202487_Added biographic properties.Designer.cs">
+      <DependentUpon>201505251202487_Added biographic properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505251228068_Added nationality.cs" />
+    <Compile Include="Migrations\201505251228068_Added nationality.Designer.cs">
+      <DependentUpon>201505251228068_Added nationality.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
+    <Compile Include="Models\BiographicalProperties.cs" />
     <Compile Include="Models\ClientProfile.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DoctorProfile.cs" />
@@ -246,6 +256,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505210358509_Removed inheritance.resx">
       <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505251202487_Added biographic properties.resx">
+      <DependentUpon>201505251202487_Added biographic properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505251228068_Added nationality.resx">
+      <DependentUpon>201505251228068_Added nationality.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -9,7 +9,8 @@ module interfaces {
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
         staffProfile?: IStaffProfile;
-        address : IAddress[];
+        address: IAddress[];
+        biographicalProperties: IBiographicalProperties;
     }
 
     export interface IClientProfile {
@@ -29,6 +30,12 @@ module interfaces {
         position: string;
     }
 
+    export interface IBiographicalProperties {
+        placeOfDeath: string;
+        nationality: string;
+        countryOfBirth: string;
+        dateOfDeath: Date;
+    }
     export interface IPractice{
         id : number;
         name : string;

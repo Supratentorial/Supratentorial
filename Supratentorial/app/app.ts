@@ -32,6 +32,10 @@ module app {
                 .state('contact-details.biographical', <ng.ui.IState>{
                 url: '/biographic',
                 templateUrl: 'html/contacts/contact-details.biographical.html'
+                })
+                .state('contact-details.financial', <ng.ui.IState>{
+                url: '/financial',
+                templateUrl: 'html/contacts/contact-details.financial.html'
             })
             this.$locationProvider.html5Mode(true);
         }

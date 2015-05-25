@@ -24,6 +24,11 @@ module contacts.controllers {
         firstName: string = "";
         middleNamesString: string = "";
 
+        countryOfBirth: string = "";
+        nationality: string = "";
+        placeOfDeath: string = "";
+        dateOfDeathString: string = "";
+
         dateOfBirthString: string = "";
         emailString: string = "";
         emailAddresses: interfaces.IEmailAddress[];
@@ -34,16 +39,21 @@ module contacts.controllers {
         phoneOptions: string[];
         tabData: any;
 
+
         static $inject = ['$http'];
         constructor(private $http: ng.IHttpService) {
             this.tabData = [
                 {
                     heading: "Basic Details",
                     route: "contact-details.basic"
-                }, 
+                },
                 {
-                    heading: "Biographic",
+                    heading: "Biographical",
                     route: "contact-details.biographical"
+                },
+                {
+                    heading: "Financial",
+                    route: "contact-details.financial"
                 }
             ]
             this.httpService = $http;
@@ -67,8 +77,16 @@ module contacts.controllers {
         //TODO: Write unit test for mapping code.
         saveContact() {
             var dateOfBirth = moment(this.dateOfBirthString, "DD-MM-YYYY").toDate();
+            var dateOfDeath = moment(this.dateOfDeathString, "DD-MM-YYYY").toDate();
             var middleNames = this.middleNamesString.split(" ");
             var currentPhoneNumber = <interfaces.IPhoneNumber>{};
+
+            var biographicalProperties = <interfaces.IBiographicalProperties>{
+                countryOfBirth: this.countryOfBirth,
+                nationality: this.nationality,
+                placeOfDeath: this.placeOfDeath,
+                dateOfDeath: dateOfDeath
+            };
 
             var contact = <interfaces.IContact>{
                 id: 0,
@@ -77,6 +95,7 @@ module contacts.controllers {
                 middleNames: middleNames,
                 dateOfBirth: dateOfBirth,
                 title: this.title,
+                biographicalProperties: biographicalProperties,
                 phoneNumbers: this.phoneNumbers,
                 emailAddresses: this.emailAddresses
             };
