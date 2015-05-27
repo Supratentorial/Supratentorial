@@ -1,6 +1,7 @@
+/// <reference path="contactsservice.ts" />
 /// <reference path="contactsinterfaces.ts" />
 /// <reference path="../typings/angularjs/angular.d.ts" />
-/// <reference path="../typings/moment/moment.d.ts" />
+/// <reference path="../typings/angularjs/angular.d.ts" />
 
 module contacts.controllers {
     "use strict"
@@ -12,13 +13,15 @@ module contacts.controllers {
         firstName: string;
         middleNamesString: string;
         dateOfBirthString: string;
-        saveContact(): any;
+        saveContact();
+        mapContact() : interfaces.IContact;
     }
 
     export class ContactDetailsCtrl implements IContactDetailsCtrl {
 
-        httpService: ng.IHttpService;
+        toolbarTitle: string = "";
 
+        id: number = 0;
         title: string = "";
         lastName: string = "";
         firstName: string = "";
@@ -39,31 +42,48 @@ module contacts.controllers {
         phoneOptions: string[];
         tabData: any;
 
+        static $inject = ["contactsService"];
 
-        static $inject = ['$http'];
-        constructor(private $http: ng.IHttpService) {
+        constructor(private contactsService : interfaces.IContactsService) {
+            if (this.id === 0) {
+                this.toolbarTitle = "New Contact";
+            } else {
+                this.contactsService.getContactById(1);
+            }
+
             this.tabData = [
                 {
                     heading: "Basic Details",
-                    route: "contact-details.basic"
+                    route: "contact-details.basic",
+                    params: {
+                        id: this.id
+                    }
                 },
                 {
                     heading: "Biographical",
-                    route: "contact-details.biographical"
+                    route: "contact-details.biographical",
+                    params: {
+                        id: this.id
+                    }
                 },
                 {
                     heading: "Financial",
-                    route: "contact-details.financial"
+                    route: "contact-details.financial",
+                    parmas: {
+                        id: this.id
+                    }
                 }
             ]
-            this.httpService = $http;
+            
+            
+
             this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
             this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
             //TODO: Load email addresses from service.
             this.emailAddresses = [];
             this.phoneNumbers = [];
             if (this.emailAddresses.length === 0) {
-                var email = <interfaces.IEmailAddress>{ id: 0, email: "", isPreferred: true }
+                var email = <interfaces.IEmailAddress>{ id: 0, address: "", isPreferred: true }
                 this.emailAddresses.push(email);
             }
             if (this.phoneNumbers.length === 0) {
@@ -72,21 +92,12 @@ module contacts.controllers {
             }
         }
 
-        //TODO: Find out best practice for return type for saving an entity. ? Return the entity ?Return status string
         //TODO: Refactor into service and mapping method.
         //TODO: Write unit test for mapping code.
-        saveContact() {
-            var dateOfBirth = moment(this.dateOfBirthString, "DD-MM-YYYY").toDate();
-            var dateOfDeath = moment(this.dateOfDeathString, "DD-MM-YYYY").toDate();
+        mapContact() {
+            var dateOfBirth = moment.utc(this.dateOfBirthString, "DD-MM-YYYY").toDate();
+            
             var middleNames = this.middleNamesString.split(" ");
-            var currentPhoneNumber = <interfaces.IPhoneNumber>{};
-
-            var biographicalProperties = <interfaces.IBiographicalProperties>{
-                countryOfBirth: this.countryOfBirth,
-                nationality: this.nationality,
-                placeOfDeath: this.placeOfDeath,
-                dateOfDeath: dateOfDeath
-            };
 
             var contact = <interfaces.IContact>{
                 id: 0,
@@ -95,33 +106,32 @@ module contacts.controllers {
                 middleNames: middleNames,
                 dateOfBirth: dateOfBirth,
                 title: this.title,
-                biographicalProperties: biographicalProperties,
                 phoneNumbers: this.phoneNumbers,
                 emailAddresses: this.emailAddresses
             };
-            console.log(contact);
-            this.httpService.post(
-                'api/contacts',
-                JSON.stringify(contact),
-                {
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-                .success(function (data, status, headers, statusText) {
-                //TODO: Display confirmation of successful save to user.
-                console.log("Contact saved successfullly");
-            })
-                .error(function (data, satus, headers, config) {
-                //TODO: Display error to user if one occurs.
-                console.log(JSON.stringify(data, null, 4));
-            });
-            return true;
+            //Check if biographical properties exist, add them to contact if they do.
+            if (this.countryOfBirth || this.placeOfDeath || this.nationality || this.dateOfDeathString) {
+                var dateOfDeath = moment.utc(this.dateOfDeathString, "DD-MM-YYYY").toDate();
+                var biographicalProperties = <interfaces.IBiographicalProperties>{
+                    countryOfBirth: this.countryOfBirth,
+                    nationality: this.nationality,
+                    placeOfDeath: this.placeOfDeath,
+                    dateOfDeath: dateOfDeath
+                };
+                contact.biographicalProperties = biographicalProperties;
+            }
+            return contact;
+        }
+
+        saveContact() {
+            this.contactsService.saveContact(this.mapContact());
         }
 
         addEmail() {
-            var email = <interfaces.IEmailAddress>{ id: 0, email: "", isPreferred: false };
-            this.emailAddresses.push(email);
+            if (this.emailAddresses.length < 3) {
+                var email = <interfaces.IEmailAddress>{ id: 0, address: "", isPreferred: false };
+                this.emailAddresses.push(email);
+            }
         }
 
         deleteEmail(index, email: interfaces.IEmailAddress) {
@@ -133,8 +143,16 @@ module contacts.controllers {
         }
 
         addPhone() {
-            var phone = <interfaces.IPhoneNumber>{ id: 0, number: null, isPreferred: false };
-            this.phoneNumbers.push(phone);
+            if (this.phoneNumbers.length < 5) {
+                var phone = <interfaces.IPhoneNumber>{ id: 0, number: null, isPreferred: false };
+                this.phoneNumbers.push(phone);
+            }
+        }
+
+        deletePhone(index, phone: interfaces.IPhoneNumber) {
+            if (phone.id === 0 && this.phoneNumbers.length > 1) {
+                if (index > -1) { this.phoneNumbers.splice(index, 1) }
+            }
         }
 
         cancel() {

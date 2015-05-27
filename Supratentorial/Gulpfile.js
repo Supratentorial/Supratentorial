@@ -1,4 +1,4 @@
-/// <vs SolutionOpened='watch' />
+/// <vs SolutionOpened='watch, default' />
 var gulp = require("gulp");
 var rename = require("gulp-rename");
 var minifycss = require("gulp-minify-css");

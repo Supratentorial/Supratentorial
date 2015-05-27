@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201505251228068_Added nationality.Designer.cs">
       <DependentUpon>201505251228068_Added nationality.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505261018469_Removed email type.cs" />
+    <Compile Include="Migrations\201505261018469_Removed email type.Designer.cs">
+      <DependentUpon>201505261018469_Removed email type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
@@ -263,8 +267,13 @@
     <EmbeddedResource Include="Migrations\201505251228068_Added nationality.resx">
       <DependentUpon>201505251228068_Added nationality.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505261018469_Removed email type.resx">
+      <DependentUpon>201505261018469_Removed email type.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="app\common\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

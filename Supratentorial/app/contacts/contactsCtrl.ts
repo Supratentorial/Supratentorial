@@ -1,4 +1,7 @@
-﻿/// <reference path="../typings/angular-ui-bootstrap/angular-ui-bootstrap.d.ts" />
+﻿/// <reference path="../typings/angularjs/angular.d.ts" />
+/// <reference path="contactsservice.ts" />
+/// <reference path="contactsinterfaces.ts" />
+
 module contacts.controllers {
     "use strict"
 

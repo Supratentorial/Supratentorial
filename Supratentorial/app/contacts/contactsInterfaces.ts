@@ -9,8 +9,8 @@ module interfaces {
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
         staffProfile?: IStaffProfile;
-        address: IAddress[];
-        biographicalProperties: IBiographicalProperties;
+        address?: IAddress[];
+        biographicalProperties?: IBiographicalProperties;
     }
 
     export interface IClientProfile {
@@ -45,7 +45,7 @@ module interfaces {
 
     export interface IEmailAddress {
         id: number;
-        email: string;
+        address: string;
         isPreferred?: boolean;
     }
 
@@ -67,5 +67,10 @@ module interfaces {
         postCode : number;
         isMailing : boolean;
         isResidential : boolean;
+    }
+
+    export interface IContactsService {
+        saveContact(contact: IContact);
+        getContactById(id: number): IContact;
     }
 }

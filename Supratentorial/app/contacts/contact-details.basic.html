@@ -45,7 +45,7 @@
                         </span>
                         <input class="form-control" ng-model="phone.number" />
                         <span class="input-group-btn">
-                            <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
+                            <button class="btn btn-danger" type="button" ng-click="vm.deletePhone($index, phone)"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
                         </span>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                         <span class="input-group-addon">
                             <input type="radio" name="defaultEmailGroup" ng-value="email.isPreferred" ng-model="email.isPreferred" /> Preferred
                         </span>
-                        <input type="email" class="form-control" ng-model="email.email" />
+                        <input type="email" class="form-control" ng-model="email.address" />
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" ng-click="vm.deleteEmail($index, email)"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
                         </span>
@@ -72,28 +72,32 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="form-group col-lg-12">
+                    <label>Address Line 1</label>
+                    <input class="form-control" placeholder="PO Box, Street Address" type="text" />
+                </div>
+                <div class="form-group col-lg-12">
+                    <label>Address Line 2</label>
+                    <input class="form-control" placeholder="Apartment, Building, Suite (optional)" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    <label>Suburb</label>
+                    <input class="form-control" />
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>State</label>
+                    <input class="form-control" />
+                </div>
+                <div class="form-group col-lg-4">
+                    <label>Postal Code:</label>
+                    <input class="form-control" />
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <div class="form-group col-lg-3">
-            <label>Unit/Shop Number</label>
-            <input class="form-control" type="text" />
-        </div>
-        <div class="form-group col-lg-7">
-            <label>Street Address</label>
-            <input class="form-control" type="text" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-lg-4">
-            <label>Suburb</label>
-            <input class="form-control" />
-        </div>
-        <div class="form-group col-lg-4">
-            <label>State</label>
-            <input class="form-control" />
-        </div>
-        <div class="form-group col-lg-4">
-            <label>Postal Code:</label>
-            <input class="form-control" />
-        </div>
-    </div>
 </form>

@@ -1,4 +1,6 @@
-/// <reference path="../typings/angular-ui-bootstrap/angular-ui-bootstrap.d.ts" />
+/// <reference path="../typings/angularjs/angular.d.ts" />
+/// <reference path="contactsservice.ts" />
+/// <reference path="contactsinterfaces.ts" />
 var contacts;
 (function (contacts) {
     var controllers;
@@ -15,4 +17,4 @@ var contacts;
         controllers.ContactsCtrl = ContactsCtrl;
     })(controllers = contacts.controllers || (contacts.controllers = {}));
 })(contacts || (contacts = {}));
-//# sourceMappingURL=contactsCtrl.js.map
+//# sourceMappingURL=contactsctrl.js.map

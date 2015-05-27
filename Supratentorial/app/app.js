@@ -27,15 +27,15 @@ var app;
                 controller: 'ContactDetailsCtrl as vm'
             })
                 .state('contact-details.basic', {
-                url: '/basic',
+                url: '/{id:int}/basic',
                 templateUrl: 'html/contacts/contact-details.basic.html'
             })
                 .state('contact-details.biographical', {
-                url: '/biographic',
+                url: '/{id:int}/biographic',
                 templateUrl: 'html/contacts/contact-details.biographical.html'
             })
                 .state('contact-details.financial', {
-                url: '/financial',
+                url: '/{id:int}/financial',
                 templateUrl: 'html/contacts/contact-details.financial.html'
             });
             this.$locationProvider.html5Mode(true);
