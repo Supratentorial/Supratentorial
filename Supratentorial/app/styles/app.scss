@@ -2,15 +2,15 @@
 $navbar-default-bg: $material-design-grey-800;
 $navbar-border-radius: 0px;
 $navbar-default-brand-color: $white;
+$grid-gutter-width: 10px;
 
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
     background-color: lightgray;
-}
-
-.content {
-    
+    padding-top: 105px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .panel {
@@ -20,11 +20,16 @@ body {
 
 .toolbar{
     background-color: white;
-
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     position: fixed;
+    height: 45px;
     top: 50px;
     left: 0;
     width: 100%;
+    z-index: 999;
 }
 
 .navbar-default {
@@ -70,7 +75,6 @@ body {
 }
 
 .nav-tabs {
-    margin-top: 40px;
     border-bottom: 1px solid $nav-tabs-border-color;
     background-color: $panel-default-heading-bg;
     border-top-left-radius: $panel-border-radius;

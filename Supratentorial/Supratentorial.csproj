@@ -135,12 +135,12 @@
     <Content Include="dist\css\colours.css" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="dist\html\contacts\contact-details.basic.html" />
-    <Content Include="dist\html\contacts\contact-details.biographic.html" />
+    <Content Include="dist\html\contacts\contact-details.biographical.html" />
+    <Content Include="dist\html\contacts\contact-details.financial.html" />
     <Content Include="dist\html\contacts\contact-details.html" />
     <Content Include="dist\html\contacts\contacts.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
     <Content Include="dist\html\matters\mattersPartial.html" />
-    <Content Include="dist\img\add.svg" />
     <Content Include="dist\img\back.svg" />
     <Content Include="dist\img\contacts.svg" />
     <Content Include="dist\img\dashboard.svg" />
