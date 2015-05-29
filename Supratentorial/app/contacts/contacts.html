@@ -1,31 +1,35 @@
-﻿<div class="container-fluid">
+﻿<div class="toolbar">
+    <button class="btn btn-default" ui-sref="contact-details.basic({id:0})"><span class="glyphicon glyphicon-plus"></span> Add Individual</button>
+    <button class="btn btn-default" ui-sref="contact-details.organisation.basic({id:0})"><span class="glyphicon glyphicon-plus"></span> Add Organisation</button>
+</div>
+<div class="container-fluid">
     <div class="row">
-        <button class="btn btn-default" ui-sref="contact-details.basic({id: 0})"><span class="glyphicon glyphicon-plus"></span> Add Contact</button>
-    </div>
-    <div class="row">
-        <div class="panel panel-default col-lg-8">
-            <div class="panel-heading">
-                <h1 class="panel-title">{{vm.title}}</h1>
-            </div>
-            <div class="panel-body">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Client name, firm name...">
-                    <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Search</button></span>
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><span class="glyphicon glyphicon-user"></span> Search Contacts</h1>
                 </div>
-                <ul class="contact-list-item">
-                    <li ng-repeat="contact in contacts">
-                        <span>{{contact.fullName}}</span>
-                    </li>
-                </ul>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Last name, first name, organisation name..." ng-model="vm.searchString">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="vm.searchContacts()"><span class="glyphicon glyphicon-search"></span> Search</button>
+                        </span>
+                    </div>
+                    <div class="contacts-list">
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="panel panel-default col-lg-4">
-            <div class="panel-heading">
-                    <img src="img/recent.svg" />
-                    <h1 class="panel-title">Recent Contacts</h1>
-            </div>
-            <div class="panel-body">
-                Recent contacts are shown here.
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><span class="glyphicon glyphicon-star"></span> Favourites</h1>
+                </div>
+                <div class="panel-body">
+                    You don't have a favourite person?
+                </div>
             </div>
         </div>
     </div>

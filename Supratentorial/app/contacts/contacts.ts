@@ -5,6 +5,6 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 
 module contacts {
-    var contactsModule: ng.IModule = angular.module('app.contacts', ['ui.bootstrap'])
+    var contactsModule: ng.IModule = angular.module('app.contacts', ['ui.bootstrap', 'ui.router'])
         .controller(controllers);
 }

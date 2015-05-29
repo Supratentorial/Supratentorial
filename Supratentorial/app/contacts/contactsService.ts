@@ -5,29 +5,33 @@
 module contacts.services {
     export class ContactsService implements interfaces.IContactsService {
 
-        httpService: ng.IHttpService;
-
         static $inject = ['$http'];
-        constructor($http: ng.IHttpService) {
-            this.httpService = $http;
+        constructor(private $http: ng.IHttpService) {
         }
 
-        getContactById(id: number) {
-            this.httpService.get('api/contacts/' + id)
-                .success(function (data, status, headers, stausText) {
-                console.log(JSON.stringify(data, null, 4));
-            })
-                .error(function () {
-                console.log("An error occurred.");
+        getRecentContacts() {
+            return this.$http.get('api/contacts/')
+                .then((response: any) => {
+                return response.data;
             });
+        }
 
-            var contact = <interfaces.IContact>{};
-            return contact;
+        getContactsByLastName(queryString: string) {
+            return this.$http.get('api/contacts' + queryString)
+                .then((response: any) => {
+                    return response.data;
+            });
+        }
+
+        getContactById(id: number): ng.IPromise<interfaces.IContact> {
+            return this.$http.get('api/contacts/' + id)
+                .then((response: any) => {
+                return response.data;
+            });
         }
 
         saveContact(contact: interfaces.IContact) {
-            console.log("Save contact on contactsServices has been called.");
-            this.httpService.post(
+            this.$http.post(
                 'api/contacts',
                 JSON.stringify(contact),
                 {
@@ -43,6 +47,10 @@ module contacts.services {
                 //TODO: Display error to user if one occurs.
                 console.log("Failed to save contact.");
             });
+        }
+
+        updateContact(contact: interfaces.IContact) {
+
         }
     }
     angular.module("app.contacts").service("contactsService", services.ContactsService)

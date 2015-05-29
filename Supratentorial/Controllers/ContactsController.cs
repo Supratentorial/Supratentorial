@@ -16,11 +16,18 @@ namespace Supratentorial.Controllers
     {
         private APIContext db = new APIContext();
 
+        [Route("api/contacts")]
+        [HttpGet]
         // GET: api/Contacts
-        public IQueryable<Contact> GetContacts()
+        public IQueryable<Contact> GetContacts(string lastName = "")
         {
-            return db.Contacts;
+            if (string.IsNullOrEmpty(lastName)) { return db.Contacts; }
+            else
+            {
+                return db.Contacts.Where(contact => contact.LastName == lastName);
+            }
         }
+
 
         // GET: api/Contacts/5
         [ResponseType(typeof(Contact))]

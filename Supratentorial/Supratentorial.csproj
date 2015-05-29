@@ -193,6 +193,14 @@
     <Compile Include="Migrations\201505261018469_Removed email type.Designer.cs">
       <DependentUpon>201505261018469_Removed email type.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505290119141_Unsure.cs" />
+    <Compile Include="Migrations\201505290119141_Unsure.Designer.cs">
+      <DependentUpon>201505290119141_Unsure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505290306401_Added organisation class.cs" />
+    <Compile Include="Migrations\201505290306401_Added organisation class.Designer.cs">
+      <DependentUpon>201505290306401_Added organisation class.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
@@ -204,7 +212,9 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\LegalFirm.cs" />
     <Compile Include="Models\Matter.cs" />
+    <Compile Include="Models\Organisation.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
+    <Compile Include="Models\SafeCustodyDocument.cs" />
     <Compile Include="Models\StaffProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -269,6 +279,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505261018469_Removed email type.resx">
       <DependentUpon>201505261018469_Removed email type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505290119141_Unsure.resx">
+      <DependentUpon>201505290119141_Unsure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505290306401_Added organisation class.resx">
+      <DependentUpon>201505290306401_Added organisation class.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

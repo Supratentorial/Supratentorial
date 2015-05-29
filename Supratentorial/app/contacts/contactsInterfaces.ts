@@ -71,6 +71,8 @@ module interfaces {
 
     export interface IContactsService {
         saveContact(contact: IContact);
-        getContactById(id: number): IContact;
+        getContactById(id: number): ng.IPromise<IContact>;
+        getRecentContacts(): ng.IPromise<IContact[]>;
+        getContactsByLastName(queryString: string): ng.IPromise<IContact[]>;
     }
 }

@@ -13,9 +13,10 @@ namespace Supratentorial.Models
         public DateTime DateOfBirth { get; set; }
         public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
         public virtual ICollection<EmailAddress> EmailAddresses { get; set; }
+        public virtual ICollection<SafeCustodyDocument> SafeCustodyDocuments { get; set; }
 
         //Staff properties
-        public StaffProfile StaffProfile { get; set; }
+        public StaffProfile StaffProperties { get; set; }
 
 
         //Real estate agent properties

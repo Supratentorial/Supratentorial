@@ -1,7 +1,8 @@
 /// <reference path="contactsservice.ts" />
 /// <reference path="contactsinterfaces.ts" />
 /// <reference path="../typings/angularjs/angular.d.ts" />
-/// <reference path="../typings/angularjs/angular.d.ts" />
+/// <reference path="../typings/angular-ui-router/angular-ui-router.d.ts" />
+
 
 module contacts.controllers {
     "use strict"
@@ -14,7 +15,7 @@ module contacts.controllers {
         middleNamesString: string;
         dateOfBirthString: string;
         saveContact();
-        mapContact() : interfaces.IContact;
+        mapContact(): interfaces.IContact;
     }
 
     export class ContactDetailsCtrl implements IContactDetailsCtrl {
@@ -42,13 +43,20 @@ module contacts.controllers {
         phoneOptions: string[];
         tabData: any;
 
-        static $inject = ["contactsService"];
+        static $inject = ["contactsService", "$state"];
 
-        constructor(private contactsService : interfaces.IContactsService) {
+        constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IState) {
+            this.id = this.$state.params.id;
             if (this.id === 0) {
                 this.toolbarTitle = "New Contact";
             } else {
-                this.contactsService.getContactById(1);
+                this.contactsService.getContactById(this.id).then((contact: interfaces.IContact): void => {
+                    this.firstName = contact.firstName;
+                    this.lastName = contact.lastName;
+                    this.title = contact.title;
+                    
+                });
+                
             }
 
             this.tabData = [
@@ -74,8 +82,6 @@ module contacts.controllers {
                     }
                 }
             ]
-            
-            
 
             this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
             this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
@@ -92,11 +98,10 @@ module contacts.controllers {
             }
         }
 
-        //TODO: Refactor into service and mapping method.
         //TODO: Write unit test for mapping code.
         mapContact() {
             var dateOfBirth = moment.utc(this.dateOfBirthString, "DD-MM-YYYY").toDate();
-            
+
             var middleNames = this.middleNamesString.split(" ");
 
             var contact = <interfaces.IContact>{

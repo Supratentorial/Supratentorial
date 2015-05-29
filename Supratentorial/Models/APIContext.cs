@@ -19,6 +19,15 @@ namespace Supratentorial.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //Person configuration
+            modelBuilder.Entity<Contact>().Property(c => c.LastName).IsRequired();
+            modelBuilder.Entity<Contact>().Property(c => c.FirstName).IsRequired();
+        }
+
         public DbSet<Matter> Matters { get; set; }
         public DbSet<Contact> Contacts { get; set; }
     }

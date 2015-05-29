@@ -6,22 +6,28 @@ var contacts;
     (function (services) {
         var ContactsService = (function () {
             function ContactsService($http) {
-                this.httpService = $http;
+                this.$http = $http;
             }
-            ContactsService.prototype.getContactById = function (id) {
-                this.httpService.get('api/contacts/' + id)
-                    .success(function (data, status, headers, stausText) {
-                    console.log(JSON.stringify(data, null, 4));
-                })
-                    .error(function () {
-                    console.log("An error occurred.");
+            ContactsService.prototype.getRecentContacts = function () {
+                return this.$http.get('api/contacts/')
+                    .then(function (response) {
+                    return response.data;
                 });
-                var contact = {};
-                return contact;
+            };
+            ContactsService.prototype.getContactsByLastName = function (queryString) {
+                return this.$http.get('api/contacts' + queryString)
+                    .then(function (response) {
+                    return response.data;
+                });
+            };
+            ContactsService.prototype.getContactById = function (id) {
+                return this.$http.get('api/contacts/' + id)
+                    .then(function (response) {
+                    return response.data;
+                });
             };
             ContactsService.prototype.saveContact = function (contact) {
-                console.log("Save contact on contactsServices has been called.");
-                this.httpService.post('api/contacts', JSON.stringify(contact), {
+                this.$http.post('api/contacts', JSON.stringify(contact), {
                     headers: {
                         "Content-Type": "application/json"
                     }
@@ -34,6 +40,8 @@ var contacts;
                     //TODO: Display error to user if one occurs.
                     console.log("Failed to save contact.");
                 });
+            };
+            ContactsService.prototype.updateContact = function (contact) {
             };
             ContactsService.$inject = ['$http'];
             return ContactsService;
