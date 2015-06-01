@@ -9,19 +9,11 @@ var matters;
         var MattersCtrl = (function () {
             function MattersCtrl(mattersService) {
                 this.mattersService = mattersService;
-                this.title = "Penis";
+                this.matters = [];
                 this.tabData = [
                     {
                         heading: "My Matters",
                         route: "matters.my-matters"
-                    },
-                    {
-                        heading: "Biographical",
-                        route: "contact-details.biographical"
-                    },
-                    {
-                        heading: "Financial",
-                        route: "contact-details.financial"
                     }
                 ];
             }
@@ -29,6 +21,7 @@ var matters;
             return MattersCtrl;
         })();
         controllers.MattersCtrl = MattersCtrl;
+        angular.module("app.matters").controller("MattersController", matters.controllers.MattersCtrl);
     })(controllers = matters.controllers || (matters.controllers = {}));
 })(matters || (matters = {}));
 //# sourceMappingURL=mattersctrl.js.map

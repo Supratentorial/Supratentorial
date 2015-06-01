@@ -2,7 +2,7 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 
 module app {
-    export class StateConfig {
+    export class StateConfig { 
         static $inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
         constructor(private $stateProvider: ng.ui.IStateProvider, private $urlRouterProvider: ng.ui.IUrlRouterProvider, private $locationProvider: ng.ILocationProvider) {
@@ -51,6 +51,6 @@ module app {
             this.$locationProvider.html5Mode(true);
         }
     }
-    export var app: ng.IModule = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters']);
-    app.config(StateConfig);
+    export var appModule: ng.IModule = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters']);
+    appModule.config(StateConfig);
 }

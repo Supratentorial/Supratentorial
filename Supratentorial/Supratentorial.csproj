@@ -154,14 +154,14 @@
     <Content Include="dist\img\search.svg" />
     <Content Include="dist\index.html" />
     <Content Include="dist\js\app.js" />
+    <Content Include="dist\js\contacts\app.contacts.js" />
     <Content Include="dist\js\contacts\contactDetailsCtrl.js" />
-    <Content Include="dist\js\contacts\contacts.js" />
     <Content Include="dist\js\contacts\contactsCtrl.js" />
     <Content Include="dist\js\contacts\contactsInterfaces.js" />
     <Content Include="dist\js\contacts\contactsService.js" />
     <Content Include="dist\js\dashboard\dashboard.js" />
+    <Content Include="dist\js\matters\app.matters.js" />
     <Content Include="dist\js\matters\matterInterfaces.js" />
-    <Content Include="dist\js\matters\matters.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
     <Content Include="dist\lib\angular-ui-router.js" />
@@ -246,13 +246,13 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\contacts\contactDetailsCtrl.ts" />
-    <TypeScriptCompile Include="app\contacts\contacts.ts" />
+    <TypeScriptCompile Include="app\contacts\app.contacts.ts" />
     <TypeScriptCompile Include="app\contacts\contactsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contactsInterfaces.ts" />
     <TypeScriptCompile Include="app\contacts\contactsService.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
     <TypeScriptCompile Include="app\matters\matterInterfaces.ts" />
-    <TypeScriptCompile Include="app\matters\matters.ts" />
+    <TypeScriptCompile Include="app\matters\app.matters.ts" />
     <TypeScriptCompile Include="app\matters\mattersCtrl.ts" />
     <TypeScriptCompile Include="app\matters\mattersService.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
@@ -260,6 +260,7 @@
     <TypeScriptCompile Include="app\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="app\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="app\typings\moment\moment.d.ts" />
+    <TypeScriptCompile Include="app\typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\common\" />

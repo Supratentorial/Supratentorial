@@ -15,16 +15,17 @@ module contacts.controllers {
         }
 
         getRecentContacts() {
-            this.contactsService.getRecentPeople().then((contacts: interfaces.IPerson[]) => {
-                this.contactsList = contacts;
+            this.contactsService.getRecentPeople().then((recentContacts: interfaces.IPerson[]) => {
+                this.contactsList = recentContacts;
             });
         }
 
         searchContacts() {
             var queryString: string = "?LastName=" + this.searchString;
-            this.contactsService.getPeopleByLastName(queryString).then((contacts: interfaces.IPerson[]) => {
-                this.contactsList = contacts;
+            this.contactsService.getPeopleByLastName(queryString).then((contactsReslt: interfaces.IPerson[]) => {
+                this.contactsList = contactsReslt;
             });
         }
     }
+    angular.module('app.contacts').controller('ContactsCtrl', contacts.controllers.ContactsCtrl);
 }

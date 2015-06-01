@@ -4,28 +4,22 @@
 
 module matters.controllers {
     "use strict"
-    export class MattersCtrl implements interfaces.IMattersCtrl {
+    export class MattersCtrl {
 
         tabData: any;
         title: string;
+        matters: interfaces.IMatter[];
 
         static $inject = ["mattersService"];
         constructor(private mattersService: interfaces.IMattersService) {
-            this.title = "Penis";
+            this.matters = [];
             this.tabData = [
                 {
                     heading: "My Matters",
                     route: "matters.my-matters"
-                },
-                {
-                    heading: "Biographical",
-                    route: "contact-details.biographical"
-                },
-                {
-                    heading: "Financial",
-                    route: "contact-details.financial"
                 }
             ]
         }
     }
+    angular.module("app.matters").controller("MattersController", matters.controllers.MattersCtrl);
 }

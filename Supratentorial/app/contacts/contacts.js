@@ -5,7 +5,6 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 var contacts;
 (function (contacts) {
-    var contactsModule = angular.module('app.contacts', ['ui.bootstrap', 'ui.router'])
-        .controller(contacts.controllers);
+    var contactsModule = angular.module('app.contacts', ['ui.bootstrap', 'ui.router']);
 })(contacts || (contacts = {}));
 //# sourceMappingURL=contacts.js.map

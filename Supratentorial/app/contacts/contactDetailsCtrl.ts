@@ -164,4 +164,5 @@ module contacts.controllers {
             console.log("cancel button clicked");
         }
     }
+    angular.module('app.contacts').controller('ContactDetailsCtrl', contacts.controllers.ContactDetailsCtrl);
 }

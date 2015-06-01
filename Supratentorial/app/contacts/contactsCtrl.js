@@ -2,7 +2,7 @@
 /// <reference path="contactsservice.ts" />
 /// <reference path="contactsinterfaces.ts" />
 var contacts;
-(function (contacts_1) {
+(function (contacts) {
     var controllers;
     (function (controllers) {
         "use strict";
@@ -14,21 +14,22 @@ var contacts;
             }
             ContactsCtrl.prototype.getRecentContacts = function () {
                 var _this = this;
-                this.contactsService.getRecentPeople().then(function (contacts) {
-                    _this.contactsList = contacts;
+                this.contactsService.getRecentPeople().then(function (recentContacts) {
+                    _this.contactsList = recentContacts;
                 });
             };
             ContactsCtrl.prototype.searchContacts = function () {
                 var _this = this;
                 var queryString = "?LastName=" + this.searchString;
-                this.contactsService.getPeopleByLastName(queryString).then(function (contacts) {
-                    _this.contactsList = contacts;
+                this.contactsService.getPeopleByLastName(queryString).then(function (contactsReslt) {
+                    _this.contactsList = contactsReslt;
                 });
             };
             ContactsCtrl.$inject = ["contactsService"];
             return ContactsCtrl;
         })();
         controllers.ContactsCtrl = ContactsCtrl;
-    })(controllers = contacts_1.controllers || (contacts_1.controllers = {}));
+        angular.module('app.contacts').controller('ContactsCtrl', contacts.controllers.ContactsCtrl);
+    })(controllers = contacts.controllers || (contacts.controllers = {}));
 })(contacts || (contacts = {}));
 //# sourceMappingURL=contactsctrl.js.map
