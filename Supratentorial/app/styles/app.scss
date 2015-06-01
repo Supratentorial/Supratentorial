@@ -1,7 +1,11 @@
 ﻿@import "colours";
+
 $navbar-default-bg: $material-design-grey-800;
 $navbar-border-radius: 0px;
 $navbar-default-brand-color: $white;
+
+$navbar-default-link-color: white;
+
 $grid-gutter-width: 10px;
 
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -20,10 +24,7 @@ body {
 
 .toolbar{
     background-color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 5px 15px 5px 15px;
     position: fixed;
     height: 45px;
     top: 50px;
@@ -67,7 +68,7 @@ body {
     li {
         a {
             font-size: 1.1em;
-            padding: 0, 10px, 0, 10px;
+            padding: 0 10px;
             padding-right: 10px;
             padding-left: 10px;
         }
@@ -75,7 +76,6 @@ body {
 }
 
 .nav-tabs {
-    border-bottom: 1px solid $nav-tabs-border-color;
     background-color: $panel-default-heading-bg;
     border-top-left-radius: $panel-border-radius;
     border-top-right-radius: $panel-border-radius;
@@ -87,8 +87,10 @@ body {
         // Actual tabs (as links)
         > a {
             margin-right: 2px;
-            line-height: $line-height-base;
+            line-height: 1.1;
+            padding: 10px;
             border: 1px solid transparent;
+            color: black;
             border-radius: 0;
 
             &:hover {

@@ -18,10 +18,9 @@ var app;
                 templateUrl: '/html/matters/matters.my-matters.html',
                 controller: 'MattersCtrl as vm'
             })
-                .state('matters.archived-matters', {
-                url: '/matters/archived-matters',
+                .state('matters.archived', {
+                url: '/matters/archived',
                 templateUrl: '/html/matters/matters.archived.html',
-                controller: 'MattersCtrl as vm'
             })
                 .state('dashboard', {
                 url: '/',

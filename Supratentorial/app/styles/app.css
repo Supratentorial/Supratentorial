@@ -3515,7 +3515,7 @@ tbody.collapse.in {
   .navbar-default .navbar-text {
     color: #777; }
   .navbar-default .navbar-nav > li > a {
-    color: #777; }
+    color: white; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
       color: #333;
       background-color: transparent; }
@@ -3538,7 +3538,7 @@ tbody.collapse.in {
     color: #555; }
   @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-      color: #777; }
+      color: white; }
       .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #333;
         background-color: transparent; }
@@ -3550,11 +3550,11 @@ tbody.collapse.in {
       background-color: transparent; }
  }
   .navbar-default .navbar-link {
-    color: #777; }
+    color: white; }
     .navbar-default .navbar-link:hover {
       color: #333; }
   .navbar-default .btn-link {
-    color: #777; }
+    color: white; }
     .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
       color: #333; }
     .navbar-default .btn-link[disabled]:hover, .navbar-default .btn-link[disabled]:focus, fieldset[disabled] .navbar-default .btn-link:hover, fieldset[disabled] .navbar-default .btn-link:focus {
@@ -5154,10 +5154,7 @@ body {
 
 .toolbar {
   background-color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 5px 15px 5px 15px;
   position: fixed;
   height: 45px;
   top: 50px;
@@ -5189,12 +5186,11 @@ body {
 
 .nav li a {
   font-size: 1.1em;
-  padding: 0, 10px, 0, 10px;
+  padding: 0 10px;
   padding-right: 10px;
   padding-left: 10px; }
 
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
   background-color: #f5f5f5;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px; }
@@ -5203,8 +5199,10 @@ body {
     margin-bottom: -1px; }
     .nav-tabs > li > a {
       margin-right: 2px;
-      line-height: 1.42857;
+      line-height: 1.1;
+      padding: 10px;
       border: 1px solid transparent;
+      color: black;
       border-radius: 0; }
       .nav-tabs > li > a:hover {
         border-color: #eeeeee #eeeeee #ddd; }

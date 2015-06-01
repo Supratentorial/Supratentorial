@@ -14,6 +14,9 @@ var matters;
                     {
                         heading: "My Matters",
                         route: "matters.my-matters"
+                    }, {
+                        heading: "Archived Matters",
+                        route: "matters.archived"
                     }
                 ];
             }
@@ -21,7 +24,7 @@ var matters;
             return MattersCtrl;
         })();
         controllers.MattersCtrl = MattersCtrl;
-        angular.module("app.matters").controller("MattersController", matters.controllers.MattersCtrl);
+        angular.module("app.matters").controller("MattersCtrl", matters.controllers.MattersCtrl);
     })(controllers = matters.controllers || (matters.controllers = {}));
 })(matters || (matters = {}));
 //# sourceMappingURL=mattersctrl.js.map

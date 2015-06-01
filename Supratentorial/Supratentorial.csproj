@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201506010154512_Migration2.Designer.cs">
       <DependentUpon>201506010154512_Migration2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506010710187_Migration3.cs" />
+    <Compile Include="Migrations\201506010710187_Migration3.Designer.cs">
+      <DependentUpon>201506010710187_Migration3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
@@ -274,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506010154512_Migration2.resx">
       <DependentUpon>201506010154512_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506010710187_Migration3.resx">
+      <DependentUpon>201506010710187_Migration3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

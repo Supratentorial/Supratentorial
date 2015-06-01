@@ -17,9 +17,12 @@ module matters.controllers {
                 {
                     heading: "My Matters",
                     route: "matters.my-matters"
+                }, {
+                    heading: "Archived Matters",
+                    route: "matters.archived"
                 }
             ]
         }
     }
-    angular.module("app.matters").controller("MattersController", matters.controllers.MattersCtrl);
+    angular.module("app.matters").controller("MattersCtrl", matters.controllers.MattersCtrl);
 }

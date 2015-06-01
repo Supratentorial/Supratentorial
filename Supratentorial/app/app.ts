@@ -17,10 +17,9 @@ module app {
                 templateUrl: '/html/matters/matters.my-matters.html',
                 controller: 'MattersCtrl as vm'
             })
-                .state('matters.archived-matters', <ng.ui.IState>{
-                url: '/matters/archived-matters',
+                .state('matters.archived', <ng.ui.IState>{
+                url: '/matters/archived',
                 templateUrl: '/html/matters/matters.archived.html',
-                controller: 'MattersCtrl as vm'
             })
                 .state('dashboard', <ng.ui.IState>{
                 url: '/',
