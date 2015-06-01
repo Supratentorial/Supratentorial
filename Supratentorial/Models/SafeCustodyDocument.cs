@@ -12,5 +12,8 @@ namespace Supratentorial.Models
         public string DocumentAuthor { get; set; }
         public DateTime DocumentCreationDate { get; set; }
         public string ReasonForRemoval { get; set; }
+
+        public int PersonId { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

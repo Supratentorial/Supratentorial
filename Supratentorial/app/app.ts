@@ -9,7 +9,18 @@ module app {
             this.$stateProvider
                 .state('matters', <ng.ui.IState>{
                 url: '/matters',
-                templateUrl: '/html/matters/mattersPartial.html'
+                templateUrl: '/html/matters/matters.html',
+                controller: 'MattersCtrl as vm'
+            })
+                .state('matters.my-matters', <ng.ui.IState>{
+                url: '/matters/my-matters',
+                templateUrl: '/html/matters/matters.my-matters.html',
+                controller: 'MattersCtrl as vm'
+            })
+                .state('matters.archived-matters', <ng.ui.IState>{
+                url: '/matters/archived-matters',
+                templateUrl: '/html/matters/matters.archived.html',
+                controller: 'MattersCtrl as vm'
             })
                 .state('dashboard', <ng.ui.IState>{
                 url: '/',
@@ -32,7 +43,7 @@ module app {
                 .state('contact-details.biographical', <ng.ui.IState>{
                 url: '/{id:int}/biographic',
                 templateUrl: 'html/contacts/contact-details.biographical.html'
-                })
+            })
                 .state('contact-details.financial', <ng.ui.IState>{
                 url: '/{id:int}/financial',
                 templateUrl: 'html/contacts/contact-details.financial.html'

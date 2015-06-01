@@ -15,7 +15,7 @@ module contacts.controllers {
         middleNamesString: string;
         dateOfBirthString: string;
         saveContact();
-        mapContact(): interfaces.IContact;
+        mapContact(): interfaces.IPerson;
     }
 
     export class ContactDetailsCtrl implements IContactDetailsCtrl {
@@ -50,7 +50,7 @@ module contacts.controllers {
             if (this.id === 0) {
                 this.toolbarTitle = "New Contact";
             } else {
-                this.contactsService.getContactById(this.id).then((contact: interfaces.IContact): void => {
+                this.contactsService.getPersonById(this.id).then((contact: interfaces.IPerson): void => {
                     this.firstName = contact.firstName;
                     this.lastName = contact.lastName;
                     this.title = contact.title;
@@ -104,7 +104,7 @@ module contacts.controllers {
 
             var middleNames = this.middleNamesString.split(" ");
 
-            var contact = <interfaces.IContact>{
+            var contact = <interfaces.IPerson>{
                 id: 0,
                 lastName: this.lastName,
                 firstName: this.firstName,
@@ -129,7 +129,7 @@ module contacts.controllers {
         }
 
         saveContact() {
-            this.contactsService.saveContact(this.mapContact());
+            this.contactsService.savePerson(this.mapContact());
         }
 
         addEmail() {

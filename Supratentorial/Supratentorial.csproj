@@ -114,7 +114,9 @@
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />
     <Content Include="app\index.html" />
-    <Content Include="app\matters\mattersPartial.html" />
+    <Content Include="app\matters\matters.archived.html" />
+    <Content Include="app\matters\matters.html" />
+    <Content Include="app\matters\matters.my-matters.html" />
     <Content Include="app\styles\app.css">
       <DependentUpon>app.scss</DependentUpon>
     </Content>
@@ -140,7 +142,9 @@
     <Content Include="dist\html\contacts\contact-details.html" />
     <Content Include="dist\html\contacts\contacts.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
-    <Content Include="dist\html\matters\mattersPartial.html" />
+    <Content Include="dist\html\matters\matters.archived.html" />
+    <Content Include="dist\html\matters\matters.html" />
+    <Content Include="dist\html\matters\matters.my-matters.html" />
     <Content Include="dist\img\back.svg" />
     <Content Include="dist\img\contacts.svg" />
     <Content Include="dist\img\dashboard.svg" />
@@ -157,7 +161,6 @@
     <Content Include="dist\js\contacts\contactsService.js" />
     <Content Include="dist\js\dashboard\dashboard.js" />
     <Content Include="dist\js\matters\matterInterfaces.js" />
-    <Content Include="dist\js\matters\matterModels.js" />
     <Content Include="dist\js\matters\matters.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
@@ -175,47 +178,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
-    <Compile Include="Migrations\201505210358509_Removed inheritance.cs" />
-    <Compile Include="Migrations\201505210358509_Removed inheritance.Designer.cs">
-      <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
+    <Compile Include="Migrations\201505310721064_Initial.cs" />
+    <Compile Include="Migrations\201505310721064_Initial.Designer.cs">
+      <DependentUpon>201505310721064_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505251202487_Added biographic properties.cs" />
-    <Compile Include="Migrations\201505251202487_Added biographic properties.Designer.cs">
-      <DependentUpon>201505251202487_Added biographic properties.cs</DependentUpon>
+    <Compile Include="Migrations\201505310738355_Many-many matter-person.cs" />
+    <Compile Include="Migrations\201505310738355_Many-many matter-person.Designer.cs">
+      <DependentUpon>201505310738355_Many-many matter-person.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505251228068_Added nationality.cs" />
-    <Compile Include="Migrations\201505251228068_Added nationality.Designer.cs">
-      <DependentUpon>201505251228068_Added nationality.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505261018469_Removed email type.cs" />
-    <Compile Include="Migrations\201505261018469_Removed email type.Designer.cs">
-      <DependentUpon>201505261018469_Removed email type.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505290119141_Unsure.cs" />
-    <Compile Include="Migrations\201505290119141_Unsure.Designer.cs">
-      <DependentUpon>201505290119141_Unsure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505290306401_Added organisation class.cs" />
-    <Compile Include="Migrations\201505290306401_Added organisation class.Designer.cs">
-      <DependentUpon>201505290306401_Added organisation class.cs</DependentUpon>
+    <Compile Include="Migrations\201506010154512_Migration2.cs" />
+    <Compile Include="Migrations\201506010154512_Migration2.Designer.cs">
+      <DependentUpon>201506010154512_Migration2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
     <Compile Include="Models\BiographicalProperties.cs" />
-    <Compile Include="Models\ClientProfile.cs" />
-    <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\DoctorProfile.cs" />
+    <Compile Include="Models\ClientProperties.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\MatterType.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\DoctorProperties.cs" />
     <Compile Include="Models\EmailAddress.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\LegalFirm.cs" />
     <Compile Include="Models\Matter.cs" />
     <Compile Include="Models\Organisation.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
+    <Compile Include="Models\Relationship.cs" />
+    <Compile Include="Models\RelationshipType.cs" />
     <Compile Include="Models\SafeCustodyDocument.cs" />
-    <Compile Include="Models\StaffProfile.cs" />
+    <Compile Include="Models\StaffProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -257,7 +252,6 @@
     <TypeScriptCompile Include="app\contacts\contactsService.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
     <TypeScriptCompile Include="app\matters\matterInterfaces.ts" />
-    <TypeScriptCompile Include="app\matters\matterModels.ts" />
     <TypeScriptCompile Include="app\matters\matters.ts" />
     <TypeScriptCompile Include="app\matters\mattersCtrl.ts" />
     <TypeScriptCompile Include="app\matters\mattersService.ts" />
@@ -268,27 +262,18 @@
     <TypeScriptCompile Include="app\typings\moment\moment.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505210358509_Removed inheritance.resx">
-      <DependentUpon>201505210358509_Removed inheritance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505251202487_Added biographic properties.resx">
-      <DependentUpon>201505251202487_Added biographic properties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505251228068_Added nationality.resx">
-      <DependentUpon>201505251228068_Added nationality.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505261018469_Removed email type.resx">
-      <DependentUpon>201505261018469_Removed email type.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505290119141_Unsure.resx">
-      <DependentUpon>201505290119141_Unsure.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505290306401_Added organisation class.resx">
-      <DependentUpon>201505290306401_Added organisation class.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="app\common\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\common\" />
+    <EmbeddedResource Include="Migrations\201505310721064_Initial.resx">
+      <DependentUpon>201505310721064_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505310738355_Many-many matter-person.resx">
+      <DependentUpon>201505310738355_Many-many matter-person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506010154512_Migration2.resx">
+      <DependentUpon>201506010154512_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -14,14 +14,14 @@ var contacts;
             }
             ContactsCtrl.prototype.getRecentContacts = function () {
                 var _this = this;
-                this.contactsService.getRecentContacts().then(function (contacts) {
+                this.contactsService.getRecentPeople().then(function (contacts) {
                     _this.contactsList = contacts;
                 });
             };
             ContactsCtrl.prototype.searchContacts = function () {
                 var _this = this;
                 var queryString = "?LastName=" + this.searchString;
-                this.contactsService.getContactsByLastName(queryString).then(function (contacts) {
+                this.contactsService.getPeopleByLastName(queryString).then(function (contacts) {
                     _this.contactsList = contacts;
                 });
             };

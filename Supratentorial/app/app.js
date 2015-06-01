@@ -10,7 +10,18 @@ var app;
             this.$stateProvider
                 .state('matters', {
                 url: '/matters',
-                templateUrl: '/html/matters/mattersPartial.html'
+                templateUrl: '/html/matters/matters.html',
+                controller: 'MattersCtrl as vm'
+            })
+                .state('matters.my-matters', {
+                url: '/matters/my-matters',
+                templateUrl: '/html/matters/matters.my-matters.html',
+                controller: 'MattersCtrl as vm'
+            })
+                .state('matters.archived-matters', {
+                url: '/matters/archived-matters',
+                templateUrl: '/html/matters/matters.archived.html',
+                controller: 'MattersCtrl as vm'
             })
                 .state('dashboard', {
                 url: '/',

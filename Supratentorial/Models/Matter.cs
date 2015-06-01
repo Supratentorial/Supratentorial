@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Supratentorial.Models
 {
@@ -6,8 +7,12 @@ namespace Supratentorial.Models
     {
         public int Id { get; set; }
         public string Type { get; set; }
-        public virtual ICollection<ClientProfile> Client { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime InstructionsReceived { get; set; }
+        public string Status { get; set; }
+        public virtual ICollection<Relationship> Relationship { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-        public virtual ICollection<StaffProfile> StaffResponsible { get; set; }
+        public virtual ICollection<Person> PeopleResponsible { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

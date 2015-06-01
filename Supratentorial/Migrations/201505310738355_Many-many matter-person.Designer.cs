@@ -7,13 +7,13 @@ namespace Supratentorial.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Removedemailtype : IMigrationMetadata
+    public sealed partial class Manymanymatterperson : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Removedemailtype));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Manymanymatterperson));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505261018469_Removed email type"; }
+            get { return "201505310738355_Many-many matter-person"; }
         }
         
         string IMigrationMetadata.Source

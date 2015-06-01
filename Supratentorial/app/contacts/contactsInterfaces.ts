@@ -1,5 +1,5 @@
 module interfaces {
-    export interface IContact {
+    export interface IPerson {
         id : number;
         title : string;
         firstName : string;
@@ -8,23 +8,23 @@ module interfaces {
         dateOfBirth : Date;
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
-        staffProfile?: IStaffProfile;
+        staffProperties?: IStaffProperties;
         address?: IAddress[];
         biographicalProperties?: IBiographicalProperties;
     }
 
-    export interface IClientProfile {
+    export interface IClientProperties {
         dateOfDeath : Date;
         dateOfSeparation: Date;
         dateOfDivorce: Date;
         childrenId : number[];
     }
 
-    export interface ISolicitorProfile {
+    export interface ISolicitorProperties {
         practice : IPractice;
     }
 
-    export interface IStaffProfile {
+    export interface IStaffProperties {
         commencementDate: Date;
         terminationDate: Date;
         position: string;
@@ -70,9 +70,9 @@ module interfaces {
     }
 
     export interface IContactsService {
-        saveContact(contact: IContact);
-        getContactById(id: number): ng.IPromise<IContact>;
-        getRecentContacts(): ng.IPromise<IContact[]>;
-        getContactsByLastName(queryString: string): ng.IPromise<IContact[]>;
+        savePerson(person: IPerson);
+        getPersonById(id: number): ng.IPromise<IPerson>;
+        getRecentPeople(): ng.IPromise<IPerson[]>;
+        getPeopleByLastName(queryString: string): ng.IPromise<IPerson[]>;
     }
 }

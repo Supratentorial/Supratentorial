@@ -8,21 +8,21 @@ module contacts.controllers {
     export class ContactsCtrl {
 
         searchString: string = "";
-        contactsList: interfaces.IContact[] = [];
+        contactsList: interfaces.IPerson[] = [];
 
         static $inject = ["contactsService"];
         constructor(private contactsService: interfaces.IContactsService) {
         }
 
         getRecentContacts() {
-            this.contactsService.getRecentContacts().then((contacts: interfaces.IContact[]) => {
+            this.contactsService.getRecentPeople().then((contacts: interfaces.IPerson[]) => {
                 this.contactsList = contacts;
             });
         }
 
         searchContacts() {
             var queryString: string = "?LastName=" + this.searchString;
-            this.contactsService.getContactsByLastName(queryString).then((contacts: interfaces.IContact[]) => {
+            this.contactsService.getPeopleByLastName(queryString).then((contacts: interfaces.IPerson[]) => {
                 this.contactsList = contacts;
             });
         }

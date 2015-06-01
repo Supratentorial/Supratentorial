@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Supratentorial.Models
 {
-    public class DoctorProfile
+    public class DoctorProperties
     {
-        public int Id { get; set; }
+        public int DoctorId { get; set; }
         public string ProviderNumber { get; set; }
     }
 }

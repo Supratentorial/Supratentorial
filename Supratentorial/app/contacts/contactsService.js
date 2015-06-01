@@ -8,26 +8,26 @@ var contacts;
             function ContactsService($http) {
                 this.$http = $http;
             }
-            ContactsService.prototype.getRecentContacts = function () {
-                return this.$http.get('api/contacts/')
+            ContactsService.prototype.getRecentPeople = function () {
+                return this.$http.get('api/people/')
                     .then(function (response) {
                     return response.data;
                 });
             };
-            ContactsService.prototype.getContactsByLastName = function (queryString) {
-                return this.$http.get('api/contacts' + queryString)
+            ContactsService.prototype.getPeopleByLastName = function (queryString) {
+                return this.$http.get('api/people' + queryString)
                     .then(function (response) {
                     return response.data;
                 });
             };
-            ContactsService.prototype.getContactById = function (id) {
-                return this.$http.get('api/contacts/' + id)
+            ContactsService.prototype.getPersonById = function (id) {
+                return this.$http.get('api/people/' + id)
                     .then(function (response) {
                     return response.data;
                 });
             };
-            ContactsService.prototype.saveContact = function (contact) {
-                this.$http.post('api/contacts', JSON.stringify(contact), {
+            ContactsService.prototype.savePerson = function (person) {
+                this.$http.post('api/people', JSON.stringify(person), {
                     headers: {
                         "Content-Type": "application/json"
                     }
@@ -41,7 +41,7 @@ var contacts;
                     console.log("Failed to save contact.");
                 });
             };
-            ContactsService.prototype.updateContact = function (contact) {
+            ContactsService.prototype.updateContact = function (person) {
             };
             ContactsService.$inject = ['$http'];
             return ContactsService;

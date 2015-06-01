@@ -9,31 +9,31 @@ module contacts.services {
         constructor(private $http: ng.IHttpService) {
         }
 
-        getRecentContacts() {
-            return this.$http.get('api/contacts/')
+        getRecentPeople() {
+            return this.$http.get('api/people/')
                 .then((response: any) => {
                 return response.data;
             });
         }
 
-        getContactsByLastName(queryString: string) {
-            return this.$http.get('api/contacts' + queryString)
+        getPeopleByLastName(queryString: string) {
+            return this.$http.get('api/people' + queryString)
                 .then((response: any) => {
                     return response.data;
             });
         }
 
-        getContactById(id: number): ng.IPromise<interfaces.IContact> {
-            return this.$http.get('api/contacts/' + id)
+        getPersonById(id: number): ng.IPromise<interfaces.IPerson> {
+            return this.$http.get('api/people/' + id)
                 .then((response: any) => {
                 return response.data;
             });
         }
 
-        saveContact(contact: interfaces.IContact) {
+        savePerson(person: interfaces.IPerson) {
             this.$http.post(
-                'api/contacts',
-                JSON.stringify(contact),
+                'api/people',
+                JSON.stringify(person),
                 {
                     headers: {
                         "Content-Type": "application/json"
@@ -49,7 +49,7 @@ module contacts.services {
             });
         }
 
-        updateContact(contact: interfaces.IContact) {
+        updateContact(person: interfaces.IPerson) {
 
         }
     }

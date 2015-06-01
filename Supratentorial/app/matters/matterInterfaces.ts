@@ -2,12 +2,12 @@
     export interface IMatter {
     }
 
-    export interface IMattersScope {
+    export interface IMattersCtrl {
 
     }
 
     export interface IMattersService {
-        getAllMatters(): Array<interfaces.IMatter>;
+
 
     }
 

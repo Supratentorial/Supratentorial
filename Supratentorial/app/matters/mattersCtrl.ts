@@ -1,19 +1,31 @@
 ﻿/// <reference path="matterinterfaces.ts" />
+/// <reference path="../typings/angularjs/angular.d.ts" />
+/// <reference path="mattersservice.ts" />
 
-module matters {
+module matters.controllers {
     "use strict"
-    export class MattersCtrl implements interfaces.IMattersScope {
+    export class MattersCtrl implements interfaces.IMattersCtrl {
 
-        mattersService: interfaces.IMattersService;
-        matters: Array<interfaces.IMatter>;
+        tabData: any;
+        title: string;
 
-        static $inject = ["matters.matterService"];
-        constructor(mattersService: interfaces.IMattersService) {
-            this.mattersService = mattersService;
-        }
-
-        getAllMatters() {
-            this.matters = this.mattersService.getAllMatters();
+        static $inject = ["mattersService"];
+        constructor(private mattersService: interfaces.IMattersService) {
+            this.title = "Penis";
+            this.tabData = [
+                {
+                    heading: "My Matters",
+                    route: "matters.my-matters"
+                },
+                {
+                    heading: "Biographical",
+                    route: "contact-details.biographical"
+                },
+                {
+                    heading: "Financial",
+                    route: "contact-details.financial"
+                }
+            ]
         }
     }
 }

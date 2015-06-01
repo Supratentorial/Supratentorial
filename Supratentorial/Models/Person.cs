@@ -3,9 +3,16 @@ using System.Collections.Generic;
 
 namespace Supratentorial.Models
 {
-    public class Contact
+    public class Person
     {
-        public int Id { get; set; }
+        public Person()
+        {
+            this.PhoneNumbers = new HashSet<PhoneNumber>();
+            this.EmailAddresses = new HashSet<EmailAddress>();
+            this.SafeCustodyDocuments = new HashSet<SafeCustodyDocument>();
+        }
+
+        public int PersonId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public virtual ICollection<string> MiddleNames { get; set; }
@@ -14,9 +21,10 @@ namespace Supratentorial.Models
         public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
         public virtual ICollection<EmailAddress> EmailAddresses { get; set; }
         public virtual ICollection<SafeCustodyDocument> SafeCustodyDocuments { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
 
         //Staff properties
-        public StaffProfile StaffProperties { get; set; }
+        public StaffProperties StaffProperties { get; set; }
 
 
         //Real estate agent properties

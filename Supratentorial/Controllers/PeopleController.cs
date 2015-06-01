@@ -12,51 +12,51 @@ using Supratentorial.Models;
 
 namespace Supratentorial.Controllers
 {
-    public class ContactsController : ApiController
+    public class PeopleController : ApiController
     {
         private APIContext db = new APIContext();
 
-        [Route("api/contacts")]
+        [Route("api/people")]
         [HttpGet]
-        // GET: api/Contacts
-        public IQueryable<Contact> GetContacts(string lastName = "")
+        // GET: api/people
+        public IQueryable<Person> GetPeople(string lastName = "")
         {
-            if (string.IsNullOrEmpty(lastName)) { return db.Contacts; }
+            if (string.IsNullOrEmpty(lastName)) { return db.People; }
             else
             {
-                return db.Contacts.Where(contact => contact.LastName == lastName);
+                return db.People.Where(person => person.LastName == lastName);
             }
         }
 
 
-        // GET: api/Contacts/5
-        [ResponseType(typeof(Contact))]
-        public IHttpActionResult GetContact(int id)
+        // GET: api/people/5
+        [ResponseType(typeof(Person))]
+        public IHttpActionResult GetPerson(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Person person = db.People.Find(id);
+            if (person == null)
             {
                 return NotFound();
             }
 
-            return Ok(contact);
+            return Ok(person);
         }
 
-        // PUT: api/Contacts/5
+        // PUT: api/people/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutContact(int id, Contact contact)
+        public IHttpActionResult PutPerson(int id, Person person)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != contact.Id)
+            if (id != person.PersonId)
             {
                 return BadRequest();
             }
 
-            db.Entry(contact).State = EntityState.Modified;
+            db.Entry(person).State = EntityState.Modified;
 
             try
             {
@@ -64,7 +64,7 @@ namespace Supratentorial.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ContactExists(id))
+                if (!PersonExists(id))
                 {
                     return NotFound();
                 }
@@ -77,35 +77,35 @@ namespace Supratentorial.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Contacts
-        [ResponseType(typeof(Contact))]
-        public IHttpActionResult PostContact(Contact contact)
+        // POST: api/people
+        [ResponseType(typeof(Person))]
+        public IHttpActionResult PostPerson(Person person)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Contacts.Add(contact);
+            db.People.Add(person);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = contact.Id }, contact);
+            return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, person);
         }
 
-        // DELETE: api/Contacts/5
-        [ResponseType(typeof(Contact))]
-        public IHttpActionResult DeleteContact(int id)
+        // DELETE: api/people/5
+        [ResponseType(typeof(Person))]
+        public IHttpActionResult DeletePerson(int id)
         {
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
+            Person person = db.People.Find(id);
+            if (person == null)
             {
                 return NotFound();
             }
 
-            db.Contacts.Remove(contact);
+            db.People.Remove(person);
             db.SaveChanges();
 
-            return Ok(contact);
+            return Ok(person);
         }
 
         protected override void Dispose(bool disposing)
@@ -117,9 +117,9 @@ namespace Supratentorial.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ContactExists(int id)
+        private bool PersonExists(int id)
         {
-            return db.Contacts.Count(e => e.Id == id) > 0;
+            return db.People.Count(e => e.PersonId == id) > 0;
         }
     }
 }
