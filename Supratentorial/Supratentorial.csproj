@@ -114,6 +114,7 @@
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />
     <Content Include="app\index.html" />
+    <Content Include="app\matters\matter-details.html" />
     <Content Include="app\matters\matters.archived.html" />
     <Content Include="app\matters\matters.html" />
     <Content Include="app\matters\matters.my-matters.html" />
@@ -123,11 +124,11 @@
     <Content Include="app\styles\app.min.css">
       <DependentUpon>app.css</DependentUpon>
     </Content>
-    <Content Include="app\styles\colours.css">
-      <DependentUpon>colours.scss</DependentUpon>
+    <Content Include="app\styles\_app-colours.css">
+      <DependentUpon>_app-colours.scss</DependentUpon>
     </Content>
-    <Content Include="app\styles\colours.min.css">
-      <DependentUpon>colours.css</DependentUpon>
+    <Content Include="app\styles\_app-colours.min.css">
+      <DependentUpon>_app-colours.css</DependentUpon>
     </Content>
     <Content Include="App_Data\APIContext-20150513231025.mdf" />
     <Content Include="App_Data\APIContext-20150513231025_log.ldf">
@@ -196,6 +197,10 @@
     <Compile Include="Migrations\201506010710187_Migration3.Designer.cs">
       <DependentUpon>201506010710187_Migration3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506020622100_Middle name string.cs" />
+    <Compile Include="Migrations\201506020622100_Middle name string.Designer.cs">
+      <DependentUpon>201506020622100_Middle name string.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\APIContext.cs" />
@@ -224,7 +229,7 @@
     </Content>
     <Content Include="app\dashboard\dashboard.js.map" />
     <Content Include="app\styles\app.scss" />
-    <Content Include="app\styles\colours.scss" />
+    <Content Include="app\styles\_app-colours.scss" />
     <Content Include="bower.json" />
     <Content Include="package.json" />
     <Content Include="tsd.json" />
@@ -235,9 +240,10 @@
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.woff" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <Content Include="app\styles\colours.css.map">
-      <DependentUpon>colours.css</DependentUpon>
+    <Content Include="app\styles\_app-colours.css.map">
+      <DependentUpon>_app-colours.css</DependentUpon>
     </Content>
+    <Content Include="app\styles\_app-variables.scss" />
     <None Include="Properties\PublishProfiles\supratentorial - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\supratentorial - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -255,6 +261,7 @@
     <TypeScriptCompile Include="app\contacts\contactsInterfaces.ts" />
     <TypeScriptCompile Include="app\contacts\contactsService.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
+    <TypeScriptCompile Include="app\matters\matterDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\matters\matterInterfaces.ts" />
     <TypeScriptCompile Include="app\matters\app.matters.ts" />
     <TypeScriptCompile Include="app\matters\mattersCtrl.ts" />
@@ -281,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506010710187_Migration3.resx">
       <DependentUpon>201506010710187_Migration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506020622100_Middle name string.resx">
+      <DependentUpon>201506020622100_Middle name string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
