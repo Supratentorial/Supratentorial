@@ -27,21 +27,23 @@ var contacts;
                 });
             };
             ContactsService.prototype.savePerson = function (person) {
-                this.$http.post('api/people', JSON.stringify(person), {
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-                    .success(function (data, status, headers, statusText) {
-                    //TODO: Display confirmation of successful save to user.
-                    console.log("Contact saved successfullly." + data);
-                })
-                    .error(function (data, satus, headers, config) {
-                    //TODO: Display error to user if one occurs.
-                    console.log("Failed to save contact.");
-                });
-            };
-            ContactsService.prototype.updateContact = function (person) {
+                var promise;
+                if (person.personId === 0) {
+                    this.$http.post('api/people', JSON.stringify(person), {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then(function (response) {
+                        promise = response.data;
+                    });
+                }
+                else {
+                    this.$http.put(('api/people/' + person.personId), JSON.stringify(person), { headers: { "Content-Type": "application/json" } })
+                        .then(function (response) {
+                        promise = response.data;
+                    });
+                }
+                return promise;
             };
             ContactsService.$inject = ['$http'];
             return ContactsService;

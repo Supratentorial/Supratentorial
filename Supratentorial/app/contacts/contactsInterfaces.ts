@@ -1,10 +1,10 @@
 module interfaces {
     export interface IPerson {
-        id : number;
+        personId : number;
         title : string;
         firstName : string;
         lastName : string;
-        middleNames : string[];
+        middleNames : string;
         dateOfBirth : Date;
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
@@ -70,7 +70,7 @@ module interfaces {
     }
 
     export interface IContactsService {
-        savePerson(person: IPerson);
+        savePerson(person: IPerson) : ng.IPromise<IPerson>;
         getPersonById(id: number): ng.IPromise<IPerson>;
         getRecentPeople(): ng.IPromise<IPerson[]>;
         getPeopleByLastName(queryString: string): ng.IPromise<IPerson[]>;

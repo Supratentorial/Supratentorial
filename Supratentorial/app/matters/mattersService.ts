@@ -7,8 +7,6 @@ module matters.services {
 
         constructor(private $http: angular.IHttpService) { }
 
-
-
     }
     angular.module("app.matters").service("mattersService", services.MatterService);
 }

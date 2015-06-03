@@ -20,7 +20,12 @@ var app;
             })
                 .state('matters.archived', {
                 url: '/matters/archived',
-                templateUrl: '/html/matters/matters.archived.html',
+                templateUrl: '/html/matters/matters.archived.html'
+            })
+                .state('matter-details', {
+                url: '/matter-details',
+                templateUrl: 'html/matters/matter-details.html',
+                controller: 'MatterDetailsCtrl as vm'
             })
                 .state('dashboard', {
                 url: '/',

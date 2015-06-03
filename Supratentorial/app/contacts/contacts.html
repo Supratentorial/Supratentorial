@@ -16,8 +16,8 @@
                             <button class="btn btn-default" type="button" ng-click="vm.searchContacts()"><span class="glyphicon glyphicon-search"></span> Search</button>
                         </span>
                     </div>
-                    <div class="contacts-list">
-
+                    <div class="contacts-list" ng-repeat="contact in vm.contactsList">
+                        <contact-list-item contact="contact"></contact-list-item>
                     </div>
                 </div>
             </div>

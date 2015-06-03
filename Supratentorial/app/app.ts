@@ -2,7 +2,7 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 
 module app {
-    export class StateConfig { 
+    export class StateConfig {
         static $inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
         constructor(private $stateProvider: ng.ui.IStateProvider, private $urlRouterProvider: ng.ui.IUrlRouterProvider, private $locationProvider: ng.ILocationProvider) {
@@ -19,7 +19,12 @@ module app {
             })
                 .state('matters.archived', <ng.ui.IState>{
                 url: '/matters/archived',
-                templateUrl: '/html/matters/matters.archived.html',
+                templateUrl: '/html/matters/matters.archived.html'
+            })
+                .state('matter-details', <ng.ui.IState>{
+                url: '/matter-details',
+                templateUrl: 'html/matters/matter-details.html',
+                controller: 'MatterDetailsCtrl as vm'
             })
                 .state('dashboard', <ng.ui.IState>{
                 url: '/',

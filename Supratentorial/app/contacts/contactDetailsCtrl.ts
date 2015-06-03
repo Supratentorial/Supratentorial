@@ -12,7 +12,7 @@ module contacts.controllers {
         title: string;
         lastName: string;
         firstName: string;
-        middleNamesString: string;
+        middleNames: string;
         dateOfBirthString: string;
         saveContact();
         mapContact(): interfaces.IPerson;
@@ -22,11 +22,11 @@ module contacts.controllers {
 
         toolbarTitle: string = "";
 
-        id: number = 0;
+        personId: number = 0;
         title: string = "";
         lastName: string = "";
         firstName: string = "";
-        middleNamesString: string = "";
+        middleNames: string = "";
 
         countryOfBirth: string = "";
         nationality: string = "";
@@ -43,20 +43,23 @@ module contacts.controllers {
         phoneOptions: string[];
         tabData: any;
 
-        static $inject = ["contactsService", "$state"];
+        static $inject = ["contactsService", "$state", "$stateService"];
 
-        constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IState) {
-            this.id = this.$state.params.id;
-            if (this.id === 0) {
-                this.toolbarTitle = "New Contact";
+        constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IState, private $stateService : ng.ui.IStateService) {
+            this.personId = this.$state.params.id;
+            if (this.personId === 0) {
+
             } else {
-                this.contactsService.getPersonById(this.id).then((contact: interfaces.IPerson): void => {
+                this.contactsService.getPersonById(this.personId).then((contact: interfaces.IPerson): void => {
                     this.firstName = contact.firstName;
                     this.lastName = contact.lastName;
                     this.title = contact.title;
-                    
+                    this.dateOfBirthString = moment(contact.dateOfBirth).format("DD-MM-YYYY");
+                    this.emailAddresses = contact.emailAddresses;
+                    this.phoneNumbers = contact.phoneNumbers;
+                    this.middleNames = contact.middleNames;
                 });
-                
+
             }
 
             this.tabData = [
@@ -64,21 +67,21 @@ module contacts.controllers {
                     heading: "Basic Details",
                     route: "contact-details.basic",
                     params: {
-                        id: this.id
+                        id: this.personId
                     }
                 },
                 {
                     heading: "Biographical",
                     route: "contact-details.biographical",
                     params: {
-                        id: this.id
+                        id: this.personId
                     }
                 },
                 {
                     heading: "Financial",
                     route: "contact-details.financial",
                     parmas: {
-                        id: this.id
+                        id: this.personId
                     }
                 }
             ]
@@ -102,13 +105,11 @@ module contacts.controllers {
         mapContact() {
             var dateOfBirth = moment.utc(this.dateOfBirthString, "DD-MM-YYYY").toDate();
 
-            var middleNames = this.middleNamesString.split(" ");
-
             var contact = <interfaces.IPerson>{
-                id: 0,
+                personId: this.personId,
                 lastName: this.lastName,
                 firstName: this.firstName,
-                middleNames: middleNames,
+                middleNames: this.middleNames,
                 dateOfBirth: dateOfBirth,
                 title: this.title,
                 phoneNumbers: this.phoneNumbers,
@@ -128,9 +129,14 @@ module contacts.controllers {
             return contact;
         }
 
+        //TODO: Display confirmation to user that contact has been saved.
         saveContact() {
-            this.contactsService.savePerson(this.mapContact());
+            this.contactsService.savePerson(this.mapContact()).then((person: interfaces.IPerson): void => {
+                this.$stateService.go('contacts');
+            });
         }
+
+
 
         addEmail() {
             if (this.emailAddresses.length < 3) {
@@ -140,8 +146,6 @@ module contacts.controllers {
         }
 
         deleteEmail(index, email: interfaces.IEmailAddress) {
-            //TODO: If id == 0 don't require save
-            //TODO: If only 1 email, don't allow it to be deleted
             if (email.id === 0 && this.emailAddresses.length > 1) {
                 if (index > -1) { this.emailAddresses.splice(index, 1) }
             }

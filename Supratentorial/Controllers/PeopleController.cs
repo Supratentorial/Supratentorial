@@ -28,12 +28,12 @@ namespace Supratentorial.Controllers
             }
         }
 
-
+        [Route("api/people/{personId}")]
         // GET: api/people/5
         [ResponseType(typeof(Person))]
-        public IHttpActionResult GetPerson(int id)
+        public IHttpActionResult GetPerson(int personId)
         {
-            Person person = db.People.Find(id);
+            Person person = db.People.Find(personId);
             if (person == null)
             {
                 return NotFound();
@@ -42,16 +42,17 @@ namespace Supratentorial.Controllers
             return Ok(person);
         }
 
+        [Route ("api/people/{personId}")]
         // PUT: api/people/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPerson(int id, Person person)
+        public IHttpActionResult PutPerson(int personId, Person person)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != person.PersonId)
+            if (personId != person.PersonId)
             {
                 return BadRequest();
             }
@@ -64,7 +65,7 @@ namespace Supratentorial.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PersonExists(id))
+                if (!PersonExists(personId))
                 {
                     return NotFound();
                 }
@@ -76,7 +77,7 @@ namespace Supratentorial.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        [Route("api/people")]
         // POST: api/people
         [ResponseType(typeof(Person))]
         public IHttpActionResult PostPerson(Person person)
@@ -89,7 +90,7 @@ namespace Supratentorial.Controllers
             db.People.Add(person);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = person.PersonId }, person);
+            return CreatedAtRoute("DefaultApi", new { controller = "people", id = person.PersonId }, person);
         }
 
         // DELETE: api/people/5

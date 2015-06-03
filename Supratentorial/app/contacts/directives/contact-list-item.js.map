@@ -1,0 +1,1 @@
+{"version":3,"file":"contact-list-item.js","sourceRoot":"","sources":["contact-list-item.ts"],"names":[],"mappings":"AAAA,OAAO,CAAC,MAAM,CAAC,cAAc,CAAC,CAAC,SAAS,CAAC,iBAAiB,EAAE;IACxD,MAAM,CAAC;QACH,KAAK,EAAE;YACH,OAAO,EAAE,GAAG;SACf;QACD,QAAQ,EAAE,GAAG;QACb,WAAW,EAAE,iDAAiD;KACjE,CAAA;AACL,CAAC,CAAC,CAAC"}

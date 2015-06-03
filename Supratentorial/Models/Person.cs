@@ -15,7 +15,7 @@ namespace Supratentorial.Models
         public int PersonId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public virtual ICollection<string> MiddleNames { get; set; }
+        public string MiddleNames { get; set; }
         public string Title { get; set; }
         public DateTime DateOfBirth { get; set; }
         public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }

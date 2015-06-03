@@ -19,7 +19,7 @@ module contacts.services {
         getPeopleByLastName(queryString: string) {
             return this.$http.get('api/people' + queryString)
                 .then((response: any) => {
-                    return response.data;
+                return response.data;
             });
         }
 
@@ -30,28 +30,30 @@ module contacts.services {
             });
         }
 
-        savePerson(person: interfaces.IPerson) {
-            this.$http.post(
-                'api/people',
-                JSON.stringify(person),
-                {
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                })
-                .success(function (data, status, headers, statusText) {
-                //TODO: Display confirmation of successful save to user.
-                console.log("Contact saved successfullly." + data);
-            })
-                .error(function (data, satus, headers, config) {
-                //TODO: Display error to user if one occurs.
-                console.log("Failed to save contact.");
-            });
-        }
-
-        updateContact(person: interfaces.IPerson) {
-
+        savePerson(person: interfaces.IPerson): ng.IPromise<interfaces.IPerson> {
+            var promise: ng.IPromise<interfaces.IPerson>;
+            if (person.personId === 0) {
+                this.$http.post(
+                    'api/people',
+                    JSON.stringify(person),
+                    {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then((response: any) => {
+                    promise = response.data;
+                });
+            }
+            else {
+                this.$http.put(('api/people/' + person.personId),
+                    JSON.stringify(person),
+                    { headers: { "Content-Type": "application/json" } })
+                    .then((response: any) => {
+                    promise = response.data;
+                });
+            }
+            return promise;
         }
     }
-    angular.module("app.contacts").service("contactsService", services.ContactsService)
+    angular.module("app.contacts").service("contactsService", services.ContactsService);
 }

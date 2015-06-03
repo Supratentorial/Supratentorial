@@ -103,3 +103,11 @@ body {
     border-bottom-left-radius: $panel-border-radius;
     border-bottom-right-radius: $panel-border-radius;
 }
+
+.contact-list-item{
+    border-top: solid 1px $list-item-divider;
+    cursor: pointer;
+    &:hover{
+        background-color: $list-item-hover-background;
+    }
+}
