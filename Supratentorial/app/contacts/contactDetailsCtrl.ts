@@ -35,21 +35,21 @@ module contacts.controllers {
 
         dateOfBirthString: string = "";
         emailString: string = "";
-        emailAddresses: interfaces.IEmailAddress[];
-        phoneNumbers: interfaces.IPhoneNumber[];
+        emailAddresses: interfaces.IEmailAddress[] = [];
+        phoneNumbers: interfaces.IPhoneNumber[] = [];
         phoneNumberString: string = "";
         phoneNumberType: string = "";
         titleOptions: string[];
         phoneOptions: string[];
         tabData: any;
 
-        static $inject = ["contactsService", "$state", "$stateService"];
 
-        constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IState, private $stateService : ng.ui.IStateService) {
-            this.personId = this.$state.params.id;
-            if (this.personId === 0) {
-
-            } else {
+        constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IStateService) {
+            this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
+            this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
+            console.log(this.$state.params);
+            this.personId = this.$state.params["id"];
+            if (this.personId !== 0) {
                 this.contactsService.getPersonById(this.personId).then((contact: interfaces.IPerson): void => {
                     this.firstName = contact.firstName;
                     this.lastName = contact.lastName;
@@ -60,6 +60,14 @@ module contacts.controllers {
                     this.middleNames = contact.middleNames;
                 });
 
+            }
+            if (this.emailAddresses.length === 0) {
+                var email = <interfaces.IEmailAddress>{ id: 0, address: "", isPreferred: true }
+                this.emailAddresses.push(email);
+            }
+            if (this.phoneNumbers.length === 0) {
+                var phone = <interfaces.IPhoneNumber>{ id: 0, isPreferred: true, type: this.phoneOptions[2] }
+                this.phoneNumbers.push(phone);
             }
 
             this.tabData = [
@@ -84,21 +92,7 @@ module contacts.controllers {
                         id: this.personId
                     }
                 }
-            ]
-
-            this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
-            this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
-            //TODO: Load email addresses from service.
-            this.emailAddresses = [];
-            this.phoneNumbers = [];
-            if (this.emailAddresses.length === 0) {
-                var email = <interfaces.IEmailAddress>{ id: 0, address: "", isPreferred: true }
-                this.emailAddresses.push(email);
-            }
-            if (this.phoneNumbers.length === 0) {
-                var phone = <interfaces.IPhoneNumber>{ id: 0, isPreferred: true, type: this.phoneOptions[2] }
-                this.phoneNumbers.push(phone);
-            }
+            ]         
         }
 
         //TODO: Write unit test for mapping code.
@@ -132,7 +126,7 @@ module contacts.controllers {
         //TODO: Display confirmation to user that contact has been saved.
         saveContact() {
             this.contactsService.savePerson(this.mapContact()).then((person: interfaces.IPerson): void => {
-                this.$stateService.go('contacts');
+                this.$state.go('contacts');
             });
         }
 
