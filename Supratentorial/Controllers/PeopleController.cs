@@ -42,7 +42,7 @@ namespace Supratentorial.Controllers
             return Ok(person);
         }
 
-        [Route ("api/people/{personId}")]
+        [Route("api/people/{personId}")]
         // PUT: api/people/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPerson(int personId, Person person)
@@ -57,7 +57,24 @@ namespace Supratentorial.Controllers
                 return BadRequest();
             }
 
+            if (personId == 0)
+            {
+                return BadRequest();
+            }
+
             db.Entry(person).State = EntityState.Modified;
+            foreach (EmailAddress email in person.EmailAddresses)
+            {
+                db.Entry(email).State = email.EmailId == 0 ? EntityState.Added : EntityState.Modified;
+            }
+            foreach (PhoneNumber phone in person.PhoneNumbers)
+            {
+                db.Entry(phone).State = phone.PhoneId == 0 ? EntityState.Added : EntityState.Modified;
+            }
+            foreach (Address address in person.Addresses)
+            {
+                db.Entry(address).State = address.AddressId == 0 ? EntityState.Added : EntityState.Modified;
+            }
 
             try
             {

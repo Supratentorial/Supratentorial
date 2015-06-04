@@ -111,3 +111,10 @@ body {
         background-color: $list-item-hover-background;
     }
 }
+
+.contact-chip{
+    background-color: $contact-chip-background;
+    border-radius: 50px;
+    font-size: 14px;
+    margin-top: 5px;
+}

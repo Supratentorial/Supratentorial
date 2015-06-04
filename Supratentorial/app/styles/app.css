@@ -3508,7 +3508,7 @@ tbody.collapse.in {
   background-color: #424242;
   border-color: #313131; }
   .navbar-default .navbar-brand {
-    color: #ffffff; }
+    color: white; }
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
       color: #e6e6e6;
       background-color: transparent; }
@@ -4488,9 +4488,9 @@ button.close {
     filter: alpha(opacity=50); }
 
 .modal-header {
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid #e5e5e5;
-  min-height: 16.42857px; }
+  min-height: 11.42857px; }
 
 .modal-header .close {
   margin-top: -2px; }
@@ -5220,5 +5220,11 @@ body {
   cursor: pointer; }
   .contact-list-item:hover {
     background-color: #F5F5F5; }
+
+.contact-chip {
+  background-color: #EEEEEE;
+  border-radius: 50px;
+  font-size: 14px;
+  margin-top: 5px; }
 
 /*# sourceMappingURL=app.css.map */

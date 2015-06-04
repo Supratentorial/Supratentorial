@@ -31,9 +31,8 @@ module contacts.services {
         }
 
         savePerson(person: interfaces.IPerson): ng.IPromise<interfaces.IPerson> {
-            var promise: ng.IPromise<interfaces.IPerson>;
             if (person.personId === 0) {
-                this.$http.post(
+                return this.$http.post(
                     'api/people',
                     JSON.stringify(person),
                     {
@@ -41,18 +40,17 @@ module contacts.services {
                             "Content-Type": "application/json"
                         }
                     }).then((response: any) => {
-                    promise = response.data;
+                    return response.data;
                 });
             }
             else {
-                this.$http.put(('api/people/' + person.personId),
+                return this.$http.put(('api/people/' + person.personId),
                     JSON.stringify(person),
                     { headers: { "Content-Type": "application/json" } })
                     .then((response: any) => {
-                    promise = response.data;
+                    return response.data;
                 });
             }
-            return promise;
         }
     }
     angular.module("app.contacts").service("contactsService", services.ContactsService);

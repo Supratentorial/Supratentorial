@@ -27,23 +27,21 @@ var contacts;
                 });
             };
             ContactsService.prototype.savePerson = function (person) {
-                var promise;
                 if (person.personId === 0) {
-                    this.$http.post('api/people', JSON.stringify(person), {
+                    return this.$http.post('api/people', JSON.stringify(person), {
                         headers: {
                             "Content-Type": "application/json"
                         }
                     }).then(function (response) {
-                        promise = response.data;
+                        return response.data;
                     });
                 }
                 else {
-                    this.$http.put(('api/people/' + person.personId), JSON.stringify(person), { headers: { "Content-Type": "application/json" } })
+                    return this.$http.put(('api/people/' + person.personId), JSON.stringify(person), { headers: { "Content-Type": "application/json" } })
                         .then(function (response) {
-                        promise = response.data;
+                        return response.data;
                     });
                 }
-                return promise;
             };
             ContactsService.$inject = ['$http'];
             return ContactsService;

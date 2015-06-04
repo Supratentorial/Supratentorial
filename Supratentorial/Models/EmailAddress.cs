@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 namespace Supratentorial.Models
 {
     public class EmailAddress
@@ -9,5 +10,7 @@ namespace Supratentorial.Models
         public int PersonId { get; set; }
         [JsonIgnore]
         public virtual Person Person { get; set; }
+        public bool IsArchived { get; set; }
+        public DateTime DateArchived { get; set; }
     }
 }

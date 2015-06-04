@@ -9,7 +9,7 @@
         public string Country { get; set; }
         public int PostCode { get; set; }
         public string Type { get; set; }
-        public string Status { get; set; }
+        public bool IsArchived { get; set; }
 
         public int? PersonId { get; set; }
         public virtual Person Person { get; set; }

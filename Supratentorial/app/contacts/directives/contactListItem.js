@@ -13,4 +13,4 @@ var contacts;
         });
     })(directives = contacts.directives || (contacts.directives = {}));
 })(contacts || (contacts = {}));
-//# sourceMappingURL=contact-list-item.js.map
+//# sourceMappingURL=contactListItem.js.map

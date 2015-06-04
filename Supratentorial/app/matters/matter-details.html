@@ -1,16 +1,24 @@
 ﻿<div class="toolbar">
-    <button class="btn btn-default" ui-sref="matter-details"><span class="glyphicon glyphicon-plus"></span> Add Relationship</button>
+    <button class="btn btn-success" ng-click="vm.saveMatter()"><span class="glyphicon glyphicon-floppy-disk"></span> Save Matter</button>
+    <button class="btn btn-default" ng-click="vm.editRelationship()"><span class="glyphicon glyphicon-plus"></span> Add Relationship</button>
     <button class="btn btn-default"></button>
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">{{vm.matterTitle}}</h4>
                 </div>
                 <div class="panel-body">
-                    
+                    <div class="col-lg-6">
+                         <matter-relationship ng-repeat="relationship in vm.matterRelationships" relationship="relationship">
+                            
+                         </matter-relationship>
+                    </div>
+                    <div class="col-lg-6">
+                        <matter-detail ng-repeat="detail in vm.matterDetails"></matter-detail>
+                    </div>
                 </div>
             </div>
         </div>
