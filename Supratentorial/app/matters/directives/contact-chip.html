@@ -1,4 +1,5 @@
-﻿<div style="display: inline-block" class="contact-chip">
+﻿<div class="contact-chip">
     <img src="img/person_contact_chip.svg"/>
-    <span>{{contact.name}}</span>
+    <a ui-sref="contact-details.basic({id: {{contact.id}}})" style="margin:0 10px 0 2px">{{contact.name}}</a>
+    <img src="img/circle_close.svg" style="cursor:pointer"/>
 </div>

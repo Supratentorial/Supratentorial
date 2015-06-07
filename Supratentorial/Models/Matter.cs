@@ -10,7 +10,7 @@ namespace Supratentorial.Models
         public DateTime DateCreated { get; set; }
         public DateTime InstructionsReceived { get; set; }
         public string Status { get; set; }
-        public virtual ICollection<Relationship> Relationship { get; set; }
+        public virtual ICollection<Relationship> Relationships { get; set; }
         public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Person> PeopleResponsible { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

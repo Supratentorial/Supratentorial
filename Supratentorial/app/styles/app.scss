@@ -116,5 +116,22 @@ body {
     background-color: $contact-chip-background;
     border-radius: 50px;
     font-size: 14px;
-    margin-top: 5px;
+    margin: 0 5px;
+    display: inline-block
+}
+
+.matter-relationship{
+    border-bottom: solid 1px $material-design-grey-300;
+    padding: 5px;
+}
+
+.matter-detail-chip{
+    background-color: $material-design-grey-200;
+    padding: 5px;
+    display: inline-block;
+}
+
+.matter-detail{
+    border-bottom: solid 1px $material-design-grey-300;
+    min-height: 20px;
 }

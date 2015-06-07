@@ -117,6 +117,7 @@
     <Content Include="app\dashboard\dashboardPartial.html" />
     <Content Include="app\index.html" />
     <Content Include="app\matters\directives\contact-chip.html" />
+    <Content Include="app\matters\directives\matter-detail-chip.html" />
     <Content Include="app\matters\directives\matter-relationship.html" />
     <Content Include="app\matters\matter-add-relationship.html" />
     <Content Include="app\matters\matter-details.html" />
@@ -275,6 +276,7 @@
     <TypeScriptCompile Include="app\contacts\directives\contactListItem.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
     <TypeScriptCompile Include="app\matters\directives\contactChip.ts" />
+    <TypeScriptCompile Include="app\matters\directives\matterDetailChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterRelationship.ts" />
     <TypeScriptCompile Include="app\matters\matterDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\matters\matterInterfaces.ts" />

@@ -7,7 +7,7 @@ module matters.controllers {
 
         matterTitle: string = 'New Matter';
         entities = [{ name: "Blake Mumford" }, { name: "Helena Mumford" }];
-        matterRelationships = [{ type: "Client", contact: { name: "Blake Mumford" } }, { type: "Client", contact: { name: "Helena Mumford"} }];
+        matterRelationships = [{ type: "Client", contacts: [{ name: "Homer Simpson" }] }, { type: "Children", contacts: [{ name: "Bart Simpson" }, {name : "Lisa Simpson"}] }];
 
         static $inject = ['$modal'];
         constructor(private $modal : ng.ui.bootstrap.IModalService) {   

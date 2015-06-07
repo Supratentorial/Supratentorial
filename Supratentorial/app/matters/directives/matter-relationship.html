@@ -1,4 +1,4 @@
-﻿<div>
-    <span>{{relationship.type}}</span>
-    <contact-chip contact="relationship.contact"></contact-chip>
+﻿<div class="matter-relationship">
+    <span style="margin-right: 5px">{{relationship.type}}</span>
+    <contact-chip ng-repeat="contact in relationship.contacts" contact="contact"></contact-chip>
 </div>
