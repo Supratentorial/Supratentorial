@@ -51,7 +51,13 @@
                 </div>
 
             </div>
-            <button class="btn btn-default" ng-click="vm.addPhone()">Add Phone</button>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <button class="btn btn-default" ng-click="vm.addPhone()">Add Phone</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-6">
             <div class="row" ng-repeat="email in vm.emailAddresses">
@@ -68,33 +74,57 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-default" ng-click="vm.addEmail()">Add Email</button>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <button class="btn btn-default" ng-click="vm.addEmail()">Add Email</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <div class="row">
-                <div class="form-group col-lg-12">
-                    <label>Address Line 1</label>
-                    <input class="form-control" placeholder="PO Box, Street Address" type="text" />
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-control">
+                                <option>Postal</option>
+                                <option>Residential</option>
+                                <option>Work</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-lg-12">
-                    <label>Address Line 2</label>
-                    <input class="form-control" placeholder="Apartment, Building, Suite (optional)" type="text" />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Address Line 1</label>
+                            <input class="form-control" placeholder="PO Box, Street Address" type="text" />
+                        </div>
+                    </div>
+                    <div class=" col-lg-12">
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input class="form-control" placeholder="Apartment, Building, Suite (optional)" type="text" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-lg-4">
-                    <label>Suburb</label>
-                    <input class="form-control" />
-                </div>
-                <div class="form-group col-lg-4">
-                    <label>State</label>
-                    <input class="form-control" />
-                </div>
-                <div class="form-group col-lg-4">
-                    <label>Postal Code:</label>
-                    <input class="form-control" />
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label>Suburb</label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>State</label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>Postal Code:</label>
+                        <input class="form-control" />
+                    </div>
                 </div>
             </div>
         </div>

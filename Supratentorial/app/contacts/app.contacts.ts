@@ -1,6 +1,6 @@
 ﻿/// <reference path="contactsservice.ts" />
 /// <reference path="contactsctrl.ts" />
-/// <reference path="contactdetailsctrl.ts" />
+/// <reference path="persondetailsctrl.ts" />
 /// <reference path="contactsinterfaces.ts" />
 /// <reference path="../typings/angularjs/angular.d.ts" />
 

@@ -6,7 +6,7 @@
 
 module contacts.controllers {
     "use strict"
-    interface IContactDetailsCtrl {
+    interface IPersonDetailsCtrl {
         titleOptions: string[];
         phoneOptions: string[];
         title: string;
@@ -18,9 +18,7 @@ module contacts.controllers {
         mapContact(): interfaces.IPerson;
     }
 
-    export class ContactDetailsCtrl implements IContactDetailsCtrl {
-
-        toolbarTitle: string = "";
+    export class PersonDetailsCtrl implements IPersonDetailsCtrl {
 
         personId: number = 0;
         title: string = "";
@@ -34,30 +32,28 @@ module contacts.controllers {
         dateOfDeathString: string = "";
 
         dateOfBirthString: string = "";
-        emailString: string = "";
         emailAddresses: interfaces.IEmailAddress[] = [];
         phoneNumbers: interfaces.IPhoneNumber[] = [];
-        phoneNumberString: string = "";
-        phoneNumberType: string = "";
         titleOptions: string[];
         phoneOptions: string[];
         tabData: any;
 
+        static $inject = ["contactsService", "$state"];
 
         constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IStateService) {
             this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
             this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
-            console.log(this.$state.params);
             this.personId = this.$state.params["id"];
             if (this.personId !== 0) {
-                this.contactsService.getPersonById(this.personId).then((contact: interfaces.IPerson): void => {
-                    this.firstName = contact.firstName;
-                    this.lastName = contact.lastName;
-                    this.title = contact.title;
-                    this.dateOfBirthString = moment(contact.dateOfBirth).format("DD-MM-YYYY");
-                    this.emailAddresses = contact.emailAddresses;
-                    this.phoneNumbers = contact.phoneNumbers;
-                    this.middleNames = contact.middleNames;
+                this.contactsService.getPersonById(this.personId).then((person: interfaces.IPerson): void => {
+                    this.personId = person.personId;
+                    this.firstName = person.firstName;
+                    this.lastName = person.lastName;
+                    this.title = person.title;
+                    this.dateOfBirthString = moment(person.dateOfBirth).format("DD-MM-YYYY");
+                    this.emailAddresses = person.emailAddresses;
+                    this.phoneNumbers = person.phoneNumbers;
+                    this.middleNames = person.middleNames;
                 });
 
             }
@@ -73,21 +69,21 @@ module contacts.controllers {
             this.tabData = [
                 {
                     heading: "Basic Details",
-                    route: "contact-details.basic",
+                    route: "person.basic",
                     params: {
                         id: this.personId
                     }
                 },
                 {
                     heading: "Biographical",
-                    route: "contact-details.biographical",
+                    route: "person.biographical",
                     params: {
                         id: this.personId
                     }
                 },
                 {
                     heading: "Financial",
-                    route: "contact-details.financial",
+                    route: "person.financial",
                     parmas: {
                         id: this.personId
                     }
@@ -130,8 +126,6 @@ module contacts.controllers {
             });
         }
 
-
-
         addEmail() {
             if (this.emailAddresses.length < 3) {
                 var email = <interfaces.IEmailAddress>{ id: 0, address: "", isPreferred: false };
@@ -162,5 +156,5 @@ module contacts.controllers {
             console.log("cancel button clicked");
         }
     }
-    angular.module('app.contacts').controller('ContactDetailsCtrl', contacts.controllers.ContactDetailsCtrl);
+    angular.module('app.contacts').controller('PersonDetailsCtrl', contacts.controllers.PersonDetailsCtrl);
 }

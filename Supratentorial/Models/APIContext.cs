@@ -55,5 +55,7 @@ namespace Supratentorial.Models
 
         public DbSet<Matter> Matters { get; set; }
         public DbSet<Person> People { get; set; }
+
+        public System.Data.Entity.DbSet<Supratentorial.Models.Organisation> Organisations { get; set; }
     }
 }

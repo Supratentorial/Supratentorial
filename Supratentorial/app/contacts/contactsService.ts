@@ -30,6 +30,36 @@ module contacts.services {
             });
         }
 
+        getOrganisationById(id: number): ng.IPromise<interfaces.IOrganisation> {
+            return this.$http.get('api/organisations/' + id)
+                .then((response: any) => {
+                return response.data;
+            });
+        }
+
+        saveOrganisation(organisation: interfaces.IOrganisation): ng.IPromise<interfaces.IOrganisation> {
+            if (organisation.organisationId === 0) {
+                return this.$http.post(
+                    'api/organisations',
+                    JSON.stringify(organisation),
+                    {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then((response: any) => {
+                    return response.data;
+                });
+            }
+            else {
+                return this.$http.put(('api/organisations/' + organisation.organisationId),
+                    JSON.stringify(organisation),
+                    { headers: { "Content-Type": "application/json" } })
+                    .then((response: any) => {
+                    return response.data;
+                });
+            }
+        }
+
         savePerson(person: interfaces.IPerson): ng.IPromise<interfaces.IPerson> {
             if (person.personId === 0) {
                 return this.$http.post(

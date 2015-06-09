@@ -4,10 +4,10 @@ var matters;
     (function (directives) {
         angular.module('app.matters').directive('matterRelationship', function () {
             return {
-                restrict: 'E',
+                restrict: 'EA',
                 templateUrl: 'html/matters/directives/matter-relationship.html',
                 scope: {
-                    relationship: '='
+                    matterRelationship: '='
                 }
             };
         });

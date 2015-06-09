@@ -35,22 +35,30 @@ module app {
                 templateUrl: '/html/contacts/contacts.html',
                 controller: 'ContactsCtrl as vm'
             })
-                .state('contact-details', <ng.ui.IState>{
-                url: '/contact-details',
-                templateUrl: 'html/contacts/contact-details.html',
-                controller: 'ContactDetailsCtrl as vm'
+                .state('person', <ng.ui.IState>{
+                url: '/people',
+                templateUrl: 'html/contacts/contact-shell.html',
+                controller: 'PersonDetailsCtrl as vm'
             })
-                .state('contact-details.basic', <ng.ui.IState>{
+                .state('person.basic', <ng.ui.IState>{
                 url: '/{id:int}/basic',
-                templateUrl: 'html/contacts/contact-details.basic.html'
+                templateUrl: 'html/contacts/person-basic.html',
+
             })
-                .state('contact-details.biographical', <ng.ui.IState>{
+                .state('person.biographical', <ng.ui.IState>{
                 url: '/{id:int}/biographic',
-                templateUrl: 'html/contacts/contact-details.biographical.html'
+                templateUrl: 'html/contacts/person-biographical.html'
             })
-                .state('contact-details.financial', <ng.ui.IState>{
+                .state('person.financial', <ng.ui.IState>{
                 url: '/{id:int}/financial',
-                templateUrl: 'html/contacts/contact-details.financial.html'
+                templateUrl: 'html/contacts/person-financial.html'
+            })
+                .state('organisation', <ng.ui.IState>{
+                url: '/organisations',
+                templateUrl: 'html/contacts/contact-shell.html'
+            }).state('organisation.basic', <ng.ui.IState>{
+                url: '/{id:int}/baisc',
+                templateUrl: 'html/contacts/organisation-basic.html'
             })
             this.$locationProvider.html5Mode(true);
         }

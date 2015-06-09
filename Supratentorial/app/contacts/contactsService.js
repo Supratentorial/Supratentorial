@@ -26,6 +26,29 @@ var contacts;
                     return response.data;
                 });
             };
+            ContactsService.prototype.getOrganisationById = function (id) {
+                return this.$http.get('api/organisations/' + id)
+                    .then(function (response) {
+                    return response.data;
+                });
+            };
+            ContactsService.prototype.saveOrganisation = function (organisation) {
+                if (organisation.organisationId === 0) {
+                    return this.$http.post('api/organisations', JSON.stringify(organisation), {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then(function (response) {
+                        return response.data;
+                    });
+                }
+                else {
+                    return this.$http.put(('api/organisations/' + organisation.organisationId), JSON.stringify(organisation), { headers: { "Content-Type": "application/json" } })
+                        .then(function (response) {
+                        return response.data;
+                    });
+                }
+            };
             ContactsService.prototype.savePerson = function (person) {
                 if (person.personId === 0) {
                     return this.$http.post('api/people', JSON.stringify(person), {

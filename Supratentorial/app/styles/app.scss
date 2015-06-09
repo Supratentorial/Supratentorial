@@ -3,7 +3,7 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
-    background-color: lightgray;
+    background-color: $material-design-grey-300;
     padding-top: 105px;
     padding-left: 5px;
     padding-right: 5px;
@@ -26,6 +26,7 @@ body {
     line-height: 50px;
     margin-bottom: 0;
     border: 0;
+
     li {
         a {
             font-size: 1.1em;
@@ -104,34 +105,44 @@ body {
     border-bottom-right-radius: $panel-border-radius;
 }
 
-.contact-list-item{
+.contact-list-item {
     border-top: solid 1px $list-item-divider;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
         background-color: $list-item-hover-background;
     }
 }
 
-.contact-chip{
+.chip-contact {
     background-color: $contact-chip-background;
     border-radius: 50px;
     font-size: 14px;
-    margin: 0 5px;
-    display: inline-block
+    display: inline-block;
 }
 
-.matter-relationship{
+.chip-button{
+    background-color: $contact-chip-background;
+    border-radius: 50px;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.matter-relationship {
     border-bottom: solid 1px $material-design-grey-300;
-    padding: 5px;
+    padding: 5px 0;
 }
 
-.matter-detail-chip{
+.matter-detail-chip {
     background-color: $material-design-grey-200;
     padding: 5px;
     display: inline-block;
 }
 
-.matter-detail{
-    border-bottom: solid 1px $material-design-grey-300;
-    min-height: 20px;
+.matter-detail-label {
+}
+
+.chip-link {
+    margin: 0 10px 0 2px;
 }

@@ -1,11 +1,11 @@
 module interfaces {
     export interface IPerson {
-        personId : number;
-        title : string;
-        firstName : string;
-        lastName : string;
-        middleNames : string;
-        dateOfBirth : Date;
+        personId: number;
+        title: string;
+        firstName: string;
+        lastName: string;
+        middleNames: string;
+        dateOfBirth: Date;
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
         staffProperties?: IStaffProperties;
@@ -13,15 +13,22 @@ module interfaces {
         biographicalProperties?: IBiographicalProperties;
     }
 
+    export interface IOrganisation {
+        organisationId: number;
+        phoneNumbers: IPhoneNumber[];
+        emailAddresses: IEmailAddress[];
+        address?: IAddress[];
+    }
+
     export interface IClientProperties {
-        dateOfDeath : Date;
+        dateOfDeath: Date;
         dateOfSeparation: Date;
         dateOfDivorce: Date;
-        childrenId : number[];
+        childrenId: number[];
     }
 
     export interface ISolicitorProperties {
-        practice : IPractice;
+        practice: IPractice;
     }
 
     export interface IStaffProperties {
@@ -36,11 +43,11 @@ module interfaces {
         countryOfBirth: string;
         dateOfDeath: Date;
     }
-    export interface IPractice{
-        id : number;
-        name : string;
-        phone : IPhoneNumber;
-        address : IAddress;
+    export interface IPractice {
+        id: number;
+        name: string;
+        phone: IPhoneNumber;
+        address: IAddress;
     }
 
     export interface IEmailAddress {
@@ -58,21 +65,23 @@ module interfaces {
         number: number;
     }
 
-    export interface IAddress{
+    export interface IAddress {
         id: number;
-        unitNumber : number;
-        streetNumber : number;
-        state : string;
-        country : string;
-        postCode : number;
-        isMailing : boolean;
-        isResidential : boolean;
+        unitNumber: number;
+        streetNumber: number;
+        state: string;
+        country: string;
+        postCode: number;
+        isMailing: boolean;
+        isResidential: boolean;
     }
 
     export interface IContactsService {
-        savePerson(person: IPerson) : ng.IPromise<IPerson>;
+        savePerson(person: IPerson): ng.IPromise<IPerson>;
         getPersonById(id: number): ng.IPromise<IPerson>;
         getRecentPeople(): ng.IPromise<IPerson[]>;
         getPeopleByLastName(queryString: string): ng.IPromise<IPerson[]>;
+        getOrganisationById(id: number): ng.IPromise<IOrganisation>;
+        saveOrganisation(organisation: IOrganisation): ng.IPromise<IOrganisation>;
     }
 }

@@ -106,16 +106,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\contacts\contact-details.financial.html" />
-    <Content Include="app\contacts\contact-details.html" />
-    <Content Include="app\contacts\contact-details.basic.html" />
-    <Content Include="app\contacts\contact-details.biographical.html" />
+    <Content Include="app\contacts\directives\phone-input.html" />
+    <Content Include="app\contacts\organisation-basic.html" />
+    <Content Include="app\contacts\person-financial.html" />
+    <Content Include="app\contacts\contact-shell.html" />
+    <Content Include="app\contacts\person-basic.html" />
+    <Content Include="app\contacts\person-biographical.html" />
     <Content Include="app\contacts\contacts.html" />
     <Content Include="app\contacts\directives\contact-list-item.html" />
-    <Content Include="app\contacts\organisation-details.html" />
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />
     <Content Include="app\index.html" />
+    <Content Include="app\matters\directives\button-chip.html" />
     <Content Include="app\matters\directives\contact-chip.html" />
     <Content Include="app\matters\directives\matter-detail-chip.html" />
     <Content Include="app\matters\directives\matter-relationship.html" />
@@ -187,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\OrganisationsController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
     <Compile Include="Migrations\201505310721064_Initial.cs" />
@@ -268,13 +271,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
-    <TypeScriptCompile Include="app\contacts\contactDetailsCtrl.ts" />
+    <TypeScriptCompile Include="app\contacts\directives\phone-input.ts" />
+    <TypeScriptCompile Include="app\contacts\personDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\app.contacts.ts" />
     <TypeScriptCompile Include="app\contacts\contactsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contactsInterfaces.ts" />
     <TypeScriptCompile Include="app\contacts\contactsService.ts" />
     <TypeScriptCompile Include="app\contacts\directives\contactListItem.ts" />
+    <TypeScriptCompile Include="app\contacts\organisationDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
+    <TypeScriptCompile Include="app\matters\directives\buttonChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\contactChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterDetailChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterRelationship.ts" />
