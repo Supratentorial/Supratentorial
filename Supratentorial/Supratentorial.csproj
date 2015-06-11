@@ -126,6 +126,7 @@
     <Content Include="app\matters\matters.archived.html" />
     <Content Include="app\matters\matters.html" />
     <Content Include="app\matters\matters.my-matters.html" />
+    <Content Include="app\matters\new-matter.html" />
     <Content Include="app\styles\app.css">
       <DependentUpon>app.scss</DependentUpon>
     </Content>
@@ -143,38 +144,57 @@
       <DependentUpon>APIContext-20150513231025.mdf</DependentUpon>
     </Content>
     <Content Include="dist\css\app.css" />
-    <Content Include="dist\css\colours.css" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
-    <Content Include="dist\html\contacts\contact-details.basic.html" />
-    <Content Include="dist\html\contacts\contact-details.biographical.html" />
-    <Content Include="dist\html\contacts\contact-details.financial.html" />
-    <Content Include="dist\html\contacts\contact-details.html" />
+    <Content Include="dist\html\contacts\contact-shell.html" />
     <Content Include="dist\html\contacts\contacts.html" />
     <Content Include="dist\html\contacts\directives\contact-list-item.html" />
+    <Content Include="dist\html\contacts\organisation-basic.html" />
+    <Content Include="dist\html\contacts\person-basic.html" />
+    <Content Include="dist\html\contacts\person-biographical.html" />
+    <Content Include="dist\html\contacts\person-financial.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
+    <Content Include="dist\html\matters\directives\button-chip.html" />
+    <Content Include="dist\html\matters\directives\contact-chip.html" />
+    <Content Include="dist\html\matters\directives\matter-detail-chip.html" />
+    <Content Include="dist\html\matters\directives\matter-relationship.html" />
+    <Content Include="dist\html\matters\matter-add-relationship.html" />
     <Content Include="dist\html\matters\matter-details.html" />
     <Content Include="dist\html\matters\matters.archived.html" />
     <Content Include="dist\html\matters\matters.html" />
     <Content Include="dist\html\matters\matters.my-matters.html" />
     <Content Include="dist\img\back.svg" />
+    <Content Include="dist\img\circle_close.svg" />
     <Content Include="dist\img\contacts.svg" />
     <Content Include="dist\img\dashboard.svg" />
     <Content Include="dist\img\matters.svg" />
     <Content Include="dist\img\meridian_logo.svg" />
+    <Content Include="dist\img\person.svg" />
+    <Content Include="dist\img\person_contact_chip.svg" />
+    <Content Include="dist\img\plus.svg" />
     <Content Include="dist\img\recent.svg" />
+    <Content Include="dist\img\relationships.svg" />
     <Content Include="dist\img\search.svg" />
     <Content Include="dist\index.html" />
     <Content Include="dist\js\app.js" />
     <Content Include="dist\js\contacts\app.contacts.js" />
-    <Content Include="dist\js\contacts\contactDetailsCtrl.js" />
     <Content Include="dist\js\contacts\contactsCtrl.js" />
     <Content Include="dist\js\contacts\contactsInterfaces.js" />
     <Content Include="dist\js\contacts\contactsService.js" />
+    <Content Include="dist\js\contacts\directives\contactListItem.js" />
+    <Content Include="dist\js\contacts\directives\phone-input.js" />
+    <Content Include="dist\js\contacts\organisationDetailsCtrl.js" />
+    <Content Include="dist\js\contacts\personDetailsCtrl.js" />
     <Content Include="dist\js\dashboard\dashboard.js" />
     <Content Include="dist\js\matters\app.matters.js" />
+    <Content Include="dist\js\matters\directives\buttonChip.js" />
+    <Content Include="dist\js\matters\directives\contactChip.js" />
+    <Content Include="dist\js\matters\directives\matterDetailChip.js" />
+    <Content Include="dist\js\matters\directives\matterRelationship.js" />
+    <Content Include="dist\js\matters\matterDetailsCtrl.js" />
     <Content Include="dist\js\matters\matterInterfaces.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
+    <Content Include="dist\js\matters\relationshipsCtrl.js" />
     <Content Include="dist\lib\angular-ui-router.js" />
     <Content Include="dist\lib\angular.js" />
     <Content Include="dist\lib\bootstrap.js" />
@@ -260,6 +280,7 @@
       <DependentUpon>_app-colours.css</DependentUpon>
     </Content>
     <Content Include="app\styles\_app-variables.scss" />
+    <Content Include="app\styles\_app-chips.scss" />
     <None Include="Properties\PublishProfiles\supratentorial - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\supratentorial - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -289,6 +310,7 @@
     <TypeScriptCompile Include="app\matters\app.matters.ts" />
     <TypeScriptCompile Include="app\matters\mattersCtrl.ts" />
     <TypeScriptCompile Include="app\matters\mattersService.ts" />
+    <TypeScriptCompile Include="app\matters\newMatterCtrl.ts" />
     <TypeScriptCompile Include="app\matters\relationshipsCtrl.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-router\angular-ui-router.d.ts" />

@@ -1,13 +1,16 @@
 ﻿/// <reference path="../typings/angularjs/angular.d.ts" />
 /// <reference path="app.matters.ts" />
+/// <reference path="matterinterfaces.ts" />
+/// <reference path="../contacts/contactsinterfaces.ts" />
 
 
 module matters.controllers {
     export class MatterDetailsCtrl {
 
         matterTitle: string = 'New Matter';
-        entities = [{ name: "Blake Mumford" }, { name: "Helena Mumford" }];
-        matterRelationships = [{ type: "Client", contacts: [{ name: "Homer Simpson" }] }, { type: "Children", contacts: [{ name: "Bart Simpson" }, {name : "Lisa Simpson"}] }];
+        clients = [{ name: "Homer Simpson", id: 1 }];
+        peopleResponsible = [{name: "Helena Mumford", id: 1}]
+
 
         static $inject = ['$modal'];
         constructor(private $modal : ng.ui.bootstrap.IModalService) {   

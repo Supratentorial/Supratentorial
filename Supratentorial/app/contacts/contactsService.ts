@@ -16,11 +16,15 @@ module contacts.services {
             });
         }
 
-        getPeopleByLastName(queryString: string) {
-            return this.$http.get('api/people' + queryString)
+        getPeopleByLastName(lastName: string) {
+            return this.$http.get('api/people?LastName=' + lastName)
                 .then((response: any) => {
                 return response.data;
             });
+        }
+
+        searchPeople(searchString : string) {
+            return this.$http.get('api/people?searchString='+ searchString).then((response: any) => { return response.data });
         }
 
         getPersonById(id: number): ng.IPromise<interfaces.IPerson> {

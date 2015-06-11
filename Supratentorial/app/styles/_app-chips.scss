@@ -1,0 +1,40 @@
+﻿$chip-icon-height: 25px;
+
+.chip-contact {
+    background-color: $contact-chip-background;
+    border-radius: 50px;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+    line-height: $chip-icon-height;
+}
+
+.chip-icon {
+    cursor: pointer;
+    height: $chip-icon-height;
+    width: 25px;
+}
+
+.chip-delete-icon{
+    cursor: pointer;
+    height: 22px;
+}
+
+.chip-button {
+    background-color: $contact-chip-background;
+    border-radius: 50px;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.chip-add-contact{
+    background-color: white;
+    border: 1px dashed $material-design-grey-300;
+    
+}
+
+.chip-link {
+    margin: 0 10px 0 2px;
+    line-height: 25px;
+}

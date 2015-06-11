@@ -40,13 +40,13 @@
      inkscape:window-height="660"
      id="namedview9"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
      inkscape:zoom="9.44"
-     inkscape:cx="8.8839523"
-     inkscape:cy="1.9338649"
+     inkscape:cx="16.842217"
+     inkscape:cy="10.908441"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -55,18 +55,18 @@
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="background"
-     transform="translate(-3,-5)">
+     transform="translate(-2.5,-5.5)">
     <circle
        style="opacity:1;fill:#e0e0e0;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4141"
-       cx="19"
-       cy="21"
-       r="16" />
+       cx="18.5"
+       cy="21.5"
+       r="15" />
   </g>
   <g
      id="g4"
      style="fill:#ffffff;fill-opacity:1;stroke:none"
-     transform="matrix(0.5686949,0,0,0.5625,6.900882,7)">
+     transform="matrix(0.5686949,0,0,0.5625,7.400882,6.5)">
     <g
        transform="translate(0.17429089,0)"
        id="g6"

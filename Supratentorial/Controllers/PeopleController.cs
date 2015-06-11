@@ -19,12 +19,15 @@ namespace Supratentorial.Controllers
         [Route("api/people")]
         [HttpGet]
         // GET: api/people
-        public IQueryable<Person> GetPeople(string lastName = "")
+        public IQueryable<Person> GetPeople(string searchString)
         {
-            if (string.IsNullOrEmpty(lastName)) { return db.People; }
+            if (String.IsNullOrEmpty(searchString))
+            {
+                return db.People;
+            }
             else
             {
-                return db.People.Where(person => person.LastName == lastName);
+                return db.People.Where(person => person.FirstName.Contains(searchString)|| person.LastName.Contains(searchString));
             }
         }
 

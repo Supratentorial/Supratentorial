@@ -27,6 +27,11 @@ var app;
                 templateUrl: 'html/matters/matter-details.html',
                 controller: 'MatterDetailsCtrl as vm'
             })
+                .state('new-matter', {
+                url: '/new-matter',
+                templateUrl: 'html/matters/new-matter.html',
+                controller: 'NewMatterCtrl as vm'
+            })
                 .state('dashboard', {
                 url: '/',
                 templateUrl: '/html/dashboard/dashboardPartial.html'

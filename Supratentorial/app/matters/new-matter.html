@@ -1,0 +1,54 @@
+﻿<div class="toolbar">
+    <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Create Matter</button>
+    <button class="btn btn-default">Cancel</button>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Basic Matter Details</h4>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Client(s)</label>
+                                    <div class="chip-add-contact">
+                                        <img class="chip-icon" src="img/plus.svg"/>
+                                        <a class="chip-link">Add Client</a>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search existing contacts..." ng-model="vm.selectedClient" typeahead="contact for contact in vm.searchContacts($viewValue)" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> &nbsp;</button>
+                                    </span>
+                                </div>
+                                <contact-list-item ng-repeat="contact in vm.searchResults" contact="contact"></contact-list-item>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">People Responsible</label>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="control-label">Matter Type</label>
+                                    <input class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

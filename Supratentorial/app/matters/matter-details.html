@@ -1,49 +1,30 @@
 ﻿<div class="toolbar">
-    <button class="btn btn-success" ng-click="vm.saveMatter()"><span class="glyphicon glyphicon-floppy-disk"></span> Save Matter</button>
-    <button class="btn btn-default" ng-click="vm.editRelationship()"><span class="glyphicon glyphicon-plus"></span> Add Relationship</button>
-    <button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Matter Detail</button>
+    <button class="btn btn-default" ng-click="bm.closeMatter()"><span class="glyphicon glyphicon-"></span> Close Matter</button>
+    <button class="btn btn-primary" ng-click="vm.editMatter()"><span class="glyphicon glyphicon-edit"></span> Edit Matter</button>
+    <button class="btn btn-default" ng-click="vm.archiveMatter()">Archive Matter</button>
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title"> Matter Details</h4>
-                </div>
-                <div class="panel-body">
-                    <table class="table">
-                            <tr>
-                                <td>Matter Name</td>
-                                <td>Mumford Purchase</td>
-                            </tr>
-                            <tr>
-                                <td>People Responsible</td>
-                                <td>
-                                    <button-chip img="img/plus.svg" text="Add Person"><button-chip/>
-                                    <contact-chip ng-repeat="contact in matter.peopleResponsible" contact="contact"></contact-chip>
-                                </td>
-                            </tr>
+        <div class="col-lg-4 col-md-4 hidden-sm hidden-xs sidebar">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="sidebar-heading">
+                        <h4 class="sidebar-title">060513 - Simpson Purchase</h4>
+                    </div>
+                    <table class="table table-condensed">
+                        <tr><td class="sidebar-label">Matter Type</td><td class="sidebar-content">Conveyancing - Purchase</td></tr>
+                        <tr><td class="sidebar-label">People Responsible</td><td><contact-chip ng-repeat="staff in vm.peopleResponsible" contact="staff"></contact-chip></td></tr>
+                        <tr><td class="sidebar-label">Client(s)</td><td><contact-chip ng-repeat="client in vm.clients" contact="client"></contact-chip></td></tr>
                     </table>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title"><img src="img/relationships.svg" /> Matter Relationships</h4>
-                </div>
-                <div class="panel-body">
-                    <div class="col-lg-12">
-                        <table class="table table-condensed">
-                            <tr ng-repeat="relationship in vm.matterRelationships" matter-relationship="relationship">
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-lg-6">
-                        <matter-detail ng-repeat="detail in vm.matterDetails"></matter-detail>
-                    </div>
+            <div class="row">
+                <div class="col-sm-12">
+
                 </div>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title"> Documents</h4>

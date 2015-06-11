@@ -26,6 +26,12 @@ module app {
                 templateUrl: 'html/matters/matter-details.html',
                 controller: 'MatterDetailsCtrl as vm'
             })
+                .state('new-matter', <ng.ui.IState>{
+                url: '/new-matter',
+                templateUrl: 'html/matters/new-matter.html',
+                controller: 'NewMatterCtrl as vm'
+
+            })
                 .state('dashboard', <ng.ui.IState>{
                 url: '/',
                 templateUrl: '/html/dashboard/dashboardPartial.html'

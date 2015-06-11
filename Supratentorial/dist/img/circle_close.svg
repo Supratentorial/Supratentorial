@@ -11,8 +11,8 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="circle_close.svg"
-   width="27"
-   height="27">
+   width="32"
+   height="32">
   <metadata
      id="metadata4156">
     <rdf:RDF>
@@ -41,8 +41,8 @@
      id="namedview4152"
      showgrid="false"
      inkscape:zoom="13.887577"
-     inkscape:cx="9.371784"
-     inkscape:cy="12.020062"
+     inkscape:cx="6.871784"
+     inkscape:cy="18.532714"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
   <g
      id="g4147"
      style="fill:#b71c1c;fill-opacity:1"
-     transform="matrix(0.62499995,0,0,0.62499995,3.5,3.5)">
+     transform="matrix(0.93749993,0,0,0.93749993,1,1)">
     <g
        id="g4149"
        style="fill:#b71c1c;fill-opacity:1">
