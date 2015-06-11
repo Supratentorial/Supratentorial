@@ -243,6 +243,7 @@
     <Compile Include="Models\ClientProperties.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CompanyProperties.cs" />
+    <Compile Include="Models\ContactDTO.cs" />
     <Compile Include="Models\MatterType.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\DoctorProperties.cs" />

@@ -51,7 +51,7 @@ var app;
                 templateUrl: 'html/contacts/person-basic.html',
             })
                 .state('person.biographical', {
-                url: '/{id:int}/biographic',
+                url: '/{id:int}/biographical',
                 templateUrl: 'html/contacts/person-biographical.html'
             })
                 .state('person.financial', {
@@ -60,9 +60,10 @@ var app;
             })
                 .state('organisation', {
                 url: '/organisations',
-                templateUrl: 'html/contacts/contact-shell.html'
+                templateUrl: 'html/contacts/contact-shell.html',
+                controller: 'OrganisationDetailsCtrl as vm'
             }).state('organisation.basic', {
-                url: '/{id:int}/baisc',
+                url: '/{id:int}/basic',
                 templateUrl: 'html/contacts/organisation-basic.html'
             });
             this.$locationProvider.html5Mode(true);

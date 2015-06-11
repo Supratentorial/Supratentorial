@@ -13,13 +13,6 @@
                     <form>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Client(s)</label>
-                                    <div class="chip-add-contact">
-                                        <img class="chip-icon" src="img/plus.svg"/>
-                                        <a class="chip-link">Add Client</a>
-                                    </div>
-                                </div>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search existing contacts..." ng-model="vm.selectedClient" typeahead="contact for contact in vm.searchContacts($viewValue)" />
                                     <span class="input-group-btn">

@@ -1,1 +1,133 @@
-﻿
+﻿<form>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label">Organisation Type</label>
+                <select name="organisationType" id="organisationType" class="form-control" ng-model="vm.organisationType">
+                    <option value="Business">Business</option>
+                    <option value="Company">Company</option>
+                    <option value="Government Department">Government Department</option>
+                    <option value="Trust">Trust</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div name="businessForm" ng-show="vm.organisationType == 'Business'">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="control-label">Trading Name</label>
+                    <input class="form-control" ng-model="vm.tradingName" />
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">Australian Business Number (ABN)</label>
+                <input class="form-control" ng-model="vm.businessAustralianBusinessNumber" />
+            </div>
+        </div>
+    </div>
+    <div name="companyForm" ng-show="vm.organisationType == 'Company'">
+        <div class="row">
+            Company
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row" ng-repeat="phone in vm.phoneNumbers">
+                <div class="form-group col-lg-3 col-md-3">
+                    <label>Phone Type</label>
+                    <select class="form-control" ng-model="phone.type"
+                            ng-options="p as p for p in vm.phoneOptions" ng-value="phone.type"></select>
+                </div>
+                <div class="form-group col-lg-9 col-md-9">
+                    <label>Phone Number</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="radio" name="defaultPhoneGroup" ng-model="phone.isPreferred" ng-value="phone.isPreferred" /> Preferred
+                        </span>
+                        <input class="form-control" type="tel" ng-model="phone.number" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button" ng-click="vm.deletePhone($index, phone)"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <button class="btn btn-default" ng-click="vm.addPhone()">Add Phone</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row" ng-repeat="email in vm.emailAddresses">
+                <div class="form-group col-lg-12">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="radio" name="defaultEmailGroup" ng-value="email.isPreferred" ng-model="email.isPreferred" /> Preferred
+                        </span>
+                        <input type="email" class="form-control" ng-model="email.address" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button" ng-click="vm.deleteEmail($index, email)"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <button class="btn btn-default" ng-click="vm.addEmail()">Add Email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-control">
+                                <option>Postal</option>
+                                <option>Residential</option>
+                                <option>Work</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Address Line 1</label>
+                            <input class="form-control" placeholder="PO Box, Street Address" type="text" />
+                        </div>
+                    </div>
+                    <div class=" col-lg-12">
+                        <div class="form-group">
+                            <label>Address Line 2</label>
+                            <input class="form-control" placeholder="Apartment, Building, Suite (optional)" type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label>Suburb</label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>State</label>
+                        <input class="form-control" />
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>Postal Code:</label>
+                        <input class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

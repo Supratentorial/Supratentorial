@@ -16,6 +16,13 @@ namespace Supratentorial.Controllers
     {
         private APIContext db = new APIContext();
 
+        //[Route("api/contact")]
+        //public IQueryable<ContactDTO> GetContacts(string searchString) {
+        //     db.People.Where(person => person.FirstName.Contains(searchString) || person.LastName.Contains(searchString));
+            
+            
+        //}
+
         [Route("api/people")]
         [HttpGet]
         // GET: api/people

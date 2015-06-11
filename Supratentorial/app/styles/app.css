@@ -22,10 +22,6 @@
   display: inline-block;
   cursor: pointer; }
 
-.chip-add-contact {
-  background-color: white;
-  border: 1px dashed #E0E0E0; }
-
 .chip-link {
   margin: 0 10px 0 2px;
   line-height: 25px; }

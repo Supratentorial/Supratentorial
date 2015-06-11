@@ -49,10 +49,9 @@ module app {
                 .state('person.basic', <ng.ui.IState>{
                 url: '/{id:int}/basic',
                 templateUrl: 'html/contacts/person-basic.html',
-
             })
                 .state('person.biographical', <ng.ui.IState>{
-                url: '/{id:int}/biographic',
+                url: '/{id:int}/biographical',
                 templateUrl: 'html/contacts/person-biographical.html'
             })
                 .state('person.financial', <ng.ui.IState>{
@@ -61,9 +60,10 @@ module app {
             })
                 .state('organisation', <ng.ui.IState>{
                 url: '/organisations',
-                templateUrl: 'html/contacts/contact-shell.html'
+                templateUrl: 'html/contacts/contact-shell.html',
+                controller: 'OrganisationDetailsCtrl as vm'
             }).state('organisation.basic', <ng.ui.IState>{
-                url: '/{id:int}/baisc',
+                url: '/{id:int}/basic',
                 templateUrl: 'html/contacts/organisation-basic.html'
             })
             this.$locationProvider.html5Mode(true);

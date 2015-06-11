@@ -18,6 +18,7 @@ module contacts.controllers {
     export class OrganisationDetailsCtrl implements IOrganisationDetailsCtrl {
 
         organisationId: number = 0;
+        organisationType: string = "Business";
         emailAddresses: interfaces.IEmailAddress[] = [];
         phoneNumbers: interfaces.IPhoneNumber[] = [];
 
@@ -104,5 +105,5 @@ module contacts.controllers {
             console.log("cancel button clicked");
         }
     }
-    angular.module('app.contacts').controller('OrganisationDetailsCtrl', contacts.controllers.PersonDetailsCtrl);
+    angular.module('app.contacts').controller('OrganisationDetailsCtrl', contacts.controllers.OrganisationDetailsCtrl);
 }
