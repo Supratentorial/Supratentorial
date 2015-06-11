@@ -12,6 +12,7 @@ var inject = require('gulp-inject');
 var flatten = require('gulp-flatten');
 var clean = require('gulp-clean');
 var series = require('stream-series');
+var plumber = require('gulp-plumber');
 
 var paths = {
     distFolder: "dist/",
@@ -46,6 +47,12 @@ gulp.task("clean", function () {
 //Transpiles app SCSS files into minifed CSS and writes them into dist.
 gulp.task("transpile-scss", ["clean"], function () {
     return gulp.src(paths.srcSCSSFiles)
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
         .pipe(sass({ style: "expanded" }))
         .pipe(minifycss())
         .pipe(gulp.dest(paths.distCSSDir));
@@ -54,6 +61,12 @@ gulp.task("transpile-scss", ["clean"], function () {
 //Transpiles app typescript files to javascript and writes them into dist.
 gulp.task('transpile-ts', ["clean"], function () {
     var clientResult = gulp.src([paths.srcTSFiles, paths.typings])
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
         .pipe(ts({
             target: 'ES6',
             declarationFiles: false,
@@ -65,6 +78,12 @@ gulp.task('transpile-ts', ["clean"], function () {
 //Copies vendor javascript files as well as Angular templates to dist directory.
 gulp.task('copy-vendor-libs', ["clean"], function () {
     gulp.src(wiredep().js) //Bower main JS source files
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
     .pipe(gulp.dest(paths.distVendorDir));
     //return gulp.src(wiredep().css) //Bower main CSS source files
     //    .pipe(gulp.dest(paths.distCSSDir));
