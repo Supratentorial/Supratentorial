@@ -1,11 +1,13 @@
 ﻿@import "_app-colours";
 @import "_app-variables";
-@import "_app-chips";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "_app-chips";
+@import "_app-mixins.scss";
+@import "_app-sidebar";
 
 body {
     background-color: $material-design-grey-300;
-    padding-top: 105px;
+    padding-top: 95px;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -15,38 +17,22 @@ body {
     padding: 5px 15px 5px 15px;
     position: fixed;
     height: 45px;
-    top: 50px;
+    top: 43px;
     left: 0;
     width: 100%;
     z-index: 999;
     border-bottom: 1px solid $border-color;
 }
 
-.navbar-default {
-    min-height: 50px;
-    height: 50px;
-    line-height: 50px;
-    margin-bottom: 0;
-    border: 0;
 
-    li {
-        a {
-            font-size: 1.1em;
-            padding: 0 10px;
-            padding-right: 10px;
-            padding-left: 10px;
-        }
-    }
-}
 
 .navbar-header {
     padding: 0;
-
     .logo {
         display: inline-block;
         margin-left: 10px;
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
     }
 
     a.navbar-brand {
@@ -116,46 +102,25 @@ body {
     }
 }
 
-
 .matter-relationship {
     border-bottom: solid 1px $material-design-grey-300;
     padding: 5px 0;
 }
 
 
+tags-input {
+    .host {
+        height: auto;
+    }
 
-.matter-detail-label {
+    .tags {
+        height: auto;
+    }
 }
 
 
-
-.sidebar {
-    position: fixed;
-    top: 95px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    background-color: white;
-    border-right: 1px solid $border-color;
+.nav-icon {
+    height: 20px;
+    margin-right: 3px;
 }
 
-.sidebar-title {
-    @extend .panel-title;
-    font-size: 20px;
-    display: inline-block;
-}
-
-.sidebar-heading {
-    padding: 5px;
-}
-
-.sidebar-label {
-    font-weight: bold;
-    font-size: 14px;
-    width: 150px;
-}
-
-.sidebar-content {
-    font-size: 14px;
-}

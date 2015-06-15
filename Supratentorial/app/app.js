@@ -65,6 +65,9 @@ var app;
             }).state('organisation.basic', {
                 url: '/{id:int}/basic',
                 templateUrl: 'html/contacts/organisation-basic.html'
+            }).state('settings', {
+                url: '/settings',
+                templateUrl: 'html/settings/settings.html'
             });
             this.$locationProvider.html5Mode(true);
         }

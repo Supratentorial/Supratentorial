@@ -11,8 +11,8 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="contacts.svg"
-   width="50"
-   height="50">
+   width="22"
+   height="22">
   <metadata
      id="metadata4147">
     <rdf:RDF>
@@ -40,13 +40,13 @@
      inkscape:window-height="660"
      id="namedview4143"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
      inkscape:zoom="9.82"
-     inkscape:cx="20"
-     inkscape:cy="25"
+     inkscape:cx="-12.291092"
+     inkscape:cy="11"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
   <g
      id="g4138"
      style="fill:#ffffff;fill-opacity:1"
-     transform="matrix(0.62673324,0,0,0.62499999,14.972268,15)">
+     transform="matrix(0.62673324,0,0,0.62499999,0.97226794,1)">
     <g
        transform="translate(0.04424858,0)"
        id="g4140"
@@ -69,10 +69,4 @@
          inkscape:connector-curvature="0" />
     </g>
   </g>
-  <circle
-     style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     id="path4149"
-     cx="25"
-     cy="25"
-     r="19.25" />
 </svg>

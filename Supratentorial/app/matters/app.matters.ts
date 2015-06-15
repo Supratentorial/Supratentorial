@@ -5,5 +5,5 @@
 
 
 module matters {
-    var mattersModule: ng.IModule = angular.module('app.matters', ['ui.bootstrap', 'ui.router']);
+    var mattersModule: ng.IModule = angular.module('app.matters', ['ui.bootstrap', 'ui.router', 'ngTagsInput', 'ui.select', 'ngSanitize']);
 }

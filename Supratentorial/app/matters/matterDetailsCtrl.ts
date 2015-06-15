@@ -9,7 +9,7 @@ module matters.controllers {
 
         matterTitle: string = 'New Matter';
         clients = [{ name: "Homer Simpson", id: 1 }];
-        peopleResponsible = [{name: "Helena Mumford", id: 1}]
+        
 
 
         static $inject = ['$modal'];

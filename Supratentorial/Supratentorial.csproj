@@ -127,6 +127,7 @@
     <Content Include="app\matters\matters.html" />
     <Content Include="app\matters\matters.my-matters.html" />
     <Content Include="app\matters\new-matter.html" />
+    <Content Include="app\settings\settings.html" />
     <Content Include="app\styles\app.css">
       <DependentUpon>app.scss</DependentUpon>
     </Content>
@@ -144,6 +145,8 @@
       <DependentUpon>APIContext-20150513231025.mdf</DependentUpon>
     </Content>
     <Content Include="dist\css\app.css" />
+    <Content Include="dist\css\ng-tags-input.bootstrap.min.css" />
+    <Content Include="dist\css\ng-tags-input.min.css" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="dist\html\contacts\contact-shell.html" />
     <Content Include="dist\html\contacts\contacts.html" />
@@ -162,12 +165,14 @@
     <Content Include="dist\html\matters\matters.archived.html" />
     <Content Include="dist\html\matters\matters.html" />
     <Content Include="dist\html\matters\matters.my-matters.html" />
+    <Content Include="dist\html\matters\new-matter.html" />
     <Content Include="dist\img\back.svg" />
     <Content Include="dist\img\circle_close.svg" />
     <Content Include="dist\img\contacts.svg" />
     <Content Include="dist\img\dashboard.svg" />
     <Content Include="dist\img\matters.svg" />
     <Content Include="dist\img\meridian_logo.svg" />
+    <Content Include="dist\img\organisation.svg" />
     <Content Include="dist\img\person.svg" />
     <Content Include="dist\img\person_contact_chip.svg" />
     <Content Include="dist\img\plus.svg" />
@@ -194,12 +199,15 @@
     <Content Include="dist\js\matters\matterInterfaces.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
+    <Content Include="dist\js\matters\newMatterCtrl.js" />
     <Content Include="dist\js\matters\relationshipsCtrl.js" />
+    <Content Include="dist\lib\angular-sanitize.js" />
     <Content Include="dist\lib\angular-ui-router.js" />
     <Content Include="dist\lib\angular.js" />
     <Content Include="dist\lib\bootstrap.js" />
     <Content Include="dist\lib\jquery.js" />
     <Content Include="dist\lib\moment.js" />
+    <Content Include="dist\lib\ng-tags-input.min.js" />
     <Content Include="dist\lib\ui-bootstrap-tpls.js" />
     <Content Include="dist\lib\ui-router-tabs.js" />
     <Content Include="Gulpfile.js" />
@@ -282,6 +290,8 @@
     </Content>
     <Content Include="app\styles\_app-variables.scss" />
     <Content Include="app\styles\_app-chips.scss" />
+    <Content Include="app\styles\_app-mixins.scss" />
+    <Content Include="app\styles\_app-sidebar.scss" />
     <None Include="Properties\PublishProfiles\supratentorial - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\supratentorial - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -313,6 +323,8 @@
     <TypeScriptCompile Include="app\matters\mattersService.ts" />
     <TypeScriptCompile Include="app\matters\newMatterCtrl.ts" />
     <TypeScriptCompile Include="app\matters\relationshipsCtrl.ts" />
+    <TypeScriptCompile Include="app\settings\app.settings.ts" />
+    <TypeScriptCompile Include="app\settings\settingsCtrl.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="app\typings\angularjs\angular.d.ts" />

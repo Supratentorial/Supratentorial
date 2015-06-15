@@ -65,6 +65,9 @@ module app {
             }).state('organisation.basic', <ng.ui.IState>{
                 url: '/{id:int}/basic',
                 templateUrl: 'html/contacts/organisation-basic.html'
+            }).state('settings', <ng.ui.IState>{
+                url: '/settings',
+                templateUrl: 'html/settings/settings.html'
             })
             this.$locationProvider.html5Mode(true);
         }

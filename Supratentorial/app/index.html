@@ -1,14 +1,12 @@
-﻿
-<html>
+﻿<html>
 
 <head>
     <meta charset="utf-8" />
     <base href="/">
     <title>Meridian Legal</title>
-    <!-- inject:css -->
-    <link rel="stylesheet" href="../wwwroot/css/app.css" />
-    <link href='http://fonts.googleapis.com/css?family=Antic' rel='stylesheet' type='text/css'>
-    <!-- endinject -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body ng-app="app">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,9 +19,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a ui-sref="dashboard"><img src="img/dashboard.svg"/>Dashboard</a></li>
-                    <li><a ui-sref="matters"><img src="img/matters.svg"/>Matters</a></li>
-                    <li><a ui-sref="contacts"><img src="img/contacts.svg"/>Contacts</a></li>
+                    <li><a ui-sref="dashboard"><img class="nav-icon" src="img/dashboard.svg"/>Dashboard</a></li>
+                    <li><a ui-sref="matters"><img class="nav-icon" src="img/matters.svg"/>Matters</a></li>
+                    <li><a ui-sref="contacts"><img class="nav-icon" src="img/contacts.svg"/>Contacts</a></li>
+                    <li><a ui-sref="settings"><img class="nav-icon" src="img/settings.svg"/>Settings</a></li>
                 </ul>
             </div>
         </div>

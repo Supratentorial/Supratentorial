@@ -11,8 +11,8 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="matters.svg"
-   width="50"
-   height="50">
+   width="26.499441"
+   height="22">
   <metadata
      id="metadata4712">
     <rdf:RDF>
@@ -40,20 +40,20 @@
      inkscape:window-height="660"
      id="namedview4708"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
      inkscape:zoom="8.6797357"
-     inkscape:cx="25.896006"
-     inkscape:cy="24.489615"
+     inkscape:cx="-5.2769094"
+     inkscape:cy="10.571478"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4701" />
   <g
      id="g4703"
-     transform="matrix(0.76560754,0,0,0.76560754,12.65,12.832142)">
+     transform="matrix(0.76560754,0,0,0.76560754,1,-1.2497208)">
     <g
        transform="translate(0,2.9384779)"
        id="g4705">
@@ -67,10 +67,4 @@
          style="fill:#ffffff" />
     </g>
   </g>
-  <circle
-     style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     id="path5254"
-     cx="25"
-     cy="25"
-     r="19.25" />
 </svg>

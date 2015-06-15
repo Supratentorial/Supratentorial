@@ -18,7 +18,7 @@ var paths = {
     distFolder: "dist/",
     distVendorDir: "dist/lib",
     distCSSDir: "dist/css",
-    distCSSFiles: "dist/css/*.css",
+    distCSSFiles: "dist/css/app.css",
     distJSDir: "dist/js",
     distHTMLDir: "dist/html",
     distJSFiles: "dist/js/**/*.js",
@@ -45,7 +45,7 @@ gulp.task("clean", function () {
 });
 
 //Transpiles app SCSS files into minifed CSS and writes them into dist.
-gulp.task("transpile-scss", ["clean"], function () {
+gulp.task("transpile-scss", function () {
     return gulp.src(paths.srcSCSSFiles)
         .pipe(plumber({
             errorHandler: function (err) {
@@ -59,7 +59,7 @@ gulp.task("transpile-scss", ["clean"], function () {
 });
 
 //Transpiles app typescript files to javascript and writes them into dist.
-gulp.task('transpile-ts', ["clean"], function () {
+gulp.task('transpile-ts', function () {
     var clientResult = gulp.src([paths.srcTSFiles, paths.typings])
         .pipe(plumber({
             errorHandler: function (err) {
@@ -76,7 +76,7 @@ gulp.task('transpile-ts', ["clean"], function () {
 });
 
 //Copies vendor javascript files as well as Angular templates to dist directory.
-gulp.task('copy-vendor-libs', ["clean"], function () {
+gulp.task('copy-vendor-libs', function () {
     gulp.src(wiredep().js) //Bower main JS source files
         .pipe(plumber({
             errorHandler: function (err) {
@@ -85,15 +85,12 @@ gulp.task('copy-vendor-libs', ["clean"], function () {
             }
         }))
     .pipe(gulp.dest(paths.distVendorDir));
-    //return gulp.src(wiredep().css) //Bower main CSS source files
-    //    .pipe(gulp.dest(paths.distCSSDir));
+    gulp.src(wiredep().css).pipe(gulp.dest(paths.distCSSDir)); //Bower main CSS source files
     return gulp.src([paths.srcHTMLFiles, '!app/index.html']).pipe(gulp.dest(paths.distHTMLDir));
 });
 
 //Injects JS and CSS reference tags in index.html from Bower and app src files.
 gulp.task('wiredep', ["copy-vendor-libs", "transpile-scss", "transpile-ts"], function () {
-    var appCSS = gulp.src('css/app.css', { read: false });
-    var vendorCSS = gulp.src([paths.distCSSFiles, '!css/app.css'], { read: false });
     return gulp.src(paths.srcIndexFile)
        .pipe(wiredep.stream({
            fileTypes: {
@@ -101,10 +98,10 @@ gulp.task('wiredep', ["copy-vendor-libs", "transpile-scss", "transpile-ts"], fun
                    replace: {
                        js: function (filePath) {
                            return '<script src="' + 'lib/' + filePath.split('/').pop() + '"></script>';
+                       },
+                       css: function (filePath) {
+                           return '<link rel="stylesheet" href="' + 'css/' + filePath.split('/').pop() + '"/>';
                        }
-                       //css: function (filePath) {
-                       //    return '<link rel="stylesheet" href="' + 'css/' + filePath.split('/').pop() + '"/>';
-                       //}
                    }
                }
            }
@@ -115,22 +112,21 @@ gulp.task('wiredep', ["copy-vendor-libs", "transpile-scss", "transpile-ts"], fun
            return '<script src="' + filePath.replace('dist/', '') + '"></script>';
        }
    }))
-   //Injects the CSS in series so app scripts always come after vendor scripts.
-   .pipe(inject(series(appCSS, vendorCSS), {
-       addRootSlash: false,
-       transform: function (filePath, file, i, length) {
-           return '<link rel="stylesheet" href="' + filePath.replace('dist/', '') + '"/>';
-       }
-   }))
+   //.pipe(inject(gulp.src(paths.distCSSFiles, { read: false }), {
+   //    addRootSlash: false,
+   //    transform: function (filePath, file, i, length) {
+   //        return '<link rel="stylesheet" href="' + filePath.replace('dist/', '') + '"/>';
+   //    }
+   //}))
    .pipe(gulp.dest(paths.distFolder));
 });
 
 //Watches src SCSS, TS and Index files.
 gulp.task("watch", function () {
-    gulp.watch(paths.srcSCSSFiles, ["wiredep"]);
-    gulp.watch(paths.srcTSFiles, ["wiredep"]);
-    gulp.watch(paths.srcIndexFile, ["wiredep"]);
-    gulp.watch(paths.srcHTMLFiles, ["wiredep"]);
+    gulp.watch(paths.srcSCSSFiles, ["default"]);
+    gulp.watch(paths.srcTSFiles, ["default"]);
+    gulp.watch(paths.srcIndexFile, ["default"]);
+    gulp.watch(paths.srcHTMLFiles, ["default"]);
 });
 
 gulp.task("default", ["wiredep"], function () { });

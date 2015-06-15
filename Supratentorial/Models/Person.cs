@@ -10,6 +10,7 @@ namespace Supratentorial.Models
             this.PhoneNumbers = new HashSet<PhoneNumber>();
             this.EmailAddresses = new HashSet<EmailAddress>();
             this.SafeCustodyDocuments = new HashSet<SafeCustodyDocument>();
+            this.Addresses = new HashSet<Address>();
         }
 
         public int PersonId { get; set; }
@@ -30,7 +31,7 @@ namespace Supratentorial.Models
         //Real estate agent properties
         
 
-        //iographical properties
+        //Biographical properties
         public BiographicalProperties BiographicalProperties { get; set; }
     }
 }

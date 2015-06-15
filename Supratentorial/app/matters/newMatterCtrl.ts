@@ -1,7 +1,11 @@
 ﻿module matters.controllers {
     export class NewMatterCtrl {
-
-        selectedClient: interfaces.IPerson;
+        
+        clients: interfaces.IPerson[];
+        primaryPerson: interfaces.IPerson;
+        peopleAssisting = [];
+        
+        staffMembers = [{ name: "Andrew Mumford", email: "andrew@mumfordslawyers.com.au" }, {name: "Helena Mumford", email: "helena@mumfordslawyers.com.au"}]
 
         static $inject = ['contactsService'];
         constructor(private contactsService : interfaces.IContactsService){

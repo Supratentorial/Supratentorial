@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="50"
-   height="50"
-   viewBox="0 0 50.000001 50.000001"
+   width="32.400002"
+   height="32"
+   viewBox="0 0 32.400003 32.000001"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -25,21 +25,27 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="12.275"
-     inkscape:cx="26.01833"
-     inkscape:cy="25.000017"
+     inkscape:zoom="8.6797357"
+     inkscape:cx="5.4145748"
+     inkscape:cy="12.553837"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      units="px"
      inkscape:window-width="1280"
      inkscape:window-height="660"
-     inkscape:window-x="-32000"
-     inkscape:window-y="-32000"
-     inkscape:window-maximized="0">
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-bottom="1"
+     fit-margin-right="1.4"
+     fit-margin-top="1"
+     fit-margin-left="1">
     <inkscape:grid
        type="xygrid"
-       id="grid4138" />
+       id="grid4138"
+       originx="-8.9999983"
+       originy="-9.0000327" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -57,16 +63,16 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-1002.3622)">
+     transform="translate(-8.9999981,-1011.3622)">
     <circle
        style="opacity:1;fill:#ffffff;fill-opacity:0.94117647;stroke:none;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4163"
-       cx="25"
+       cx="24.999998"
        cy="1027.3622"
-       r="20" />
+       r="15" />
     <g
        id="g4167"
-       transform="matrix(0.78125002,0,0,0.8247124,12.5,1014.1668)"
+       transform="matrix(0.62500002,0,0,0.65976991,14.999998,1016.8059)"
        style="fill:#b71c1c;fill-opacity:1">
       <g
          id="g4169"

@@ -1,7 +1,8 @@
 ﻿<div class="toolbar">
-    <button class="btn btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> Create Matter</button>
-    <button class="btn btn-default">Cancel</button>
+    <button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-floppy-disk"></span> Create Matter</button>
+    <button class="btn btn-default btn-sm">Cancel</button>
 </div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
@@ -12,32 +13,56 @@
                 <div class="panel-body">
                     <form>
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search existing contacts..." ng-model="vm.selectedClient" typeahead="contact for contact in vm.searchContacts($viewValue)" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> &nbsp;</button>
-                                    </span>
-                                </div>
-                                <contact-list-item ng-repeat="contact in vm.searchResults" contact="contact"></contact-list-item>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="control-label">People Responsible</label>
-                                    <input class="form-control" />
+                                    <label class="control-label">Client(s)</label>
+                                    <tags-input placeholder="Search existing contacts" add-from-autocomplete-only="true" ng-model="vm.clients"></tags-input>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-5">
+                                <div class="form-group">
+                                    <label class="control-label">Person Responsible</label>
+                                    <ui-select ng-model="vm.primaryPerson">
+                                        <ui-select-match placeholder="Select staff member">{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-choices repeat="staff in vm.staffMembers | filter: $select.search">
+                                            <div ng-bind-html="staff.name | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="form-group">
+                                    <label class="control-label">People Assisting</label>
+                                    <tags-input placeholder="Search staff members" ng-model="vm.peopleAssisting"></tags-input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="control-label">Matter Type</label>
+                                    <ui-select ng-model="vm.matterType">
+                                        <ui-select-match placeholder="Select matter type">{{$select.matterType}}</ui-select-match>
+                                        <ui-select-choices repeat="types in vm.matterTypes | filter: $select.search">
+                                            <div ng-bind-html="type.name | highlight: $select.search"></div>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Matter Name</label>
                                     <input class="form-control" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            
                         </div>
                     </form>
                 </div>
