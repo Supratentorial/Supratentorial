@@ -4,6 +4,7 @@
 @import "_app-chips";
 @import "_app-mixins.scss";
 @import "_app-sidebar";
+@import "_app-list-item.scss";
 
 body {
     background-color: $material-design-grey-300;
@@ -16,7 +17,7 @@ body {
     background-color: white;
     padding: 5px 15px 5px 15px;
     position: fixed;
-    height: 45px;
+    height: 40px;
     top: 43px;
     left: 0;
     width: 100%;
@@ -91,15 +92,6 @@ body {
     padding: 15px;
     border-bottom-left-radius: $panel-border-radius;
     border-bottom-right-radius: $panel-border-radius;
-}
-
-.contact-list-item {
-    border-top: solid 1px $list-item-divider;
-    cursor: pointer;
-
-    &:hover {
-        background-color: $list-item-hover-background;
-    }
 }
 
 .matter-relationship {

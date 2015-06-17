@@ -127,7 +127,11 @@
     <Content Include="app\matters\matters.html" />
     <Content Include="app\matters\matters.my-matters.html" />
     <Content Include="app\matters\new-matter.html" />
+    <Content Include="app\settings\staff-details.html" />
+    <Content Include="app\settings\directives\staff-list-item.html" />
+    <Content Include="app\settings\matter-types.html" />
     <Content Include="app\settings\settings.html" />
+    <Content Include="app\settings\staff.html" />
     <Content Include="app\styles\app.css">
       <DependentUpon>app.scss</DependentUpon>
     </Content>
@@ -166,6 +170,9 @@
     <Content Include="dist\html\matters\matters.html" />
     <Content Include="dist\html\matters\matters.my-matters.html" />
     <Content Include="dist\html\matters\new-matter.html" />
+    <Content Include="dist\html\settings\matter-types.html" />
+    <Content Include="dist\html\settings\settings.html" />
+    <Content Include="dist\html\settings\staff-members.html" />
     <Content Include="dist\img\back.svg" />
     <Content Include="dist\img\circle_close.svg" />
     <Content Include="dist\img\contacts.svg" />
@@ -201,6 +208,8 @@
     <Content Include="dist\js\matters\mattersService.js" />
     <Content Include="dist\js\matters\newMatterCtrl.js" />
     <Content Include="dist\js\matters\relationshipsCtrl.js" />
+    <Content Include="dist\js\settings\app.settings.js" />
+    <Content Include="dist\js\settings\settingsCtrl.js" />
     <Content Include="dist\lib\angular-sanitize.js" />
     <Content Include="dist\lib\angular-ui-router.js" />
     <Content Include="dist\lib\angular.js" />
@@ -292,6 +301,7 @@
     <Content Include="app\styles\_app-chips.scss" />
     <Content Include="app\styles\_app-mixins.scss" />
     <Content Include="app\styles\_app-sidebar.scss" />
+    <Content Include="app\styles\_app-list-item.scss" />
     <None Include="Properties\PublishProfiles\supratentorial - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\supratentorial - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
@@ -324,7 +334,10 @@
     <TypeScriptCompile Include="app\matters\newMatterCtrl.ts" />
     <TypeScriptCompile Include="app\matters\relationshipsCtrl.ts" />
     <TypeScriptCompile Include="app\settings\app.settings.ts" />
+    <TypeScriptCompile Include="app\settings\directives\staff-list-item.ts" />
+    <TypeScriptCompile Include="app\settings\staffDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\settings\settingsCtrl.ts" />
+    <TypeScriptCompile Include="app\settings\settingsService.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="app\typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="app\typings\angularjs\angular.d.ts" />

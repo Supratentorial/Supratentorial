@@ -34,15 +34,13 @@ module contacts.controllers {
         dateOfBirthString: string = "";
         emailAddresses: interfaces.IEmailAddress[] = [];
         phoneNumbers: interfaces.IPhoneNumber[] = [];
-        titleOptions: string[];
-        phoneOptions: string[];
+        titleOptions: string[] = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"];
+        phoneOptions: string[] = ["Home", "Work", "Mobile", "Fax"];
         tabData: any;
 
         static $inject = ["contactsService", "$state"];
 
         constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IStateService) {
-            this.titleOptions = ["Mr", "Mrs", "Ms", "Miss", "Master", "Doctor", "Other"]
-            this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
             this.personId = this.$state.params["id"];
             if (this.personId !== 0) {
                 this.contactsService.getPersonById(this.personId).then((person: interfaces.IPerson): void => {

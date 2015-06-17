@@ -22,14 +22,12 @@ module contacts.controllers {
         emailAddresses: interfaces.IEmailAddress[] = [];
         phoneNumbers: interfaces.IPhoneNumber[] = [];
 
-        phoneOptions: string[];
+        phoneOptions: string[]= ["Home", "Work", "Mobile", "Fax"];
         tabData: any;
 
         static $inject = ["contactsService", "$state"];
 
         constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IStateService) {
-
-            this.phoneOptions = ["Home", "Work", "Mobile", "Fax"]
             this.organisationId = this.$state.params["id"];
             if (this.organisationId !== 0) {
                 this.contactsService.getOrganisationById(this.organisationId).then((organisation: interfaces.IOrganisation): void => {

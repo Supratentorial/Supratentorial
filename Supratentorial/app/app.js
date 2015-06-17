@@ -67,7 +67,14 @@ var app;
                 templateUrl: 'html/contacts/organisation-basic.html'
             }).state('settings', {
                 url: '/settings',
-                templateUrl: 'html/settings/settings.html'
+                templateUrl: 'html/settings/settings.html',
+                controller: 'SettingsCtrl as vm'
+            }).state('settings.staff-members', {
+                url: '/staff-members',
+                templateUrl: 'html/settings/staff.html'
+            }).state('settings.matter-types', {
+                url: '/matter-types',
+                templateUrl: 'html/settings/matter-types.html'
             });
             this.$locationProvider.html5Mode(true);
         }
@@ -75,7 +82,7 @@ var app;
         return StateConfig;
     })();
     app.StateConfig = StateConfig;
-    app.appModule = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters']);
+    app.appModule = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters', 'app.settings']);
     app.appModule.config(StateConfig);
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map

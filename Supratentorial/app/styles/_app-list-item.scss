@@ -1,0 +1,22 @@
+﻿%list-item {
+    border-top: solid 1px $list-item-divider;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $list-item-hover-background;
+    }
+
+    img {
+        height: 42px;
+        width: 42px;
+        vertical-align: middle;
+    }
+}
+
+.contact-list-item {
+    @extend .list-item;
+}
+
+.staff-list-item {
+    @extend .list-item;
+}

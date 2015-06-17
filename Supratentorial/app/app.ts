@@ -67,11 +67,18 @@ module app {
                 templateUrl: 'html/contacts/organisation-basic.html'
             }).state('settings', <ng.ui.IState>{
                 url: '/settings',
-                templateUrl: 'html/settings/settings.html'
+                templateUrl: 'html/settings/settings.html',
+                controller: 'SettingsCtrl as vm'
+            }).state('settings.staff-members', <ng.ui.IState>{
+                url: '/staff-members',
+                templateUrl: 'html/settings/staff.html'
+            }).state('settings.matter-types', <ng.ui.IState>{
+                url: '/matter-types',
+                templateUrl: 'html/settings/matter-types.html'
             })
             this.$locationProvider.html5Mode(true);
         }
     }
-    export var appModule: ng.IModule = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters']);
+    export var appModule: ng.IModule = angular.module('app', ['ui.router', 'ui.router.tabs', 'app.contacts', 'app.matters', 'app.settings']);
     appModule.config(StateConfig);
 }

@@ -1,0 +1,50 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">{{vm.pageTitle}}</h4>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input class="form-control" ng-model="vm.lastName" />
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="form-group">
+                    <label class="control-label">First Name</label>
+                    <input class="form-control" ng-model="vm.firstName" />
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <label class="control-label">Title</label>
+                    <ui-select ng-model="vm.title">
+                        <ui-select-match placeholder="Select title">{{$select.selected.title}}</ui-select-match>
+                        <ui-select-choices repeat="title in vm.titleOptions | filter: $select.search">
+                            <div ng-bind-html="title.title | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="control-label">Position</label>
+                    
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="control-label">Billing Position</label>
+                    <input class="form-control" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn-success">Save</button>
+        <button class="btn btn-default">Cancel</button>
+    </div>
+</div>
