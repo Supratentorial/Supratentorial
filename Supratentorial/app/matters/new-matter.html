@@ -25,7 +25,7 @@
                                 <div class="form-group">
                                     <label class="control-label">Person Responsible</label>
                                     <ui-select ng-model="vm.primaryPerson">
-                                        <ui-select-match placeholder="Select staff member">{{$select.selected.name}}</ui-select-match>
+                                        <ui-select-match allow-clear="true" placeholder="Select staff member">{{$select.selected.name}}</ui-select-match>
                                         <ui-select-choices repeat="staff in vm.staffMembers | filter: $select.search">
                                             <div ng-bind-html="staff.name | highlight: $select.search"></div>
                                         </ui-select-choices>

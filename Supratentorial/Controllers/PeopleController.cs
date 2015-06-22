@@ -23,11 +23,14 @@ namespace Supratentorial.Controllers
             
         //}
 
+        [Authorize]
         [Route("api/people")]
         [HttpGet]
         // GET: api/people
         public IQueryable<Person> GetPeople(string searchString)
         {
+            var isAuth = User.Identity.IsAuthenticated;
+            var userName = User.Identity.Name;
             if (String.IsNullOrEmpty(searchString))
             {
                 return db.People;

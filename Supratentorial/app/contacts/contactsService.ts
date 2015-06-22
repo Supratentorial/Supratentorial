@@ -3,39 +3,40 @@
 
 
 module contacts.services {
+    "use strict"
     export class ContactsService implements interfaces.IContactsService {
 
-        static $inject = ['$http'];
+        static $inject = ["$http"];
         constructor(private $http: ng.IHttpService) {
         }
 
         getRecentPeople() {
-            return this.$http.get('api/people/')
+            return this.$http.get("api/people/")
                 .then((response: any) => {
                 return response.data;
             });
         }
 
         getPeopleByLastName(lastName: string) {
-            return this.$http.get('api/people?LastName=' + lastName)
+            return this.$http.get("api/people?LastName=" + lastName)
                 .then((response: any) => {
                 return response.data;
             });
         }
 
-        searchPeople(searchString : string) {
-            return this.$http.get('api/people?searchString='+ searchString).then((response: any) => { return response.data });
+        searchPeople(searchString: string) {
+            return this.$http.get("api/people?searchString=" + searchString).then((response: any) => { return response.data; });
         }
 
         getPersonById(id: number): ng.IPromise<interfaces.IPerson> {
-            return this.$http.get('api/people/' + id)
+            return this.$http.get("api/people/" + id)
                 .then((response: any) => {
                 return response.data;
             });
         }
 
         getOrganisationById(id: number): ng.IPromise<interfaces.IOrganisation> {
-            return this.$http.get('api/organisations/' + id)
+            return this.$http.get("api/organisations/" + id)
                 .then((response: any) => {
                 return response.data;
             });
@@ -44,7 +45,7 @@ module contacts.services {
         saveOrganisation(organisation: interfaces.IOrganisation): ng.IPromise<interfaces.IOrganisation> {
             if (organisation.organisationId === 0) {
                 return this.$http.post(
-                    'api/organisations',
+                    "api/organisations",
                     JSON.stringify(organisation),
                     {
                         headers: {
@@ -55,7 +56,7 @@ module contacts.services {
                 });
             }
             else {
-                return this.$http.put(('api/organisations/' + organisation.organisationId),
+                return this.$http.put(("api/organisations/" + organisation.organisationId),
                     JSON.stringify(organisation),
                     { headers: { "Content-Type": "application/json" } })
                     .then((response: any) => {
@@ -67,7 +68,7 @@ module contacts.services {
         savePerson(person: interfaces.IPerson): ng.IPromise<interfaces.IPerson> {
             if (person.personId === 0) {
                 return this.$http.post(
-                    'api/people',
+                    "api/people",
                     JSON.stringify(person),
                     {
                         headers: {
@@ -78,7 +79,7 @@ module contacts.services {
                 });
             }
             else {
-                return this.$http.put(('api/people/' + person.personId),
+                return this.$http.put(("api/people/" + person.personId),
                     JSON.stringify(person),
                     { headers: { "Content-Type": "application/json" } })
                     .then((response: any) => {

@@ -1,0 +1,29 @@
+﻿<form>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="control-label">Matter Type Name:</label>
+                <input class="form-control" ng-model="vm.name" />
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="control-label">Category:</label>
+                <ui-select ng-model="vm.category">
+                    <ui-select-match placeholder="Search categories...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="category.name as category in vm.categoryOptions | filter: $select.search">
+                        <div ng-bind-html="category.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="control-label">Relationship Name</label>
+                <input class="form-control" />
+            </div>
+        </div>
+    </div>
+</form>

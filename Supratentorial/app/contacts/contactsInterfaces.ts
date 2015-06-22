@@ -4,10 +4,10 @@ module interfaces {
         title: string;
         firstName: string;
         lastName: string;
-        middleNames: string;
-        dateOfBirth: Date;
-        phoneNumbers: IPhoneNumber[];
-        emailAddresses: IEmailAddress[];
+        middleNames?: string;
+        dateOfBirth?: Date;
+        phoneNumbers?: IPhoneNumber[];
+        emailAddresses?: IEmailAddress[];
         staffProperties?: IStaffProperties;
         address?: IAddress[];
         biographicalProperties?: IBiographicalProperties;

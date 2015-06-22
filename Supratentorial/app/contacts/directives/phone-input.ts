@@ -1,11 +1,12 @@
 ﻿module contacts.directives {
-    angular.module('app.contacts').directive('phoneInput', function (): ng.IDirective {
+    "use strict"
+    angular.module("app.contacts").directive("phoneInput", function (): ng.IDirective {
         return {
-            restrict: 'E',
-            templateUrl: 'html/contacts/directives/phone-input.html',
+            restrict: "E",
+            templateUrl: "html/contacts/directives/phone-input.html",
             scope: {
-                phone: '='
+                phone: "="
             }
-        }
-    })
+        };
+    });
 } 

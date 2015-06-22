@@ -2,12 +2,13 @@ var contacts;
 (function (contacts) {
     var directives;
     (function (directives) {
-        angular.module('app.contacts').directive('phoneInput', function () {
+        "use strict";
+        angular.module("app.contacts").directive("phoneInput", function () {
             return {
-                restrict: 'E',
-                templateUrl: 'html/contacts/directives/phone-input.html',
+                restrict: "E",
+                templateUrl: "html/contacts/directives/phone-input.html",
                 scope: {
-                    phone: '='
+                    phone: "="
                 }
             };
         });
