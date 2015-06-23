@@ -81,7 +81,6 @@ module interfaces {
         getPersonById(id: number): ng.IPromise<IPerson>;
         getRecentPeople(): ng.IPromise<IPerson[]>;
         searchPeople(searchString :string): ng.IPromise<IPerson[]>;
-        getPeopleByLastName(queryString: string): ng.IPromise<IPerson[]>;
         getOrganisationById(id: number): ng.IPromise<IOrganisation>;
         saveOrganisation(organisation: IOrganisation): ng.IPromise<IOrganisation>;
     }

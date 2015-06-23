@@ -18,6 +18,7 @@ namespace Supratentorial.Models
         public APIContext()
             : base("name=APIContext")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

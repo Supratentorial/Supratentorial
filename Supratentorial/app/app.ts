@@ -34,7 +34,8 @@ module app {
             }).state("contacts", <ng.ui.IState>{
                 url: "/contacts",
                 templateUrl: "/html/contacts/contacts.html",
-                controller: "ContactsCtrl as vm"
+                controller: "ContactsCtrl as vm",
+                requireADLogin: true
             }).state("person", <ng.ui.IState>{
                 url: "/people",
                 templateUrl: "html/contacts/contact-shell.html",

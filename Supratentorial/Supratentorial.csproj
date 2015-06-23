@@ -311,7 +311,6 @@
     <Compile Include="Models\SafeCustodyDocument.cs" />
     <Compile Include="Models\StaffProperties.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.Auth.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -359,6 +358,7 @@
     <TypeScriptCompile Include="app\contacts\directives\contactListItem.ts" />
     <TypeScriptCompile Include="app\contacts\organisationDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
+    <TypeScriptCompile Include="app\indexCtrl.ts" />
     <TypeScriptCompile Include="app\matters\directives\buttonChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\contactChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterDetailChip.ts" />

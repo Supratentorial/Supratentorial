@@ -36,7 +36,8 @@ var app;
             }).state("contacts", {
                 url: "/contacts",
                 templateUrl: "/html/contacts/contacts.html",
-                controller: "ContactsCtrl as vm"
+                controller: "ContactsCtrl as vm",
+                requireADLogin: true
             }).state("person", {
                 url: "/people",
                 templateUrl: "html/contacts/contact-shell.html",

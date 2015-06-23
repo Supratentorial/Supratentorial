@@ -15,12 +15,6 @@ var contacts;
                     return response.data;
                 });
             };
-            ContactsService.prototype.getPeopleByLastName = function (lastName) {
-                return this.$http.get("api/people?LastName=" + lastName)
-                    .then(function (response) {
-                    return response.data;
-                });
-            };
             ContactsService.prototype.searchPeople = function (searchString) {
                 return this.$http.get("api/people?searchString=" + searchString).then(function (response) { return response.data; });
             };

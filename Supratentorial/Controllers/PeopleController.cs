@@ -25,6 +25,7 @@ namespace Supratentorial.Controllers
 
         [Authorize]
         [Route("api/people")]
+        [ResponseType(typeof(Person))]
         [HttpGet]
         // GET: api/people
         public IQueryable<Person> GetPeople(string searchString)
@@ -44,7 +45,7 @@ namespace Supratentorial.Controllers
         [Route("api/people/{personId}")]
         // GET: api/people/5
         [ResponseType(typeof(Person))]
-        public IHttpActionResult GetPerson(int personId)
+        public IHttpActionResult GetPersonById(int personId)
         {
             Person person = db.People.Find(personId);
             if (person == null)

@@ -20,8 +20,7 @@ var contacts;
             };
             ContactsCtrl.prototype.searchContacts = function () {
                 var _this = this;
-                var queryString = "?LastName=" + this.searchString;
-                this.contactsService.getPeopleByLastName(queryString).then(function (contactsReslt) {
+                this.contactsService.searchPeople(this.searchString).then(function (contactsReslt) {
                     _this.contactsList = contactsReslt;
                 });
             };

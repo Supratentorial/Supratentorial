@@ -17,13 +17,6 @@ module contacts.services {
             });
         }
 
-        getPeopleByLastName(lastName: string) {
-            return this.$http.get("api/people?LastName=" + lastName)
-                .then((response: any) => {
-                return response.data;
-            });
-        }
-
         searchPeople(searchString: string) {
             return this.$http.get("api/people?searchString=" + searchString).then((response: any) => { return response.data; });
         }

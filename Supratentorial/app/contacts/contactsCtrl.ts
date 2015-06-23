@@ -21,8 +21,7 @@ module contacts.controllers {
         }
 
         searchContacts() {
-            var queryString: string = "?LastName=" + this.searchString;
-            this.contactsService.getPeopleByLastName(queryString).then((contactsReslt: interfaces.IPerson[]) => {
+            this.contactsService.searchPeople(this.searchString).then((contactsReslt: interfaces.IPerson[]) => {
                 this.contactsList = contactsReslt;
             });
         }
