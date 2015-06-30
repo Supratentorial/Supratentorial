@@ -33,7 +33,6 @@ namespace Supratentorial.Models
             modelBuilder.Entity<Person>().HasMany<EmailAddress>(person => person.EmailAddresses).WithRequired(person => person.Person).HasForeignKey(email => email.PersonId);
             modelBuilder.Entity<Person>().HasMany<SafeCustodyDocument>(person => person.SafeCustodyDocuments).WithRequired(person => person.Person).HasForeignKey(document => document.PersonId);
             modelBuilder.Entity<Person>().HasOptional<BiographicalProperties>(person => person.BiographicalProperties).WithRequired(b => b.Person);
-            modelBuilder.Entity<Person>().HasOptional<StaffProperties>(person => person.StaffProperties).WithRequired(s => s.Person);
 
 
             //Email configuration
@@ -44,7 +43,6 @@ namespace Supratentorial.Models
 
             //Staff properties configuration
             modelBuilder.Entity<BiographicalProperties>().HasKey(person => person.PersonId);
-            modelBuilder.Entity<StaffProperties>().HasKey(person => person.PersonId);
 
             //Address configuartion
             modelBuilder.Entity<Address>().HasKey(address => address.AddressId);
@@ -52,11 +50,16 @@ namespace Supratentorial.Models
             //Relationship
             modelBuilder.Entity<RelationshipType>().HasKey(rt => rt.RelatioshipTypeId);
 
+            //User
+            modelBuilder.Entity<UserProfile>().HasKey(user => user.UserId);
+
         }
 
         public DbSet<Matter> Matters { get; set; }
         public DbSet<Person> People { get; set; }
 
         public System.Data.Entity.DbSet<Supratentorial.Models.Organisation> Organisations { get; set; }
+
+        public System.Data.Entity.DbSet<Supratentorial.Models.UserProfile> UserProfiles { get; set; }
     }
 }

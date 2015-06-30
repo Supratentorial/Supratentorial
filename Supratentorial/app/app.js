@@ -62,16 +62,17 @@ var app;
                 url: "/settings",
                 templateUrl: "html/settings/settings.html",
                 controller: "SettingsCtrl as vm"
-            }).state("settings.staff", {
-                url: "/staff",
-                templateUrl: "html/settings/staff.html"
+            }).state("settings.users", {
+                url: "/users",
+                templateUrl: "html/settings/users.html",
+                controller: "UserCtrl as vm"
+            }).state("settings.user-details", {
+                url: "/user/{userId:int}/details",
+                templateUrl: "html/settings/user-details.html",
+                controller: "UserDetailsCtrl as vm"
             }).state("settings.matter-types", {
                 url: "/matter-types",
                 templateUrl: "html/settings/matter-types.html"
-            }).state("settings.staff-details", {
-                url: "/staff/{staffId:int}/details",
-                templateUrl: "html/settings/staff-details.html",
-                controller: "StaffDetailsCtrl as vm"
             }).state("settings.matter-type-details", {
                 url: "/matter-type/{matterTypeId:int}/details",
                 templateUrl: "html/settings/matter-type-details.html",

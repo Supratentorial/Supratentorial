@@ -24,9 +24,6 @@ namespace Supratentorial.Models
         public virtual ICollection<SafeCustodyDocument> SafeCustodyDocuments { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
 
-        //Staff properties
-        public StaffProperties StaffProperties { get; set; }
-
 
         //Real estate agent properties
         

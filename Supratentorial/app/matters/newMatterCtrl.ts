@@ -3,22 +3,30 @@
     export class NewMatterCtrl {
         
         clients: interfaces.IPerson[];
-        primaryPerson: interfaces.IPerson;
-        peopleAssisting = [];
-        
-        staffMembers = [{ name: "Andrew Mumford", email: "andrew@mumfordslawyers.com.au" }, {name: "Helena Mumford", email: "helena@mumfordslawyers.com.au"}]
+        primaryPerson: interfaces.IUserDTO;
+        peopleAssisting : interfaces.IUserDTO[] = [];
+        users = [];
 
-        static $inject = ["contactsService"];
-        constructor(private contactsService : interfaces.IContactsService){
-            
+        static $inject = ["userService", "contactsService"];
+        constructor(private userService : interfaces.IUserService, private contactsService : interfaces.IContactsService){
+            this.userService.getUsers().then((response: interfaces.IUserDTO[]) => {
+                this.users = response;
+            })
         }
 
         searchContacts(searchString: string) {
             return this.contactsService.searchPeople(searchString);
         }
 
-        getStaffMembers() {
-            // return this.contactsService.getStaffMembers();
+        getUserDisplayNames() {
+            return this.userService.getUsers().then((response) : string[] => {
+                var displayNames: string[] = [];
+                for (var i = 0; i < response.length; i++) {
+                    displayNames.push(response[i].displayName);
+                }
+                console.log(this.peopleAssisting);
+                return displayNames;
+            })
         }
     }
     angular.module("app.matters").controller("NewMatterCtrl", matters.controllers.NewMatterCtrl);

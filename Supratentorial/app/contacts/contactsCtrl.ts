@@ -21,8 +21,8 @@ module contacts.controllers {
         }
 
         searchContacts() {
-            this.contactsService.searchPeople(this.searchString).then((contactsReslt: interfaces.IPerson[]) => {
-                this.contactsList = contactsReslt;
+            this.contactsService.searchPeople(this.searchString).then((contactsResult: interfaces.IPerson[]) => {
+                this.contactsList = contactsResult.slice();
             });
         }
     }

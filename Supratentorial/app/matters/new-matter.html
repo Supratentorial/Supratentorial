@@ -25,9 +25,9 @@
                                 <div class="form-group">
                                     <label class="control-label">Person Responsible</label>
                                     <ui-select ng-model="vm.primaryPerson">
-                                        <ui-select-match allow-clear="true" placeholder="Select staff member">{{$select.selected.name}}</ui-select-match>
-                                        <ui-select-choices repeat="staff in vm.staffMembers | filter: $select.search">
-                                            <div ng-bind-html="staff.name | highlight: $select.search"></div>
+                                        <ui-select-match allow-clear="true" placeholder="Select staff member">{{$select.selected.displayName}}</ui-select-match>
+                                        <ui-select-choices repeat="user in vm.users | filter: $select.search">
+                                            <div ng-bind-html="user.displayName | highlight: $select.search"></div>
                                         </ui-select-choices>
                                     </ui-select>
                                 </div>
@@ -35,7 +35,9 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label class="control-label">People Assisting</label>
-                                    <tags-input placeholder="Search staff members" ng-model="vm.peopleAssisting"></tags-input>
+                                    <tags-input placeholder="Search staff members" ng-model="vm.peopleAssisting" add-from-autocomplete-only="true">
+                                        <auto-complete source="vm.getUserDisplayNames()"></auto-complete>
+                                    </tags-input>
                                 </div>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ module contacts.services {
             });
         }
 
-        searchPeople(searchString: string) {
+        searchPeople(searchString: string) : ng.IPromise<interfaces.IPerson[]> {
             return this.$http.get("api/people?searchString=" + searchString).then((response: any) => { return response.data; });
         }
 

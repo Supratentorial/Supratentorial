@@ -5,12 +5,10 @@ module settings.controllers {
     "use strict"
     export class SettingsCtrl {
 
-        staffMembers: interfaces.IPerson[];
-
         tabData: any = [
             {
                 heading: "Staff",
-                route: "settings.staff"
+                route: "settings.users"
             }, {
                 heading: "Matter Types",
                 route: "settings.matter-types"
@@ -20,10 +18,6 @@ module settings.controllers {
         static $inject = [];
         constructor() {
 
-        }
-
-        newStaffMember() {
-            
         }
     }
     angular.module("app.settings").controller("SettingsCtrl", settings.controllers.SettingsCtrl);

@@ -2,7 +2,7 @@ var settings;
 (function (settings) {
     var directives;
     (function (directives) {
-        angular.module('app.settings').directive('staffListItem', function () {
+        angular.module('app.settings').directive('userListItem', function () {
             return {
                 restrict: 'AE',
                 templateUrl: 'html/settings/directives/staff-list-item.html',

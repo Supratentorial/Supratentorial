@@ -20,8 +20,8 @@ var contacts;
             };
             ContactsCtrl.prototype.searchContacts = function () {
                 var _this = this;
-                this.contactsService.searchPeople(this.searchString).then(function (contactsReslt) {
-                    _this.contactsList = contactsReslt;
+                this.contactsService.searchPeople(this.searchString).then(function (contactsResult) {
+                    _this.contactsList = contactsResult.slice();
                 });
             };
             ContactsCtrl.$inject = ["contactsService"];
