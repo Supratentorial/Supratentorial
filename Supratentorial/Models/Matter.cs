@@ -8,7 +8,7 @@ namespace Supratentorial.Models
         public int Id { get; set; }
         public string Type { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime InstructionsReceived { get; set; }
+        public DateTime? InstructionsReceived { get; set; }
         public string Status { get; set; }
         public virtual ICollection<Relationship> Relationships { get; set; }
         public virtual ICollection<Event> Events { get; set; }

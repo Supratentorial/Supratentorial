@@ -7,10 +7,15 @@ var contacts;
     (function (controllers) {
         "use strict";
         var ContactsCtrl = (function () {
-            function ContactsCtrl(contactsService) {
+            function ContactsCtrl(contactsService, $scope) {
+                var _this = this;
                 this.contactsService = contactsService;
+                this.$scope = $scope;
                 this.searchString = "";
                 this.contactsList = [];
+                this.$scope.$watch(function () { return _this.searchString; }, function (newValue, oldValue) {
+                    _this.searchContacts();
+                });
             }
             ContactsCtrl.prototype.getRecentContacts = function () {
                 var _this = this;
@@ -20,11 +25,17 @@ var contacts;
             };
             ContactsCtrl.prototype.searchContacts = function () {
                 var _this = this;
-                this.contactsService.searchPeople(this.searchString).then(function (contactsResult) {
-                    _this.contactsList = contactsResult.slice();
-                });
+                console.log(this.searchString);
+                if (this.searchString) {
+                    this.contactsService.searchPeople(this.searchString).then(function (contactsResult) {
+                        _this.contactsList = contactsResult.slice();
+                    });
+                }
+                else {
+                    this.contactsList.length = 0;
+                }
             };
-            ContactsCtrl.$inject = ["contactsService"];
+            ContactsCtrl.$inject = ["contactsService", "$scope"];
             return ContactsCtrl;
         })();
         controllers.ContactsCtrl = ContactsCtrl;

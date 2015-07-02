@@ -18,15 +18,10 @@
             return this.contactsService.searchPeople(searchString);
         }
 
-        getUserDisplayNames() {
-            return this.userService.getUsers().then((response) : string[] => {
-                var displayNames: string[] = [];
-                for (var i = 0; i < response.length; i++) {
-                    displayNames.push(response[i].displayName);
-                }
-                console.log(this.peopleAssisting);
-                return displayNames;
-            })
+        getUsers() {
+            console.log(this.peopleAssisting);
+            return this.userService.getUsers();
+            
         }
     }
     angular.module("app.matters").controller("NewMatterCtrl", matters.controllers.NewMatterCtrl);

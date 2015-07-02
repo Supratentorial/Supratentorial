@@ -11,6 +11,6 @@ namespace Supratentorial.Models
         [JsonIgnore]
         public virtual Person Person { get; set; }
         public bool IsArchived { get; set; }
-        public DateTime DateArchived { get; set; }
+        public DateTime? DateArchived { get; set; }
     }
 }

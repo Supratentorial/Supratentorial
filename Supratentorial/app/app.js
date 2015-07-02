@@ -80,15 +80,16 @@ var app;
             });
             this.$locationProvider.html5Mode(true);
             this.adalAuthenticationServiceProvider.init({
-                tenant: "mumfordslawyers.onmicrosoft.com",
-                clientId: "c5881b07-ffdf-490b-97e4-1ef235e01c7f",
+                tenant: "supratentorial.onmicrosoft.com",
+                clientId: "b25d39ee-e012-434a-8660-2f61f0ec764e",
+                cacheLocation: 'localStorage'
             }, this.$httpProvider);
         }
         StateConfig.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider", "$httpProvider", "adalAuthenticationServiceProvider"];
         return StateConfig;
     })();
     app.StateConfig = StateConfig;
-    app.appModule = angular.module("app", ["ui.router", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "AdalAngular"]);
+    app.appModule = angular.module("app", ["ui.router", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
     app.appModule.config(StateConfig);
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map

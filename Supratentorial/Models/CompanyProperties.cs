@@ -7,8 +7,12 @@ namespace Supratentorial.Models
 {
     public class CompanyProperties
     {
-        public int CompanyId { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public int OrganisationId { get; set; }
+        public virtual Organisation Organisation { get; set; }
+        public string TradingName { get; set; }
+        public string CompanySuffix { get; set; }
+        public string TradingSuffix { get; set; }
+        public int AustralianBusinessNumber { get; set; }
+        public bool SoleDirector { get; set; }
     }
 }

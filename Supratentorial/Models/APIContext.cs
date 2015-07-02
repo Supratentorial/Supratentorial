@@ -16,7 +16,7 @@ namespace Supratentorial.Models
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
 
         public APIContext()
-            : base("name=APIContext")
+            : base("name=SupratentorialDB")
         {
             this.Configuration.ProxyCreationEnabled = false;
         }
@@ -41,8 +41,14 @@ namespace Supratentorial.Models
             //Phone configuration
             modelBuilder.Entity<PhoneNumber>().HasKey(phone => phone.PhoneId);
 
-            //Staff properties configuration
+            //Biographical configuration
             modelBuilder.Entity<BiographicalProperties>().HasKey(person => person.PersonId);
+
+            //Trust configuration
+            modelBuilder.Entity<TrustProperties>().HasKey(org => org.OrganisationId);
+
+            //Company configuration
+            modelBuilder.Entity<CompanyProperties>().HasKey(org => org.OrganisationId);
 
             //Address configuartion
             modelBuilder.Entity<Address>().HasKey(address => address.AddressId);

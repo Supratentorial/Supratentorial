@@ -86,12 +86,13 @@ module contacts.controllers {
                         id: this.personId
                     }
                 }
-            ]         
+            ]
         }
 
         //TODO: Write unit test for mapping code.
         mapContact() {
-            var dateOfBirth = moment.utc(this.dateOfBirthString, "DD-MM-YYYY").toDate();
+            var dateOfBirth = null;
+            if (this.dateOfBirthString) { dateOfBirth = moment.utc(this.dateOfBirthString, "DD-MM-YYYY").toDate(); }
 
             var contact = <interfaces.IPerson>{
                 personId: this.personId,

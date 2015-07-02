@@ -7,7 +7,7 @@ namespace Supratentorial.Models
 {
     public class BiographicalProperties
     {
-        public DateTime DateOfDeath { get; set; }
+        public DateTime? DateOfDeath { get; set; }
         public string PlaceOfDeath { get; set; }
         public string CountryOfBirth { get; set; }
         public string Nationality { get; set; }

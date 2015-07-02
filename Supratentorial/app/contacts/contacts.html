@@ -10,12 +10,15 @@
                     <h1 class="panel-title"><span class="glyphicon glyphicon-user"></span> Search Contacts</h1>
                 </div>
                 <div class="panel-body">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Last name, first name, organisation name..." ng-model="vm.searchString">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" ng-click="vm.searchContacts()"><span class="glyphicon glyphicon-search"></span> Search</button>
-                        </span>
-                    </div>
+                    <form ng-submit="vm.searchContacts()">
+                        <div class="input-group">
+                            <input autofocus-element type="text" class="form-control" placeholder="Last name, first name, organisation name..." ng-model="vm.searchString">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+                            </span>
+                        </div>
+                    </form>
+                    <div ng-show=""></div>
                     <div class="contacts-list" ng-repeat="contact in vm.contactsList">
                         <contact-list-item contact="contact"></contact-list-item>
                     </div>

@@ -10,8 +10,12 @@ module contacts.controllers {
         searchString: string = "";
         contactsList: interfaces.IPerson[] = [];
 
-        static $inject = ["contactsService"];
-        constructor(private contactsService: interfaces.IContactsService) {
+        static $inject = ["contactsService", "$scope"];
+        constructor(private contactsService: interfaces.IContactsService, private $scope : ng.IScope) {
+            this.$scope.$watch(() => this.searchString,
+                (newValue: string, oldValue: string) => {
+                    this.searchContacts();
+                });
         }
 
         getRecentContacts() {
@@ -21,9 +25,14 @@ module contacts.controllers {
         }
 
         searchContacts() {
-            this.contactsService.searchPeople(this.searchString).then((contactsResult: interfaces.IPerson[]) => {
-                this.contactsList = contactsResult.slice();
-            });
+            console.log(this.searchString);
+            if (this.searchString) {
+                this.contactsService.searchPeople(this.searchString).then((contactsResult: interfaces.IPerson[]) => {
+                    this.contactsList = contactsResult.slice();
+                });
+            } else {
+                this.contactsList.length = 0;
+            }
         }
     }
     angular.module('app.contacts').controller('ContactsCtrl', contacts.controllers.ContactsCtrl);
