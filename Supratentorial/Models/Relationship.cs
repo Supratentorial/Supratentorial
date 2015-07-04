@@ -13,9 +13,8 @@ namespace Supratentorial.Models
         public RelationshipType Type { get; set; } //E.g. Client, Other side's solicitor
         public virtual Matter Matter { get; set; } //The matter this relationship pertains to
         public int MatterId { get; set; }
-        public virtual Person Person { get; set; } //The individual at the other end of the relationship
-        public int PersonId { get; set; }
-        public virtual Organisation Organisation { get; set; } //The organisation at the other end of the relationship
-        public int OrganisationId { get; set; }
+
+        public virtual Contact Contact { get; set; } //The individual at the other end of the relationship
+        public int ContactId { get; set; }
     }
 }

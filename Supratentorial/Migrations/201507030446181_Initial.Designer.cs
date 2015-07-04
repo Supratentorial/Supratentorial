@@ -7,13 +7,13 @@ namespace Supratentorial.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class AddedIsArchivedproperties : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedIsArchivedproperties));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506040436376_Added IsArchived properties"; }
+            get { return "201507030446181_Initial"; }
         }
         
         string IMigrationMetadata.Source

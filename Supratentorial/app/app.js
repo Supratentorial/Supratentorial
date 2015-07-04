@@ -18,7 +18,8 @@ var app;
             }).state("matters.my-matters", {
                 url: "/matters/my-matters",
                 templateUrl: "/html/matters/matters.my-matters.html",
-                controller: "MattersCtrl as vm"
+                controller: "MattersCtrl as vm",
+                requireADLogin: true
             }).state("matters.archived", {
                 url: "/matters/archived",
                 templateUrl: "/html/matters/matters.archived.html"
@@ -32,32 +33,26 @@ var app;
                 controller: "NewMatterCtrl as vm"
             }).state("dashboard", {
                 url: "/",
-                templateUrl: "/html/dashboard/dashboardPartial.html"
+                templateUrl: "/html/dashboard/dashboardPartial.html",
+                requireADLogin: true
             }).state("contacts", {
                 url: "/contacts",
                 templateUrl: "/html/contacts/contacts.html",
                 controller: "ContactsCtrl as vm",
                 requireADLogin: true
-            }).state("person", {
-                url: "/people",
+            }).state("contact-details", {
+                url: "/contact-details",
                 templateUrl: "html/contacts/contact-shell.html",
-                controller: "PersonDetailsCtrl as vm"
-            }).state("person.basic", {
-                url: "/{id:int}/basic",
-                templateUrl: "html/contacts/person-basic.html"
-            }).state("person.biographical", {
-                url: "/{id:int}/biographical",
-                templateUrl: "html/contacts/person-biographical.html"
-            }).state("person.financial", {
-                url: "/{id:int}/financial",
-                templateUrl: "html/contacts/person-financial.html"
-            }).state("organisation", {
-                url: "/organisations",
-                templateUrl: "html/contacts/contact-shell.html",
-                controller: "OrganisationDetailsCtrl as vm"
-            }).state("organisation.basic", {
-                url: "/{id:int}/basic",
-                templateUrl: "html/contacts/organisation-basic.html"
+                controller: "ContactDetailsCtrl as vm"
+            }).state("contact-details.basic", {
+                url: "/{contactId:int}/basic",
+                templateUrl: "html/contacts/contact-basic.html"
+            }).state("contact-details.biographical", {
+                url: "/{contactId:int}/biographical",
+                templateUrl: "html/contacts/contact-biographical.html"
+            }).state("contact-details.financial", {
+                url: "/{contactId:int}/financial",
+                templateUrl: "html/contacts/contact-financial.html"
             }).state("settings", {
                 url: "/settings",
                 templateUrl: "html/settings/settings.html",

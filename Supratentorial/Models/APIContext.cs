@@ -8,47 +8,49 @@ namespace Supratentorial.Models
 {
     public class APIContext : DbContext
     {
-        // You can add custom code to this file. Changes will not be overwritten.
-        // 
-        // If you want Entity Framework to drop and regenerate your database
-        // automatically whenever you change your model schema, please use data migrations.
-        // For more information refer to the documentation:
-        // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-
         public APIContext()
             : base("name=SupratentorialDB")
         {
             this.Configuration.ProxyCreationEnabled = false;
         }
 
+        public DbSet<Matter> Matters { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            //Contact configuration
+            modelBuilder.Entity<Contact>().HasMany<PhoneNumber>(contact => contact.PhoneNumbers).WithRequired(phone => phone.Contact).HasForeignKey(phone => phone.ContactId);
+            modelBuilder.Entity<Contact>().HasMany<EmailAddress>(contact => contact.EmailAddresses).WithRequired(email => email.Contact).HasForeignKey(email => email.ContactId);
+            modelBuilder.Entity<Contact>().HasMany<SafeCustodyDocument>(contact => contact.SafeCustodyDocuments).WithRequired(document => document.Contact).HasForeignKey(document => document.ContactId);
+
             //Person configuration
-            modelBuilder.Entity<Person>().HasKey(p => p.PersonId);
+            modelBuilder.Entity<Person>().HasKey(p => p.ContactId); //Person PK = ContactId FK (one to one)
+            modelBuilder.Entity<Person>().HasRequired(person => person.Contact).WithOptional(contact => contact.Person);
             modelBuilder.Entity<Person>().Property(p => p.LastName).IsRequired();
             modelBuilder.Entity<Person>().Property(p => p.FirstName).IsRequired();
-            modelBuilder.Entity<Person>().HasMany<PhoneNumber>(person => person.PhoneNumbers).WithRequired(person => person.Person).HasForeignKey(phone => phone.PersonId);
-            modelBuilder.Entity<Person>().HasMany<EmailAddress>(person => person.EmailAddresses).WithRequired(person => person.Person).HasForeignKey(email => email.PersonId);
-            modelBuilder.Entity<Person>().HasMany<SafeCustodyDocument>(person => person.SafeCustodyDocuments).WithRequired(person => person.Person).HasForeignKey(document => document.PersonId);
-            modelBuilder.Entity<Person>().HasOptional<BiographicalProperties>(person => person.BiographicalProperties).WithRequired(b => b.Person);
 
+            //Biographical configuration
+            modelBuilder.Entity<BiographicalProperties>().HasKey(bio => bio.PersonId); //Bio PK = Person PK = Contact PK (one to one)
+            modelBuilder.Entity<BiographicalProperties>().HasRequired(bio => bio.Person).WithOptional(person => person.BiographicalProperties);
+
+            //Trust configuration
+            modelBuilder.Entity<Trust>().HasKey(trust => trust.ContactId); //Trust PK = ContactId FK (one to one)
+            modelBuilder.Entity<Trust>().HasRequired(trust => trust.Contact).WithOptional(contact => contact.Trust);
+            modelBuilder.Entity<Trust>().HasMany<Contact>(trust => trust.Trustees);
+
+            //Company configuration
+            modelBuilder.Entity<Company>().HasKey(company => company.ContactId); //Company PK = ContactId FK (one to one)
+            modelBuilder.Entity<Company>().HasRequired(company => company.Contact).WithOptional(contact => contact.Company);
 
             //Email configuration
             modelBuilder.Entity<EmailAddress>().HasKey(email => email.EmailId);
 
             //Phone configuration
             modelBuilder.Entity<PhoneNumber>().HasKey(phone => phone.PhoneId);
-
-            //Biographical configuration
-            modelBuilder.Entity<BiographicalProperties>().HasKey(person => person.PersonId);
-
-            //Trust configuration
-            modelBuilder.Entity<TrustProperties>().HasKey(org => org.OrganisationId);
-
-            //Company configuration
-            modelBuilder.Entity<CompanyProperties>().HasKey(org => org.OrganisationId);
 
             //Address configuartion
             modelBuilder.Entity<Address>().HasKey(address => address.AddressId);
@@ -61,11 +63,5 @@ namespace Supratentorial.Models
 
         }
 
-        public DbSet<Matter> Matters { get; set; }
-        public DbSet<Person> People { get; set; }
-
-        public System.Data.Entity.DbSet<Supratentorial.Models.Organisation> Organisations { get; set; }
-
-        public System.Data.Entity.DbSet<Supratentorial.Models.UserProfile> UserProfiles { get; set; }
     }
 }

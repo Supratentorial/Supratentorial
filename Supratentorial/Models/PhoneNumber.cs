@@ -9,9 +9,9 @@ namespace Supratentorial.Models
         public int CountryCode { get; set; }
         public string Type { get; set; }
         public bool IsPreferred { get; set; }
-        public int PersonId { get; set; }
+        
         [JsonIgnore]
-        public virtual Person Person { get; set; }
-
+        public virtual Contact Contact { get; set; }
+        public int ContactId { get; set; }
     }
 }

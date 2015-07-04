@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,7 @@ namespace Supratentorial.Models
         public string Gender { get; set; }
 
         public int PersonId { get; set; }
+        [JsonIgnore]
         public virtual Person Person { get; set; }
     }
 }

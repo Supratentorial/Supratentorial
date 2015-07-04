@@ -8,7 +8,7 @@ module contacts.controllers {
     export class ContactsCtrl {
 
         searchString: string = "";
-        contactsList: interfaces.IPerson[] = [];
+        contactsList: interfaces.IContact[] = [];
 
         static $inject = ["contactsService", "$scope"];
         constructor(private contactsService: interfaces.IContactsService, private $scope : ng.IScope) {
@@ -19,7 +19,7 @@ module contacts.controllers {
         }
 
         getRecentContacts() {
-            this.contactsService.getRecentPeople().then((recentContacts: interfaces.IPerson[]) => {
+            this.contactsService.getRecentContacts().then((recentContacts: interfaces.IContact[]) => {
                 this.contactsList = recentContacts;
             });
         }
@@ -27,7 +27,7 @@ module contacts.controllers {
         searchContacts() {
             console.log(this.searchString);
             if (this.searchString) {
-                this.contactsService.searchPeople(this.searchString).then((contactsResult: interfaces.IPerson[]) => {
+                this.contactsService.searchContacts(this.searchString).then((contactsResult: interfaces.IContact[]) => {
                     this.contactsList = contactsResult.slice();
                 });
             } else {

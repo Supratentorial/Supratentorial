@@ -1,26 +1,41 @@
 module interfaces {
     export interface IPerson {
-        personId: number;
         title: string;
         firstName: string;
         lastName: string;
         middleNames?: string;
         dateOfBirth?: Date;
-        phoneNumbers?: IPhoneNumber[];
-        emailAddresses?: IEmailAddress[];
-        staffProperties?: IStaffProperties;
-        address?: IAddress[];
         biographicalProperties?: IBiographicalProperties;
     }
 
-    export interface IOrganisation {
-        organisationId: number;
+    export interface IContact {
+        contactId: number;
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
-        address?: IAddress[];
+        addresses: IAddress[];
+        type: string;
+        trust?: ITrust;
+        company?: ICompany;
+        person?: IPerson;
     }
 
-    export interface IClientProperties {
+    export interface ITrust {
+
+    }
+
+    export interface ICompany {
+
+    }
+
+    export interface IGovernmentDepartment {
+
+    }
+
+    export interface IBusiness {
+
+    }
+
+    export interface IFamilyLawDetails {
         dateOfDeath: Date;
         dateOfSeparation: Date;
         dateOfDivorce: Date;
@@ -28,13 +43,7 @@ module interfaces {
     }
 
     export interface ISolicitorProperties {
-        practice: IPractice;
-    }
-
-    export interface IStaffProperties {
-        commencementDate: Date;
-        terminationDate: Date;
-        position: string;
+        practice: IFirmDetails;
     }
 
     export interface IBiographicalProperties {
@@ -43,7 +52,7 @@ module interfaces {
         countryOfBirth: string;
         dateOfDeath: Date;
     }
-    export interface IPractice {
+    export interface IFirmDetails {
         id: number;
         name: string;
         phone: IPhoneNumber;
@@ -77,11 +86,9 @@ module interfaces {
     }
 
     export interface IContactsService {
-        savePerson(person: IPerson): ng.IPromise<IPerson>;
-        getPersonById(id: number): ng.IPromise<IPerson>;
-        getRecentPeople(): ng.IPromise<IPerson[]>;
-        searchPeople(searchString :string): ng.IPromise<IPerson[]>;
-        getOrganisationById(id: number): ng.IPromise<IOrganisation>;
-        saveOrganisation(organisation: IOrganisation): ng.IPromise<IOrganisation>;
+        saveContact(person: IContact): ng.IPromise<IContact>;
+        getContactById(id: number): ng.IPromise<IContact>;
+        getRecentContacts(): ng.IPromise<IContact[]>;
+        searchContacts(searchString :string): ng.IPromise<IContact[]>;
     }
 }

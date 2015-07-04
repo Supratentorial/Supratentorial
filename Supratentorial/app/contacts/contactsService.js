@@ -9,30 +9,24 @@ var contacts;
             function ContactsService($http) {
                 this.$http = $http;
             }
-            ContactsService.prototype.getRecentPeople = function () {
-                return this.$http.get("api/people/")
+            ContactsService.prototype.getRecentContacts = function () {
+                return this.$http.get("api/contacts/")
                     .then(function (response) {
                     return response.data;
                 });
             };
-            ContactsService.prototype.searchPeople = function (searchString) {
-                return this.$http.get("api/people?searchString=" + searchString).then(function (response) { return response.data; });
+            ContactsService.prototype.searchContacts = function (searchString) {
+                return this.$http.get("api/contacts?searchString=" + searchString).then(function (response) { return response.data; });
             };
-            ContactsService.prototype.getPersonById = function (id) {
-                return this.$http.get("api/people/" + id)
+            ContactsService.prototype.getContactById = function (id) {
+                return this.$http.get("api/contacts/" + id)
                     .then(function (response) {
                     return response.data;
                 });
             };
-            ContactsService.prototype.getOrganisationById = function (id) {
-                return this.$http.get("api/organisations/" + id)
-                    .then(function (response) {
-                    return response.data;
-                });
-            };
-            ContactsService.prototype.saveOrganisation = function (organisation) {
-                if (organisation.organisationId === 0) {
-                    return this.$http.post("api/organisations", JSON.stringify(organisation), {
+            ContactsService.prototype.saveContact = function (contact) {
+                if (contact.contactId === 0) {
+                    return this.$http.post("api/contacts", JSON.stringify(contact), {
                         headers: {
                             "Content-Type": "application/json"
                         }
@@ -41,24 +35,7 @@ var contacts;
                     });
                 }
                 else {
-                    return this.$http.put(("api/organisations/" + organisation.organisationId), JSON.stringify(organisation), { headers: { "Content-Type": "application/json" } })
-                        .then(function (response) {
-                        return response.data;
-                    });
-                }
-            };
-            ContactsService.prototype.savePerson = function (person) {
-                if (person.personId === 0) {
-                    return this.$http.post("api/people", JSON.stringify(person), {
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    }).then(function (response) {
-                        return response.data;
-                    });
-                }
-                else {
-                    return this.$http.put(("api/people/" + person.personId), JSON.stringify(person), { headers: { "Content-Type": "application/json" } })
+                    return this.$http.put(("api/contacts/" + contact.contactId), JSON.stringify(contact), { headers: { "Content-Type": "application/json" } })
                         .then(function (response) {
                         return response.data;
                     });

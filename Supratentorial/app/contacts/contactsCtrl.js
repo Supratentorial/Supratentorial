@@ -19,7 +19,7 @@ var contacts;
             }
             ContactsCtrl.prototype.getRecentContacts = function () {
                 var _this = this;
-                this.contactsService.getRecentPeople().then(function (recentContacts) {
+                this.contactsService.getRecentContacts().then(function (recentContacts) {
                     _this.contactsList = recentContacts;
                 });
             };
@@ -27,7 +27,7 @@ var contacts;
                 var _this = this;
                 console.log(this.searchString);
                 if (this.searchString) {
-                    this.contactsService.searchPeople(this.searchString).then(function (contactsResult) {
+                    this.contactsService.searchContacts(this.searchString).then(function (contactsResult) {
                         _this.contactsList = contactsResult.slice();
                     });
                 }

@@ -1,6 +1,6 @@
 ﻿<div class="toolbar">
-    <button class="btn btn-default btn-sm" ui-sref="person.basic({id:0})"><span class="glyphicon glyphicon-plus"></span> Add Individual</button>
-    <button class="btn btn-default btn-sm" ui-sref="organisation.basic({id:0})"><span class="glyphicon glyphicon-plus"></span> Add Organisation</button>
+    <button class="btn btn-default btn-sm" ui-sref="contact-details.basic({contactId:0})"><span class="glyphicon glyphicon-plus"></span> Add Individual</button>
+    <button class="btn btn-default btn-sm" ui-sref="contact-details.basic({contactId:0})"><span class="glyphicon glyphicon-plus"></span> Add Organisation</button>
 </div>
 <div class="container-fluid">
     <div class="row">
@@ -10,7 +10,7 @@
                     <h1 class="panel-title"><span class="glyphicon glyphicon-user"></span> Search Contacts</h1>
                 </div>
                 <div class="panel-body">
-                    <form ng-submit="vm.searchContacts()">
+                    <form ng-submit="vm.searchContacts ()">
                         <div class="input-group">
                             <input autofocus-element type="text" class="form-control" placeholder="Last name, first name, organisation name..." ng-model="vm.searchString">
                             <span class="input-group-btn">

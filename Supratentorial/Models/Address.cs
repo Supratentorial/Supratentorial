@@ -1,4 +1,5 @@
-﻿namespace Supratentorial.Models
+﻿using Newtonsoft.Json;
+namespace Supratentorial.Models
 {
     public class Address
     {
@@ -11,9 +12,8 @@
         public string Type { get; set; }
         public bool IsArchived { get; set; }
 
-        public int? PersonId { get; set; }
-        public virtual Person Person { get; set; }
-        public int? OrganisationId { get; set; }
-        public virtual Organisation Organisation{ get; set; }
+        [JsonIgnore]
+        public Contact Contact { get; set; }
+        public int ContactId { get; set; }
     }
 }

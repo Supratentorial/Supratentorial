@@ -15,7 +15,7 @@
         }
 
         searchContacts(searchString: string) {
-            return this.contactsService.searchPeople(searchString);
+            return this.contactsService.searchContacts(searchString);
         }
 
         getUsers() {

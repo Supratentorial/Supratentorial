@@ -13,54 +13,54 @@ module app {
                 templateUrl: "/html/matters/matters.html",
                 controller: "MattersCtrl as vm",
                 requireADLogin: true
+
             }).state("matters.my-matters", <ng.ui.IState>{
                 url: "/matters/my-matters",
                 templateUrl: "/html/matters/matters.my-matters.html",
-                controller: "MattersCtrl as vm"
+                controller: "MattersCtrl as vm",
+                requireADLogin: true
+
             }).state("matters.archived", <ng.ui.IState>{
                 url: "/matters/archived",
                 templateUrl: "/html/matters/matters.archived.html"
+
             }).state("matter-details", <ng.ui.IState>{
                 url: "/matter-details",
                 templateUrl: "html/matters/matter-details.html",
                 controller: "MatterDetailsCtrl as vm"
+
             }).state("new-matter", <ng.ui.IState>{
                 url: "/new-matter",
                 templateUrl: "html/matters/new-matter.html",
                 controller: "NewMatterCtrl as vm"
+
             }).state("dashboard", <ng.ui.IState>{
                 url: "/",
-                templateUrl: "/html/dashboard/dashboardPartial.html"
+                templateUrl: "/html/dashboard/dashboardPartial.html",
+                requireADLogin: true
+
             }).state("contacts", <ng.ui.IState>{
                 url: "/contacts",
                 templateUrl: "/html/contacts/contacts.html",
                 controller: "ContactsCtrl as vm",
                 requireADLogin: true
-            }).state("person", <ng.ui.IState>{
-                url: "/people",
+
+            }).state("contact-details", <ng.ui.IState>{
+                url: "/contact-details",
                 templateUrl: "html/contacts/contact-shell.html",
-                controller: "PersonDetailsCtrl as vm"
+                controller: "ContactDetailsCtrl as vm"
 
-            }).state("person.basic", <ng.ui.IState>{
-                url: "/{id:int}/basic",
-                templateUrl: "html/contacts/person-basic.html"
+            }).state("contact-details.basic", <ng.ui.IState>{
+                url: "/{contactId:int}/basic",
+                templateUrl: "html/contacts/contact-basic.html"
 
-            }).state("person.biographical", <ng.ui.IState>{
-                url: "/{id:int}/biographical",
-                templateUrl: "html/contacts/person-biographical.html"
+            }).state("contact-details.biographical", <ng.ui.IState>{
+                url: "/{contactId:int}/biographical",
+                templateUrl: "html/contacts/contact-biographical.html"
 
-            }).state("person.financial", <ng.ui.IState>{
-                url: "/{id:int}/financial",
-                templateUrl: "html/contacts/person-financial.html"
-
-            }).state("organisation", <ng.ui.IState>{
-                url: "/organisations",
-                templateUrl: "html/contacts/contact-shell.html",
-                controller: "OrganisationDetailsCtrl as vm"
-
-            }).state("organisation.basic", <ng.ui.IState>{
-                url: "/{id:int}/basic",
-                templateUrl: "html/contacts/organisation-basic.html"
+            }).state("contact-details.financial", <ng.ui.IState>{
+                url: "/{contactId:int}/financial",
+                templateUrl: "html/contacts/contact-financial.html"
 
             }).state("settings", <ng.ui.IState>{
                 url: "/settings",

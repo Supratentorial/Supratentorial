@@ -10,36 +10,29 @@ module contacts.services {
         constructor(private $http: ng.IHttpService) {
         }
 
-        getRecentPeople() {
-            return this.$http.get("api/people/")
+        getRecentContacts() {
+            return this.$http.get("api/contacts/")
                 .then((response: any) => {
                 return response.data;
             });
         }
 
-        searchPeople(searchString: string) : ng.IPromise<interfaces.IPerson[]> {
-            return this.$http.get("api/people?searchString=" + searchString).then((response: any) => { return response.data; });
+        searchContacts(searchString: string) : ng.IPromise<interfaces.IContact[]> {
+            return this.$http.get("api/contacts?searchString=" + searchString).then((response: any) => { return response.data; });
         }
 
-        getPersonById(id: number): ng.IPromise<interfaces.IPerson> {
-            return this.$http.get("api/people/" + id)
+        getContactById(id: number): ng.IPromise<interfaces.IContact> {
+            return this.$http.get("api/contacts/" + id)
                 .then((response: any) => {
                 return response.data;
             });
         }
 
-        getOrganisationById(id: number): ng.IPromise<interfaces.IOrganisation> {
-            return this.$http.get("api/organisations/" + id)
-                .then((response: any) => {
-                return response.data;
-            });
-        }
-
-        saveOrganisation(organisation: interfaces.IOrganisation): ng.IPromise<interfaces.IOrganisation> {
-            if (organisation.organisationId === 0) {
+        saveContact(contact: interfaces.IContact): ng.IPromise<interfaces.IContact> {
+            if (contact.contactId === 0) {
                 return this.$http.post(
-                    "api/organisations",
-                    JSON.stringify(organisation),
+                    "api/contacts",
+                    JSON.stringify(contact),
                     {
                         headers: {
                             "Content-Type": "application/json"
@@ -49,31 +42,8 @@ module contacts.services {
                 });
             }
             else {
-                return this.$http.put(("api/organisations/" + organisation.organisationId),
-                    JSON.stringify(organisation),
-                    { headers: { "Content-Type": "application/json" } })
-                    .then((response: any) => {
-                    return response.data;
-                });
-            }
-        }
-
-        savePerson(person: interfaces.IPerson): ng.IPromise<interfaces.IPerson> {
-            if (person.personId === 0) {
-                return this.$http.post(
-                    "api/people",
-                    JSON.stringify(person),
-                    {
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    }).then((response: any) => {
-                    return response.data;
-                });
-            }
-            else {
-                return this.$http.put(("api/people/" + person.personId),
-                    JSON.stringify(person),
+                return this.$http.put(("api/contacts/" + contact.contactId),
+                    JSON.stringify(contact),
                     { headers: { "Content-Type": "application/json" } })
                     .then((response: any) => {
                     return response.data;

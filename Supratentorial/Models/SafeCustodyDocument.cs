@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,8 @@ namespace Supratentorial.Models
         public DateTime DocumentCreationDate { get; set; }
         public string ReasonForRemoval { get; set; }
 
-        public int PersonId { get; set; }
-        public virtual Person Person { get; set; }
+        [JsonIgnore]
+        public virtual Contact Contact { get; set; }
+        public int ContactId { get; set; }
     }
 }

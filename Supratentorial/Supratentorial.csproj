@@ -148,11 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\contacts\directives\phone-input.html" />
-    <Content Include="app\contacts\organisation-basic.html" />
-    <Content Include="app\contacts\person-financial.html" />
+    <Content Include="app\contacts\contact-financial.html" />
     <Content Include="app\contacts\contact-shell.html" />
-    <Content Include="app\contacts\person-basic.html" />
-    <Content Include="app\contacts\person-biographical.html" />
+    <Content Include="app\contacts\contact-basic.html" />
+    <Content Include="app\contacts\contact-biographical.html" />
     <Content Include="app\contacts\contacts.html" />
     <Content Include="app\contacts\directives\contact-list-item.html" />
     <Content Include="app\dashboard\dashboard.js" />
@@ -196,13 +195,13 @@
     <Content Include="dist\css\ng-tags-input.min.css" />
     <Content Include="dist\css\select.css" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\html\contacts\contact-basic.html" />
+    <Content Include="dist\html\contacts\contact-biographical.html" />
+    <Content Include="dist\html\contacts\contact-financial.html" />
     <Content Include="dist\html\contacts\contact-shell.html" />
     <Content Include="dist\html\contacts\contacts.html" />
     <Content Include="dist\html\contacts\directives\contact-list-item.html" />
-    <Content Include="dist\html\contacts\organisation-basic.html" />
-    <Content Include="dist\html\contacts\person-basic.html" />
-    <Content Include="dist\html\contacts\person-biographical.html" />
-    <Content Include="dist\html\contacts\person-financial.html" />
+    <Content Include="dist\html\contacts\directives\phone-input.html" />
     <Content Include="dist\html\dashboard\dashboardPartial.html" />
     <Content Include="dist\html\matters\directives\button-chip.html" />
     <Content Include="dist\html\matters\directives\contact-chip.html" />
@@ -291,65 +290,15 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
-    <Compile Include="Controllers\OrganisationsController.cs" />
-    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Migrations\201505310721064_Initial.cs" />
-    <Compile Include="Migrations\201505310721064_Initial.Designer.cs">
-      <DependentUpon>201505310721064_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201507030446181_Initial.cs" />
+    <Compile Include="Migrations\201507030446181_Initial.Designer.cs">
+      <DependentUpon>201507030446181_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505310738355_Many-many matter-person.cs" />
-    <Compile Include="Migrations\201505310738355_Many-many matter-person.Designer.cs">
-      <DependentUpon>201505310738355_Many-many matter-person.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506010154512_Migration2.cs" />
-    <Compile Include="Migrations\201506010154512_Migration2.Designer.cs">
-      <DependentUpon>201506010154512_Migration2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506010710187_Migration3.cs" />
-    <Compile Include="Migrations\201506010710187_Migration3.Designer.cs">
-      <DependentUpon>201506010710187_Migration3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506020622100_Middle name string.cs" />
-    <Compile Include="Migrations\201506020622100_Middle name string.Designer.cs">
-      <DependentUpon>201506020622100_Middle name string.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506040436376_Added IsArchived properties.cs" />
-    <Compile Include="Migrations\201506040436376_Added IsArchived properties.Designer.cs">
-      <DependentUpon>201506040436376_Added IsArchived properties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506181129440_Staff Properties Migration.cs" />
-    <Compile Include="Migrations\201506181129440_Staff Properties Migration.Designer.cs">
-      <DependentUpon>201506181129440_Staff Properties Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506250519046_Added userprofile model.cs" />
-    <Compile Include="Migrations\201506250519046_Added userprofile model.Designer.cs">
-      <DependentUpon>201506250519046_Added userprofile model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506290356311_Removed staff properties.cs" />
-    <Compile Include="Migrations\201506290356311_Removed staff properties.Designer.cs">
-      <DependentUpon>201506290356311_Removed staff properties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506300915334_Migration4.cs" />
-    <Compile Include="Migrations\201506300915334_Migration4.Designer.cs">
-      <DependentUpon>201506300915334_Migration4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507010207511_Date of Birth nullable.cs" />
-    <Compile Include="Migrations\201507010207511_Date of Birth nullable.Designer.cs">
-      <DependentUpon>201507010207511_Date of Birth nullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507010236237_Nullable date of death.cs" />
-    <Compile Include="Migrations\201507010236237_Nullable date of death.Designer.cs">
-      <DependentUpon>201507010236237_Nullable date of death.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507010407129_Migration5.cs" />
-    <Compile Include="Migrations\201507010407129_Migration5.Designer.cs">
-      <DependentUpon>201507010407129_Migration5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507010528137_Nullable email date archived.cs" />
-    <Compile Include="Migrations\201507010528137_Nullable email date archived.Designer.cs">
-      <DependentUpon>201507010528137_Nullable email date archived.cs</DependentUpon>
+    <Compile Include="Migrations\201507030851512_Migration1.cs" />
+    <Compile Include="Migrations\201507030851512_Migration1.Designer.cs">
+      <DependentUpon>201507030851512_Migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -358,8 +307,9 @@
     <Compile Include="Models\BiographicalProperties.cs" />
     <Compile Include="Models\ClientProperties.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\CompanyProperties.cs" />
-    <Compile Include="Models\ContactDTO.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\DTOs\ContactDTO.cs" />
     <Compile Include="Models\MatterType.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\DoctorProperties.cs" />
@@ -367,13 +317,12 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\LegalFirm.cs" />
     <Compile Include="Models\Matter.cs" />
-    <Compile Include="Models\Organisation.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Relationship.cs" />
     <Compile Include="Models\RelationshipType.cs" />
     <Compile Include="Models\SafeCustodyDocument.cs" />
-    <Compile Include="Models\TrustProperties.cs" />
-    <Compile Include="Models\UserDTO.cs" />
+    <Compile Include="Models\Trust.cs" />
+    <Compile Include="Models\DTOs\UserDTO.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -417,13 +366,12 @@
     <TypeScriptCompile Include="app\common\app.common.ts" />
     <TypeScriptCompile Include="app\common\directives\autofocusElement.ts" />
     <TypeScriptCompile Include="app\contacts\directives\phone-input.ts" />
-    <TypeScriptCompile Include="app\contacts\personDetailsCtrl.ts" />
+    <TypeScriptCompile Include="app\contacts\contactDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\app.contacts.ts" />
     <TypeScriptCompile Include="app\contacts\contactsCtrl.ts" />
     <TypeScriptCompile Include="app\contacts\contactsInterfaces.ts" />
     <TypeScriptCompile Include="app\contacts\contactsService.ts" />
     <TypeScriptCompile Include="app\contacts\directives\contactListItem.ts" />
-    <TypeScriptCompile Include="app\contacts\organisationDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\dashboard\dashboard.ts" />
     <TypeScriptCompile Include="app\indexCtrl.ts" />
     <TypeScriptCompile Include="app\matters\directives\buttonChip.ts" />
@@ -453,49 +401,12 @@
     <TypeScriptCompile Include="app\typings\moment\moment.d.ts" />
     <TypeScriptCompile Include="app\typings\tsd.d.ts" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505310721064_Initial.resx">
-      <DependentUpon>201505310721064_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507030446181_Initial.resx">
+      <DependentUpon>201507030446181_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505310738355_Many-many matter-person.resx">
-      <DependentUpon>201505310738355_Many-many matter-person.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506010154512_Migration2.resx">
-      <DependentUpon>201506010154512_Migration2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506010710187_Migration3.resx">
-      <DependentUpon>201506010710187_Migration3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506020622100_Middle name string.resx">
-      <DependentUpon>201506020622100_Middle name string.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506040436376_Added IsArchived properties.resx">
-      <DependentUpon>201506040436376_Added IsArchived properties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506181129440_Staff Properties Migration.resx">
-      <DependentUpon>201506181129440_Staff Properties Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506250519046_Added userprofile model.resx">
-      <DependentUpon>201506250519046_Added userprofile model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506290356311_Removed staff properties.resx">
-      <DependentUpon>201506290356311_Removed staff properties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506300915334_Migration4.resx">
-      <DependentUpon>201506300915334_Migration4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507010207511_Date of Birth nullable.resx">
-      <DependentUpon>201507010207511_Date of Birth nullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507010236237_Nullable date of death.resx">
-      <DependentUpon>201507010236237_Nullable date of death.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507010407129_Migration5.resx">
-      <DependentUpon>201507010407129_Migration5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507010528137_Nullable email date archived.resx">
-      <DependentUpon>201507010528137_Nullable email date archived.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507030851512_Migration1.resx">
+      <DependentUpon>201507030851512_Migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
