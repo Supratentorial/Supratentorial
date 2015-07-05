@@ -32,6 +32,7 @@ namespace Supratentorial.Models
             modelBuilder.Entity<Person>().HasRequired(person => person.Contact).WithOptional(contact => contact.Person);
             modelBuilder.Entity<Person>().Property(p => p.LastName).IsRequired();
             modelBuilder.Entity<Person>().Property(p => p.FirstName).IsRequired();
+            modelBuilder.Entity<Person>().Property(p => p.DateOfBirth).HasColumnType("date");
 
             //Biographical configuration
             modelBuilder.Entity<BiographicalProperties>().HasKey(bio => bio.PersonId); //Bio PK = Person PK = Contact PK (one to one)
@@ -48,6 +49,7 @@ namespace Supratentorial.Models
 
             //Email configuration
             modelBuilder.Entity<EmailAddress>().HasKey(email => email.EmailId);
+            modelBuilder.Entity<EmailAddress>().Property(email => email.Address).IsRequired();
 
             //Phone configuration
             modelBuilder.Entity<PhoneNumber>().HasKey(phone => phone.PhoneId);
@@ -61,6 +63,8 @@ namespace Supratentorial.Models
             //User
             modelBuilder.Entity<UserProfile>().HasKey(user => user.UserId);
 
+            //Matter
+            modelBuilder.Entity<Matter>().Property(m => m.DateCreated).HasColumnType("date");
         }
 
     }

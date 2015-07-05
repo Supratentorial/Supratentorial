@@ -24,15 +24,15 @@ module app {
                 url: "/matters/archived",
                 templateUrl: "/html/matters/matters.archived.html"
 
-            }).state("matter-details", <ng.ui.IState>{
-                url: "/matter-details",
+            }).state("view-matter-details", <ng.ui.IState>{
+                url: "/matter-details/view/{matterId :int}",
                 templateUrl: "html/matters/matter-details.html",
                 controller: "MatterDetailsCtrl as vm"
 
-            }).state("new-matter", <ng.ui.IState>{
-                url: "/new-matter",
-                templateUrl: "html/matters/new-matter.html",
-                controller: "NewMatterCtrl as vm"
+            }).state("edit-matter-details", <ng.ui.IState>{
+                url: "/matter-details/edit/{matterId:int}",
+                templateUrl: "html/matters/edit-matter-details.html",
+                controller: "EditMatterDetailsCtrl as vm"
 
             }).state("dashboard", <ng.ui.IState>{
                 url: "/",

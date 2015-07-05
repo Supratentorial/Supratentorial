@@ -16,7 +16,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="control-label">Client(s)</label>
-                                    <tags-input placeholder="Search existing contacts" add-from-autocomplete-only="true" ng-model="vm.clients" display-property="firstName" key-property="personId">
+                                    <tags-input placeholder="Search existing contacts" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" ng-model="vm.clients" display-property="displayName" key-property="contactId">
                                         <auto-complete source="vm.searchContacts($query)"></auto-complete>
                                     </tags-input>
                                 </div>

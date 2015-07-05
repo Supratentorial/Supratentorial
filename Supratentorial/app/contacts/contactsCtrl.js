@@ -25,7 +25,6 @@ var contacts;
             };
             ContactsCtrl.prototype.searchContacts = function () {
                 var _this = this;
-                console.log(this.searchString);
                 if (this.searchString) {
                     this.contactsService.searchContacts(this.searchString).then(function (contactsResult) {
                         _this.contactsList = contactsResult.slice();

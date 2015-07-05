@@ -27,7 +27,7 @@
             <input class="form-control" placeholder="dd/mm/yyyy" type="string" ng-model="vm.dateOfBirthString" />
         </div>
     </div>
-    <hr/>
+    <hr />
     <div class="row">
         <div class="col-lg-6">
             <div class="row" ng-repeat="phone in vm.contact.phoneNumbers">
@@ -44,7 +44,7 @@
                         <span class="input-group-addon">
                             <input type="radio" name="defaultPhoneGroup" ng-model="phone.isPreferred" ng-value="phone.isPreferred" /> Preferred
                         </span>
-                        <input class="form-control" type="tel" ng-model="phone.number" />
+                        <input type="text" international-phone-number ng-model="phone.number" default-country="au" preferred-countries="au, nz" class="form-control" />
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" ng-click="vm.deletePhone($index, phone)"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button>
                         </span>

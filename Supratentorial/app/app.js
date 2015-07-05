@@ -23,14 +23,14 @@ var app;
             }).state("matters.archived", {
                 url: "/matters/archived",
                 templateUrl: "/html/matters/matters.archived.html"
-            }).state("matter-details", {
-                url: "/matter-details",
+            }).state("view-matter-details", {
+                url: "/matter-details/view/{matterId :int}",
                 templateUrl: "html/matters/matter-details.html",
                 controller: "MatterDetailsCtrl as vm"
-            }).state("new-matter", {
-                url: "/new-matter",
-                templateUrl: "html/matters/new-matter.html",
-                controller: "NewMatterCtrl as vm"
+            }).state("edit-matter-details", {
+                url: "/matter-details/edit/{matterId:int}",
+                templateUrl: "html/matters/edit-matter-details.html",
+                controller: "EditMatterDetailsCtrl as vm"
             }).state("dashboard", {
                 url: "/",
                 templateUrl: "/html/dashboard/dashboardPartial.html",

@@ -18,13 +18,28 @@ var contacts;
             ContactsService.prototype.searchContacts = function (searchString) {
                 return this.$http.get("api/contacts?searchString=" + searchString).then(function (response) { return response.data; });
             };
-            ContactsService.prototype.getContactById = function (id) {
-                return this.$http.get("api/contacts/" + id)
+            ContactsService.prototype.getContactById = function (contactId) {
+                return this.$http.get("api/contacts/" + contactId)
                     .then(function (response) {
                     return response.data;
                 });
             };
             ContactsService.prototype.saveContact = function (contact) {
+                //If an email or phone number is blank, delete it
+                for (var i = 0; i < contact.emailAddresses.length; i++) {
+                    if (!contact.emailAddresses[i].address) {
+                        if (i > -1) {
+                            contact.emailAddresses.splice(i, 1);
+                        }
+                    }
+                }
+                for (var i = 0; i < contact.phoneNumbers.length; i++) {
+                    if (!contact.phoneNumbers[i].number) {
+                        if (i > -1) {
+                            contact.phoneNumbers.splice(i, 1);
+                        }
+                    }
+                }
                 if (contact.contactId === 0) {
                     return this.$http.post("api/contacts", JSON.stringify(contact), {
                         headers: {

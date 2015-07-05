@@ -12,7 +12,10 @@ namespace Supratentorial.Models
         public string Status { get; set; }
         public virtual ICollection<Relationship> Relationships { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-        public virtual ICollection<Person> PeopleResponsible { get; set; }
+
+        public virtual ICollection<UserProfile> StaffAssisting { get; set; }
+        public virtual UserProfile PrimaryPerson { get; set; }
+
         public virtual ICollection<Comment> Comments { get; set; }
     }
 }

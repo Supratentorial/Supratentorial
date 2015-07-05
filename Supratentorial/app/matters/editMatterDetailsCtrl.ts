@@ -1,6 +1,6 @@
 ﻿module matters.controllers {
     "use strict"
-    export class NewMatterCtrl {
+    export class EditMatterDetailsCtrl {
         
         clients: interfaces.IPerson[];
         primaryPerson: interfaces.IUserDTO;
@@ -23,6 +23,10 @@
             return this.userService.getUsers();
             
         }
+
+        saveMatter() {
+            //this.mattersServer.saveMatter(this.matter);
+        }
     }
-    angular.module("app.matters").controller("NewMatterCtrl", matters.controllers.NewMatterCtrl);
+    angular.module("app.matters").controller("EditMatterDetailsCtrl", matters.controllers.EditMatterDetailsCtrl);
 }

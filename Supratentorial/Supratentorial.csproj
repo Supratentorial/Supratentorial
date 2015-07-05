@@ -166,7 +166,7 @@
     <Content Include="app\matters\matters.archived.html" />
     <Content Include="app\matters\matters.html" />
     <Content Include="app\matters\matters.my-matters.html" />
-    <Content Include="app\matters\new-matter.html" />
+    <Content Include="app\matters\edit-matter-details.html" />
     <Content Include="app\settings\matter-type-details.html" />
     <Content Include="app\settings\user-details.html" />
     <Content Include="app\settings\directives\user-list-item.html" />
@@ -300,6 +300,18 @@
     <Compile Include="Migrations\201507030851512_Migration1.Designer.cs">
       <DependentUpon>201507030851512_Migration1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507040719339_Migration2.cs" />
+    <Compile Include="Migrations\201507040719339_Migration2.Designer.cs">
+      <DependentUpon>201507040719339_Migration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507040737163_Migration3.cs" />
+    <Compile Include="Migrations\201507040737163_Migration3.Designer.cs">
+      <DependentUpon>201507040737163_Migration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507041203067_Migration4.cs" />
+    <Compile Include="Migrations\201507041203067_Migration4.Designer.cs">
+      <DependentUpon>201507041203067_Migration4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Address.cs" />
@@ -383,7 +395,7 @@
     <TypeScriptCompile Include="app\matters\app.matters.ts" />
     <TypeScriptCompile Include="app\matters\mattersCtrl.ts" />
     <TypeScriptCompile Include="app\matters\mattersService.ts" />
-    <TypeScriptCompile Include="app\matters\newMatterCtrl.ts" />
+    <TypeScriptCompile Include="app\matters\editMatterDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\matters\relationshipsCtrl.ts" />
     <TypeScriptCompile Include="app\settings\app.settings.ts" />
     <TypeScriptCompile Include="app\settings\directives\user-list-item.ts" />
@@ -407,6 +419,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507030851512_Migration1.resx">
       <DependentUpon>201507030851512_Migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507040719339_Migration2.resx">
+      <DependentUpon>201507040719339_Migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507040737163_Migration3.resx">
+      <DependentUpon>201507040737163_Migration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507041203067_Migration4.resx">
+      <DependentUpon>201507041203067_Migration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

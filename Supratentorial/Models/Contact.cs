@@ -26,5 +26,6 @@ namespace Supratentorial.Models
         public virtual ICollection<EmailAddress> EmailAddresses { get; set; }
         public virtual ICollection<SafeCustodyDocument> SafeCustodyDocuments { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
+        public virtual ICollection<Relationship> MatterRelationships { get; set; }
     }
 }

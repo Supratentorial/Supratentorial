@@ -1,6 +1,6 @@
-﻿<div class="contact-list-item" ui-sref="people.basic({id: {{contact.personId}}})">
+﻿<div class="contact-list-item" ui-sref="contact-details.basic({contactId: {{contact.contactId}}})">
     <img src="img/person.svg"/>
-    <span>{{contact.Person.firstName}} {{contact.Person.lastName}}</span>
-    <span>{{contact.phoneNumbers.id}}</span>
-    <span>{{contact.emailAddresses[0].number}}</span>
+    <span>{{contact.displayName}}</span>
+    <span>{{contact.phoneNumbers[0].number}}</span>
+    <span>{{contact.emailAddresses[0].address}}</span>
 </div>

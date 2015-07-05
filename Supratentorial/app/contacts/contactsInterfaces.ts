@@ -19,6 +19,15 @@ module interfaces {
         person?: IPerson;
     }
 
+    export interface IContactSearchResult {
+        contactId: number;
+        displayName: string;
+        type: string;
+        phoneNumbers: IPhoneNumber[];
+        emailAddresses: IEmailAddress[];
+        addresses: IAddress[];
+    }
+
     export interface ITrust {
 
     }
@@ -60,18 +69,22 @@ module interfaces {
     }
 
     export interface IEmailAddress {
-        id: number;
+        emailId: number;
         address: string;
         isPreferred?: boolean;
+        isArchived?: boolean;
+        dateArchived?: Date;
+        contactId: number;
     }
 
     export interface IPhoneNumber {
-        id: number;
+        phoneId: number;
         countryCode: number;
         areaCode: number;
         type: string;
         isPreferred: boolean;
-        number: number;
+        number: string;
+        contactId: number;
     }
 
     export interface IAddress {

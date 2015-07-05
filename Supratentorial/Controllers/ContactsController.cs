@@ -30,10 +30,20 @@ namespace Supratentorial.Controllers
             }
             else
             {
-                var people = db.Contacts.Where(contact => contact.Person.FirstName.Contains(searchString)|| contact.Person.LastName.Contains(searchString)).Include(contact => contact.Person);
-                foreach(var contact in people){
+                var result = db.Contacts.Where(contact => contact.Person.FirstName.Contains(searchString) || contact.Person.LastName.Contains(searchString) || contact.Company.TradingName.Contains(searchString))
+                    .Include(contact => contact.Person)
+                    .Include(contact => contact.EmailAddresses)
+                    .Include(contact => contact.PhoneNumbers)
+                    .Include(contact => contact.Addresses);
+                var companies = db.Contacts.Where(contact => contact.Company.TradingName.Contains(searchString)).Include(contact => contact.Company);
+                foreach (var contact in result)
+                {
                     ContactDTO contactDTO = new ContactDTO();
+                    contactDTO.ContactId = contact.ContactId;
                     contactDTO.DisplayName = contact.Person.FirstName + " " + contact.Person.LastName;
+                    contactDTO.EmailAddresses = contact.EmailAddresses;
+                    contactDTO.PhoneNumbers = contact.PhoneNumbers;
+                    contactDTO.Addresses = contact.Addresses;
                     contactList.Add(contactDTO);
                 }
                 return Ok(contactList);
@@ -45,12 +55,15 @@ namespace Supratentorial.Controllers
         [ResponseType(typeof(Contact))]
         public IHttpActionResult GetContactById(int contactId)
         {
-            Contact contact = db.Contacts.Find(contactId);
+            Contact contact = db.Contacts.Include(c => c.Person)
+                .Include(c => c.PhoneNumbers)
+                .Include(c => c.EmailAddresses)
+                .Include(c => c.Addresses)
+                .SingleOrDefault(c => c.ContactId == contactId);
             if (contact == null)
             {
                 return NotFound();
             }
-
             return Ok(contact);
         }
 
@@ -76,6 +89,7 @@ namespace Supratentorial.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutContact(int contactId, Contact contact)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -91,19 +105,35 @@ namespace Supratentorial.Controllers
                 return BadRequest();
             }
 
-            db.Entry(contact).State = EntityState.Modified;
             foreach (EmailAddress email in contact.EmailAddresses)
             {
+                if (String.IsNullOrEmpty(email.Address))
+                {
+                    return BadRequest();
+                }
+                if (email.ContactId != contact.ContactId)
+                {
+                    return BadRequest("Email.ContactId of " + email.ContactId + " does not match Contact.ContactId of " + contact.ContactId +".");
+                }
                 db.Entry(email).State = email.EmailId == 0 ? EntityState.Added : EntityState.Modified;
             }
             foreach (PhoneNumber phone in contact.PhoneNumbers)
             {
+                if (String.IsNullOrEmpty(phone.Number))
+                {
+                    return BadRequest("Phone.");
+                }
+                if (phone.ContactId != contact.ContactId) {
+                    return BadRequest("Phone.ContactId of " + phone.ContactId + " does not match Contact.ContactId of " + contact.ContactId + ".");
+                }
                 db.Entry(phone).State = phone.PhoneId == 0 ? EntityState.Added : EntityState.Modified;
             }
             foreach (Address address in contact.Addresses)
             {
                 db.Entry(address).State = address.AddressId == 0 ? EntityState.Added : EntityState.Modified;
             }
+            db.Entry(contact).State = EntityState.Modified;
+            db.Entry(contact.Person).State = EntityState.Modified;
 
             try
             {
@@ -125,7 +155,7 @@ namespace Supratentorial.Controllers
         }
 
         // DELETE: api/people/5
-        [Route ("api/contacts/{contactId}")]
+        [Route("api/contacts/{contactId}")]
         [ResponseType(typeof(Contact))]
         public IHttpActionResult DeleteContact(int contactId)
         {
