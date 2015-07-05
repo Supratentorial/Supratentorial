@@ -292,25 +292,21 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Migrations\201507030446181_Initial.cs" />
-    <Compile Include="Migrations\201507030446181_Initial.Designer.cs">
-      <DependentUpon>201507030446181_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201507050818469_migration0.cs" />
+    <Compile Include="Migrations\201507050818469_migration0.Designer.cs">
+      <DependentUpon>201507050818469_migration0.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507030851512_Migration1.cs" />
-    <Compile Include="Migrations\201507030851512_Migration1.Designer.cs">
-      <DependentUpon>201507030851512_Migration1.cs</DependentUpon>
+    <Compile Include="Migrations\201507050901315_migration1.cs" />
+    <Compile Include="Migrations\201507050901315_migration1.Designer.cs">
+      <DependentUpon>201507050901315_migration1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507040719339_Migration2.cs" />
-    <Compile Include="Migrations\201507040719339_Migration2.Designer.cs">
-      <DependentUpon>201507040719339_Migration2.cs</DependentUpon>
+    <Compile Include="Migrations\201507050906363_migration2.cs" />
+    <Compile Include="Migrations\201507050906363_migration2.Designer.cs">
+      <DependentUpon>201507050906363_migration2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201507040737163_Migration3.cs" />
-    <Compile Include="Migrations\201507040737163_Migration3.Designer.cs">
-      <DependentUpon>201507040737163_Migration3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507041203067_Migration4.cs" />
-    <Compile Include="Migrations\201507041203067_Migration4.Designer.cs">
-      <DependentUpon>201507041203067_Migration4.cs</DependentUpon>
+    <Compile Include="Migrations\201507051326541_migration11.cs" />
+    <Compile Include="Migrations\201507051326541_migration11.Designer.cs">
+      <DependentUpon>201507051326541_migration11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -414,20 +410,17 @@
     <TypeScriptCompile Include="app\typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507030446181_Initial.resx">
-      <DependentUpon>201507030446181_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507050818469_migration0.resx">
+      <DependentUpon>201507050818469_migration0.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507030851512_Migration1.resx">
-      <DependentUpon>201507030851512_Migration1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507050901315_migration1.resx">
+      <DependentUpon>201507050901315_migration1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507040719339_Migration2.resx">
-      <DependentUpon>201507040719339_Migration2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507050906363_migration2.resx">
+      <DependentUpon>201507050906363_migration2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507040737163_Migration3.resx">
-      <DependentUpon>201507040737163_Migration3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507041203067_Migration4.resx">
-      <DependentUpon>201507041203067_Migration4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507051326541_migration11.resx">
+      <DependentUpon>201507051326541_migration11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

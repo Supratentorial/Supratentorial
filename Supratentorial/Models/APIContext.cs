@@ -17,6 +17,7 @@ namespace Supratentorial.Models
         public DbSet<Matter> Matters { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<RelationshipType> RelationshipTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -58,6 +59,9 @@ namespace Supratentorial.Models
             modelBuilder.Entity<Address>().HasKey(address => address.AddressId);
 
             //Relationship
+            modelBuilder.Entity<Relationship>().HasRequired(r => r.RelationshipType).WithMany().HasForeignKey(r => r.RelationshipTypeId); //Look up table for relationship types. 
+
+            //RelationshipTypes
             modelBuilder.Entity<RelationshipType>().HasKey(rt => rt.RelatioshipTypeId);
 
             //User
@@ -65,6 +69,7 @@ namespace Supratentorial.Models
 
             //Matter
             modelBuilder.Entity<Matter>().Property(m => m.DateCreated).HasColumnType("date");
+            
         }
 
     }

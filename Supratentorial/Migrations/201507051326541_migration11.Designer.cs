@@ -7,13 +7,13 @@ namespace Supratentorial.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class Migration2 : IMigrationMetadata
+    public sealed partial class migration11 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Migration2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migration11));
         
         string IMigrationMetadata.Id
         {
-            get { return "201507040719339_Migration2"; }
+            get { return "201507051326541_migration11"; }
         }
         
         string IMigrationMetadata.Source
