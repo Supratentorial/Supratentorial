@@ -79,8 +79,8 @@ module interfaces {
 
     export interface IPhoneNumber {
         phoneId: number;
-        countryCode: number;
-        areaCode: number;
+        countryCode: string;
+        areaCode: string;
         type: string;
         isPreferred: boolean;
         number: string;

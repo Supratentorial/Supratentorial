@@ -19,6 +19,6 @@ namespace Supratentorial.Models
         public int MatterId { get; set; }
 
         public virtual Contact Contact { get; set; } //The individual at the other end of the relationship
-        public int ContactId { get; set; }
+        public int? ContactId { get; set; }
     }
 }

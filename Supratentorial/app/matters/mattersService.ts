@@ -7,6 +7,11 @@ module matters.services {
 
         constructor(private $http: angular.IHttpService) { }
 
+        saveMatter(matter : interfaces.IMatter) {
+            if (matter.matterId === 0) {
+            }
+        }
+
     }
     angular.module("app.matters").service("mattersService", services.MatterService);
 }

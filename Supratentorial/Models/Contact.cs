@@ -14,13 +14,16 @@ namespace Supratentorial.Models
             this.EmailAddresses = new HashSet<EmailAddress>();
             this.SafeCustodyDocuments = new HashSet<SafeCustodyDocument>();
             this.Addresses = new HashSet<Address>();
+            //Change to constants
+            this.ContactStatusId = 1;
         }
         public int ContactId { get; set; }
         public Person Person { get; set; }
         public Trust Trust { get; set; }
         public Company Company { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public virtual ContactStatus Status { get; set; }
+        public int ContactStatusId  { get; set; }
 
         public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
         public virtual ICollection<EmailAddress> EmailAddresses { get; set; }

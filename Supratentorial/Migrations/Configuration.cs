@@ -2,7 +2,6 @@ namespace Supratentorial.Migrations
 {
     using Supratentorial.Models;
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -22,8 +21,8 @@ namespace Supratentorial.Migrations
             context.Database.ExecuteSqlCommand("EXEC sp_MSForEachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL'");
 
             context.RelationshipTypes.AddOrUpdate<RelationshipType>(
-                new RelationshipType { Name = "Client", Description = "The contact who is the client in a matter.", Status = "Active" },
-                new RelationshipType { Name = "Other Side's Solicitor", Description = "The solicitor acting on behalf of the Other Side.", Status = "Active" }
+                new RelationshipType { RelationshipTypeId = 1, Name = "Client", Description = "The contact who is the client in a matter.", Status = "Active" },
+                new RelationshipType { RelationshipTypeId = 2, Name = "Other Side's Solicitor", Description = "The solicitor acting on behalf of the Other Side.", Status = "Active" }
                 );
         }
     }

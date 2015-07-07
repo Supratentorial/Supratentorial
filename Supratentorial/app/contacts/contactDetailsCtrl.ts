@@ -24,12 +24,13 @@ module contacts.controllers {
         static $inject = ["contactsService", "$state"];
 
         constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IStateService) {
+            var contactId = this.$state.params["contactId"];
             this.contact = {
                 addresses: [],
-                emailAddresses: [],
-                phoneNumbers: [],
+                emailAddresses: [{ emailId: 0, address: "", isPreferred: true, isArchived: false, dateArchived: null, contactId: contactId }],
+                phoneNumbers: [{ phoneId: 0, isPreferred: true, type: this.phoneOptions[2], number: "", areaCode: "", countryCode: "", contactId: contactId }],
                 type: "",
-                contactId: this.$state.params["contactId"],
+                contactId: contactId,
                 person: {
                     firstName: "",
                     dateOfBirth: null,
@@ -49,16 +50,7 @@ module contacts.controllers {
                     this.contact = contact;
                     //Figure out contact type based on filled properties.
                     this.dateOfBirthString = moment(contact.person.dateOfBirth).format("DD-MM-YYYY");
-                }).then(() => {
-                    if (this.contact.emailAddresses.length === 0) {
-                        var email = <interfaces.IEmailAddress>{ emailId: 0, address: "", isPreferred: true, isArchived: false, dateArchived: null, contactId: this.contact.contactId }
-                        this.contact.emailAddresses.push(email);
-                    }
-                    if (this.contact.phoneNumbers.length === 0) {
-                        var phone = <interfaces.IPhoneNumber>{ phoneId: 0, isPreferred: true, type: this.phoneOptions[2], number: "", contactId: this.contact.contactId}
-                        this.contact.phoneNumbers.push(phone);
-                    }
-                });
+                })
             }
             this.tabData = [
                 {

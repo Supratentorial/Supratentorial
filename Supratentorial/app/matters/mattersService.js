@@ -7,6 +7,10 @@ var matters;
             function MatterService($http) {
                 this.$http = $http;
             }
+            MatterService.prototype.saveMatter = function (matter) {
+                if (matter.matterId === 0) {
+                }
+            };
             MatterService.$inject = ['$http'];
             return MatterService;
         })();

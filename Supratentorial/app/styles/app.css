@@ -5195,6 +5195,9 @@ button.close {
 .sidebar-content {
   font-size: 14px; }
 
+.iti-flag {
+  background-image: url("/img/flags.png"); }
+
 body {
   background-color: #E0E0E0;
   padding-top: 95px;

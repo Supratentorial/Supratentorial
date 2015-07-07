@@ -164,7 +164,8 @@ namespace Supratentorial.Controllers
             {
                 return NotFound();
             }
-            contact.IsDeleted = true;
+            //Change to constant
+            contact.ContactStatusId = 5;
             db.SaveChanges();
             return Ok(contact);
         }

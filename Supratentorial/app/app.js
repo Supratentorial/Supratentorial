@@ -18,8 +18,7 @@ var app;
             }).state("matters.my-matters", {
                 url: "/matters/my-matters",
                 templateUrl: "/html/matters/matters.my-matters.html",
-                controller: "MattersCtrl as vm",
-                requireADLogin: true
+                controller: "MattersCtrl as vm"
             }).state("matters.archived", {
                 url: "/matters/archived",
                 templateUrl: "/html/matters/matters.archived.html"
@@ -34,7 +33,6 @@ var app;
             }).state("dashboard", {
                 url: "/",
                 templateUrl: "/html/dashboard/dashboardPartial.html",
-                requireADLogin: true
             }).state("contacts", {
                 url: "/contacts",
                 templateUrl: "/html/contacts/contacts.html",

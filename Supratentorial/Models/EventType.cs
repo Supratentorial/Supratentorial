@@ -5,11 +5,9 @@ using System.Web;
 
 namespace Supratentorial.Models
 {
-    public class RelationshipType
+    public class EventType
     {
-        public int RelationshipTypeId { get; set; }
+        public int EventTypeId { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Status { get; set; }
     }
 }

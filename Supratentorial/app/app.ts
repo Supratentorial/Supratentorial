@@ -13,17 +13,13 @@ module app {
                 templateUrl: "/html/matters/matters.html",
                 controller: "MattersCtrl as vm",
                 requireADLogin: true
-
             }).state("matters.my-matters", <ng.ui.IState>{
                 url: "/matters/my-matters",
                 templateUrl: "/html/matters/matters.my-matters.html",
-                controller: "MattersCtrl as vm",
-                requireADLogin: true
-
+                controller: "MattersCtrl as vm"
             }).state("matters.archived", <ng.ui.IState>{
                 url: "/matters/archived",
                 templateUrl: "/html/matters/matters.archived.html"
-
             }).state("view-matter-details", <ng.ui.IState>{
                 url: "/matter-details/view/{matterId :int}",
                 templateUrl: "html/matters/matter-details.html",
@@ -37,7 +33,6 @@ module app {
             }).state("dashboard", <ng.ui.IState>{
                 url: "/",
                 templateUrl: "/html/dashboard/dashboardPartial.html",
-                requireADLogin: true
 
             }).state("contacts", <ng.ui.IState>{
                 url: "/contacts",

@@ -207,12 +207,12 @@
     <Content Include="dist\html\matters\directives\contact-chip.html" />
     <Content Include="dist\html\matters\directives\matter-detail-chip.html" />
     <Content Include="dist\html\matters\directives\matter-relationship.html" />
+    <Content Include="dist\html\matters\edit-matter-details.html" />
     <Content Include="dist\html\matters\matter-add-relationship.html" />
     <Content Include="dist\html\matters\matter-details.html" />
     <Content Include="dist\html\matters\matters.archived.html" />
     <Content Include="dist\html\matters\matters.html" />
     <Content Include="dist\html\matters\matters.my-matters.html" />
-    <Content Include="dist\html\matters\new-matter.html" />
     <Content Include="dist\html\settings\directives\user-list-item.html" />
     <Content Include="dist\html\settings\matter-type-details.html" />
     <Content Include="dist\html\settings\matter-types.html" />
@@ -223,6 +223,7 @@
     <Content Include="dist\img\circle_close.svg" />
     <Content Include="dist\img\contacts.svg" />
     <Content Include="dist\img\dashboard.svg" />
+    <Content Include="dist\img\flags.png" />
     <Content Include="dist\img\matters.svg" />
     <Content Include="dist\img\meridian_logo.svg" />
     <Content Include="dist\img\organisation.svg" />
@@ -238,13 +239,12 @@
     <Content Include="dist\js\common\app.common.js" />
     <Content Include="dist\js\common\directives\autofocusElement.js" />
     <Content Include="dist\js\contacts\app.contacts.js" />
+    <Content Include="dist\js\contacts\contactDetailsCtrl.js" />
     <Content Include="dist\js\contacts\contactsCtrl.js" />
     <Content Include="dist\js\contacts\contactsInterfaces.js" />
     <Content Include="dist\js\contacts\contactsService.js" />
     <Content Include="dist\js\contacts\directives\contactListItem.js" />
     <Content Include="dist\js\contacts\directives\phone-input.js" />
-    <Content Include="dist\js\contacts\organisationDetailsCtrl.js" />
-    <Content Include="dist\js\contacts\personDetailsCtrl.js" />
     <Content Include="dist\js\dashboard\dashboard.js" />
     <Content Include="dist\js\indexCtrl.js" />
     <Content Include="dist\js\matters\app.matters.js" />
@@ -252,11 +252,11 @@
     <Content Include="dist\js\matters\directives\contactChip.js" />
     <Content Include="dist\js\matters\directives\matterDetailChip.js" />
     <Content Include="dist\js\matters\directives\matterRelationship.js" />
+    <Content Include="dist\js\matters\editMatterDetailsCtrl.js" />
     <Content Include="dist\js\matters\matterDetailsCtrl.js" />
     <Content Include="dist\js\matters\matterInterfaces.js" />
     <Content Include="dist\js\matters\mattersCtrl.js" />
     <Content Include="dist\js\matters\mattersService.js" />
-    <Content Include="dist\js\matters\newMatterCtrl.js" />
     <Content Include="dist\js\matters\relationshipsCtrl.js" />
     <Content Include="dist\js\settings\app.settings.js" />
     <Content Include="dist\js\settings\directives\user-list-item.js" />
@@ -292,21 +292,9 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Migrations\201507050818469_migration0.cs" />
-    <Compile Include="Migrations\201507050818469_migration0.Designer.cs">
-      <DependentUpon>201507050818469_migration0.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507050901315_migration1.cs" />
-    <Compile Include="Migrations\201507050901315_migration1.Designer.cs">
-      <DependentUpon>201507050901315_migration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507050906363_migration2.cs" />
-    <Compile Include="Migrations\201507050906363_migration2.Designer.cs">
-      <DependentUpon>201507050906363_migration2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201507051326541_migration11.cs" />
-    <Compile Include="Migrations\201507051326541_migration11.Designer.cs">
-      <DependentUpon>201507051326541_migration11.cs</DependentUpon>
+    <Compile Include="Migrations\201507070809527_0.cs" />
+    <Compile Include="Migrations\201507070809527_0.Designer.cs">
+      <DependentUpon>201507070809527_0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -317,7 +305,9 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactStatus.cs" />
     <Compile Include="Models\DTOs\ContactDTO.cs" />
+    <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\MatterType.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\DoctorProperties.cs" />
@@ -327,10 +317,12 @@
     <Compile Include="Models\Matter.cs" />
     <Compile Include="Models\PhoneNumber.cs" />
     <Compile Include="Models\Relationship.cs" />
+    <Compile Include="Models\RelationshipTemplate.cs" />
     <Compile Include="Models\RelationshipType.cs" />
     <Compile Include="Models\SafeCustodyDocument.cs" />
     <Compile Include="Models\Trust.cs" />
     <Compile Include="Models\DTOs\UserDTO.cs" />
+    <Compile Include="Models\UserMatterAssociation.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -410,17 +402,8 @@
     <TypeScriptCompile Include="app\typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201507050818469_migration0.resx">
-      <DependentUpon>201507050818469_migration0.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507050901315_migration1.resx">
-      <DependentUpon>201507050901315_migration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507050906363_migration2.resx">
-      <DependentUpon>201507050906363_migration2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201507051326541_migration11.resx">
-      <DependentUpon>201507051326541_migration11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201507070809527_0.resx">
+      <DependentUpon>201507070809527_0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,6 +12,7 @@ namespace Supratentorial.Models
         public DateTime DateAdded { get; set; }
         public string DocumentAuthor { get; set; }
         public DateTime DocumentCreationDate { get; set; }
+        //Refactor out into DocumentActions table
         public string ReasonForRemoval { get; set; }
 
         [JsonIgnore]

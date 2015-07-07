@@ -13,6 +13,7 @@ namespace Supratentorial.Models
         }
         public Guid UserId { get; set; }
         public string PracticingCertificateNumber { get; set; }
+        public virtual ICollection<UserMatterAssociation> UserMatterAssociations { get; set; }
         public virtual ICollection<Person> RecentClients { get; set; }
         public virtual ICollection<Person> FavouriteClients { get; set; }
         public LegalFirm Firm { get; set; }

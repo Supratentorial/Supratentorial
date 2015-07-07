@@ -44,7 +44,7 @@ namespace Supratentorial.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != matter.Id)
+            if (id != matter.MatterId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace Supratentorial.Controllers
             db.Matters.Add(matter);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = matter.Id }, matter);
+            return CreatedAtRoute("DefaultApi", new { id = matter.MatterId }, matter);
         }
 
         // DELETE: api/Matters/5
@@ -112,7 +112,7 @@ namespace Supratentorial.Controllers
 
         private bool MatterExists(int id)
         {
-            return db.Matters.Count(e => e.Id == id) > 0;
+            return db.Matters.Count(e => e.MatterId == id) > 0;
         }
     }
 }
