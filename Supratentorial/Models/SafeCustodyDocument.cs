@@ -13,7 +13,7 @@ namespace Supratentorial.Models
         public string DocumentAuthor { get; set; }
         public DateTime DocumentCreationDate { get; set; }
         //Refactor out into DocumentActions table
-        public string ReasonForRemoval { get; set; }
+        //public string ReasonForRemoval { get; set; }
 
         [JsonIgnore]
         public virtual Contact Contact { get; set; }

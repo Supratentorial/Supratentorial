@@ -296,6 +296,14 @@
     <Compile Include="Migrations\201507070809527_0.Designer.cs">
       <DependentUpon>201507070809527_0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507080508131_1.cs" />
+    <Compile Include="Migrations\201507080508131_1.Designer.cs">
+      <DependentUpon>201507080508131_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507080526403_2.cs" />
+    <Compile Include="Migrations\201507080526403_2.Designer.cs">
+      <DependentUpon>201507080526403_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Address.cs" />
@@ -404,6 +412,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201507070809527_0.resx">
       <DependentUpon>201507070809527_0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507080508131_1.resx">
+      <DependentUpon>201507080508131_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507080526403_2.resx">
+      <DependentUpon>201507080526403_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

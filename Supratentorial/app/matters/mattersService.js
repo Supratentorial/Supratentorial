@@ -7,8 +7,16 @@ var matters;
             function MatterService($http) {
                 this.$http = $http;
             }
+            MatterService.prototype.MATTER_STATUS_ACTIVE = function () { return 1; };
             MatterService.prototype.saveMatter = function (matter) {
                 if (matter.matterId === 0) {
+                    return this.$http.post("api/matters", JSON.stringify(matter), {
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then(function (response) {
+                        return response.data;
+                    });
                 }
             };
             MatterService.$inject = ['$http'];

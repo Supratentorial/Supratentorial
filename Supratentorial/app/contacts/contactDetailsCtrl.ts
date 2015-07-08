@@ -24,6 +24,7 @@ module contacts.controllers {
         static $inject = ["contactsService", "$state"];
 
         constructor(private contactsService: interfaces.IContactsService, private $state: ng.ui.IStateService) {
+            //Determine if user wants to create person/company and set appropriate values to null.
             var contactId = this.$state.params["contactId"];
             this.contact = {
                 addresses: [],
@@ -43,7 +44,8 @@ module contacts.controllers {
                     lastName: "",
                     middleNames: "",
                     title: ""
-                }
+                },
+                contactStatus: 1
             }
             if (this.contact.contactId !== 0) {
                 this.contactsService.getContactById(this.contact.contactId).then((contact: interfaces.IContact): void => {

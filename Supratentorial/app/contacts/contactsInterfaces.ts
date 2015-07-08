@@ -17,6 +17,7 @@ module interfaces {
         trust?: ITrust;
         company?: ICompany;
         person?: IPerson;
+        contactStatus: number;
     }
 
     export interface IContactSearchResult {
@@ -26,6 +27,7 @@ module interfaces {
         phoneNumbers: IPhoneNumber[];
         emailAddresses: IEmailAddress[];
         addresses: IAddress[];
+        contactStatusId: number;
     }
 
     export interface ITrust {
@@ -79,8 +81,6 @@ module interfaces {
 
     export interface IPhoneNumber {
         phoneId: number;
-        countryCode: string;
-        areaCode: string;
         type: string;
         isPreferred: boolean;
         number: string;
@@ -101,7 +101,7 @@ module interfaces {
     export interface IContactsService {
         saveContact(person: IContact): ng.IPromise<IContact>;
         getContactById(id: number): ng.IPromise<IContact>;
-        getRecentContacts(): ng.IPromise<IContact[]>;
-        searchContacts(searchString :string): ng.IPromise<IContact[]>;
+        getRecentContacts(): ng.IPromise<IContactSearchResult[]>;
+        searchContacts(searchString :string): ng.IPromise<IContactSearchResult[]>;
     }
 }
