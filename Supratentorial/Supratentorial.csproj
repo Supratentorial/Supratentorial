@@ -291,6 +291,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
+    <Compile Include="Controllers\MatterTypeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Migrations\201507070809527_0.cs" />
     <Compile Include="Migrations\201507070809527_0.Designer.cs">
@@ -304,6 +305,22 @@
     <Compile Include="Migrations\201507080526403_2.Designer.cs">
       <DependentUpon>201507080526403_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507090032051_3.cs" />
+    <Compile Include="Migrations\201507090032051_3.Designer.cs">
+      <DependentUpon>201507090032051_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507091429526_4.cs" />
+    <Compile Include="Migrations\201507091429526_4.Designer.cs">
+      <DependentUpon>201507091429526_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507091518024_5.cs" />
+    <Compile Include="Migrations\201507091518024_5.Designer.cs">
+      <DependentUpon>201507091518024_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507091525105_6.cs" />
+    <Compile Include="Migrations\201507091525105_6.Designer.cs">
+      <DependentUpon>201507091525105_6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Address.cs" />
@@ -315,6 +332,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactStatus.cs" />
     <Compile Include="Models\DTOs\ContactDTO.cs" />
+    <Compile Include="Models\EventTemplate.cs" />
     <Compile Include="Models\EventType.cs" />
     <Compile Include="Models\MatterType.cs" />
     <Compile Include="Models\Person.cs" />
@@ -418,6 +436,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507080526403_2.resx">
       <DependentUpon>201507080526403_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507090032051_3.resx">
+      <DependentUpon>201507090032051_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507091429526_4.resx">
+      <DependentUpon>201507091429526_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507091518024_5.resx">
+      <DependentUpon>201507091518024_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507091525105_6.resx">
+      <DependentUpon>201507091525105_6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

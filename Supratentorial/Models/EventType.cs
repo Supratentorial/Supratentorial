@@ -9,5 +9,6 @@ namespace Supratentorial.Models
     {
         public int EventTypeId { get; set; }
         public string Name { get; set; }
+
     }
 }

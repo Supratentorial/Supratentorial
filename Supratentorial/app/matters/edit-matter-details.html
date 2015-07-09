@@ -16,7 +16,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="control-label">Client(s)</label>
-                                    <tags-input ng-model="vm.clients" placeholder="Search existing contacts" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" display-property="displayName" key-property="contactId">
+                                    <tags-input ng-model="vm.clients" add-on-enter="false" placeholder="Search existing contacts" replace-spaces-with-dashes="false" add-from-autocomplete-only="true" display-property="displayName" key-property="contactId">
                                         <auto-complete source="vm.searchContacts($query)"></auto-complete>
                                     </tags-input>
                                 </div>
@@ -37,7 +37,7 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label class="control-label">People Assisting</label>
-                                    <tags-input placeholder="Search staff members" ng-model="vm.peopleAssisting" add-from-autocomplete-only="true" display-property="displayName" key-property="userId" replace-spaces-with-dashes="false">
+                                    <tags-input placeholder="Search staff members" add-on-enter="false" ng-model="vm.peopleAssisting" add-from-autocomplete-only="true" display-property="displayName" key-property="userId" replace-spaces-with-dashes="false">
                                         <auto-complete source="vm.getUsers()"></auto-complete>
                                     </tags-input>
                                 </div>

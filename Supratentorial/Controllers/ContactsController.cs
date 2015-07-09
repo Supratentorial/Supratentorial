@@ -30,13 +30,19 @@ namespace Supratentorial.Controllers
             }
             else
             {
-                var result = db.Contacts.Where(contact => contact.Person.FirstName.Contains(searchString) || contact.Person.LastName.Contains(searchString) || contact.Company.TradingName.Contains(searchString))
+                var people = db.Contacts.Where(contact => contact.Person.FirstName.Contains(searchString) || contact.Person.LastName.Contains(searchString))
                     .Include(contact => contact.Person)
                     .Include(contact => contact.EmailAddresses)
                     .Include(contact => contact.PhoneNumbers)
-                    .Include(contact => contact.Addresses);
-                var companies = db.Contacts.Where(contact => contact.Company.TradingName.Contains(searchString)).Include(contact => contact.Company);
-                foreach (var contact in result)
+                    .Include(contact => contact.Addresses)
+                    .Include(contact => contact.SafeCustodyDocuments);
+                var companies = db.Contacts.Where(contact => contact.Company.TradingName.Contains(searchString))
+                    .Include(contact => contact.Company)
+                    .Include(contact => contact.EmailAddresses)
+                    .Include(contact => contact.PhoneNumbers)
+                    .Include(contact => contact.Addresses)
+                    .Include(contact => contact.SafeCustodyDocuments);
+                foreach (var contact in people)
                 {
                     ContactDTO contactDTO = new ContactDTO();
                     contactDTO.ContactId = contact.ContactId;
@@ -44,6 +50,17 @@ namespace Supratentorial.Controllers
                     contactDTO.EmailAddresses = contact.EmailAddresses;
                     contactDTO.PhoneNumbers = contact.PhoneNumbers;
                     contactDTO.Addresses = contact.Addresses;
+                    contactList.Add(contactDTO);
+                }
+                foreach (var contact in companies)
+                {
+                    ContactDTO contactDTO = new ContactDTO();
+                    contactDTO.ContactId = contact.ContactId;
+                    contactDTO.DisplayName = contact.Company.TradingName + " " + contact.Company.TradingSuffix;
+                    contactDTO.EmailAddresses = contact.EmailAddresses;
+                    contactDTO.PhoneNumbers = contact.PhoneNumbers;
+                    contactDTO.Addresses = contact.Addresses;
+                    contactDTO.Type = "Company";
                     contactList.Add(contactDTO);
                 }
                 return Ok(contactList);
@@ -113,7 +130,7 @@ namespace Supratentorial.Controllers
                 }
                 if (email.ContactId != contact.ContactId)
                 {
-                    return BadRequest("Email.ContactId of " + email.ContactId + " does not match Contact.ContactId of " + contact.ContactId +".");
+                    return BadRequest("Email.ContactId of " + email.ContactId + " does not match Contact.ContactId of " + contact.ContactId + ".");
                 }
                 db.Entry(email).State = email.EmailId == 0 ? EntityState.Added : EntityState.Modified;
             }
@@ -123,7 +140,8 @@ namespace Supratentorial.Controllers
                 {
                     return BadRequest("Phone.");
                 }
-                if (phone.ContactId != contact.ContactId) {
+                if (phone.ContactId != contact.ContactId)
+                {
                     return BadRequest("Phone.ContactId of " + phone.ContactId + " does not match Contact.ContactId of " + contact.ContactId + ".");
                 }
                 db.Entry(phone).State = phone.PhoneId == 0 ? EntityState.Added : EntityState.Modified;

@@ -85,6 +85,8 @@ namespace Supratentorial.Models
 
             //Relationship Template
             modelBuilder.Entity<RelationshipTemplate>().HasRequired(rt => rt.RelationshipType).WithMany().HasForeignKey(rt => rt.RelationshipTypeId);
+
+            
         }
 
     }

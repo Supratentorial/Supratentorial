@@ -12,7 +12,7 @@ namespace Supratentorial.Models
         public string TradingName { get; set; }
         public string CompanySuffix { get; set; }
         public string TradingSuffix { get; set; }
-        public int AustralianBusinessNumber { get; set; }
+        public string AustralianBusinessNumber { get; set; }
         public bool SoleDirector { get; set; }
 
         public int ContactId { get; set; }

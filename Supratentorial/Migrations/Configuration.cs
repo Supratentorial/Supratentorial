@@ -25,23 +25,42 @@ namespace Supratentorial.Migrations
             context.Database.ExecuteSqlCommand("sp_MSForEachTable 'IF OBJECT_ID(''?'') NOT IN (ISNULL(OBJECT_ID(''[dbo].[__MigrationHistory]''),0)) DELETE FROM ?'");
             context.Database.ExecuteSqlCommand("EXEC sp_MSForEachTable 'ALTER TABLE ? CHECK CONSTRAINT ALL'");
 
-            List<Contact> deserializedContacts = new List<Contact>();
-            List<Person> deserializedPeople = new List<Person>();
-            using (StreamReader contactReader = new StreamReader(@"/meridian_legal_contact_seed_data.json"))
+            List<Contact> deserializedCompanies = new List<Contact>();
+            List<Contact> deserializedPeople = new List<Contact>();
+            using (StreamReader contactReader = new StreamReader(@"/meridian_legal_company_seed_data.json"))
             {
-                String contactJSON = contactReader.ReadToEnd();
+                String companyJSON = contactReader.ReadToEnd();
                 JsonSerializerSettings deserializeSettings = new JsonSerializerSettings();
-                deserializedContacts = JsonConvert.DeserializeObject<List<Contact>>(contactJSON, new IsoDateTimeConverter());
+                deserializedCompanies = JsonConvert.DeserializeObject<List<Contact>>(companyJSON, new IsoDateTimeConverter());
             }
             using (StreamReader personReader = new StreamReader(@"/meridian_legal_people_seed_data.json"))
             {
                 String peopleJSON = personReader.ReadToEnd();
-                deserializedPeople = JsonConvert.DeserializeObject<List<Person>>(peopleJSON, new IsoDateTimeConverter());
+                deserializedPeople = JsonConvert.DeserializeObject<List<Contact>>(peopleJSON, new IsoDateTimeConverter());
             }
-            List<Contact> combinedList = deserializedContacts.Zip(deserializedPeople, (contact, person) => new Contact { Person = person }).ToList();
-            foreach (Contact contact in combinedList) {
-                context.Contacts.AddOrUpdate(contact);
+            foreach (Contact c in deserializedCompanies)
+            {
+                context.Contacts.AddOrUpdate(c);
             }
+            foreach (Contact c in deserializedPeople)
+            {
+                context.Contacts.AddOrUpdate(c);
+            }
+            context.MatterTypes.AddOrUpdate<MatterType>(
+                new MatterType
+                {
+                    Name = "Purchase",
+                    Description = "Matter type to be used when a client has signed a contract to purchase a property.",
+                    Events =
+                    {
+                        
+                    },
+                    Relationships = { 
+
+                    
+                    }
+                }
+                );
 
             context.RelationshipTypes.AddOrUpdate<RelationshipType>(
                 new RelationshipType { RelationshipTypeId = 1, Name = "Client", Description = "The contact who is the client in a matter.", Status = "Active" },
