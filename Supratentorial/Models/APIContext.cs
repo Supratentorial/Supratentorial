@@ -18,6 +18,7 @@ namespace Supratentorial.Models
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<RelationshipType> RelationshipTypes { get; set; }
+        public DbSet<EventType> EventTypes { get; set; }
         public DbSet<MatterType> MatterTypes { get; set; }
         public DbSet<ContactStatus> ContactStatuses { get; set; }
 

@@ -9,6 +9,18 @@ module matters.services {
 
         MATTER_STATUS_ACTIVE(): number { return 1; }
 
+        getMatterTypes(): ng.IPromise<interfaces.IMatterType[]> {
+            return this.$http.get("api/mattertypes").then((response: any) => { return response.data; });
+        }
+
+        getMatterTypeById(matterTypeId: number): ng.IPromise<interfaces.IMatterType> {
+            return this.$http.get("api/mattertypes/" + matterTypeId).then((response: any) => { return response.data; });
+        }
+
+        getRelationshipTypes(): ng.IPromise<interfaces.IRelationshipType> {
+            return this.$http.get("api/relationshiptypes").then((response) => { return response.data })
+        }
+
         saveMatter(matter: interfaces.IMatter) {
             if (matter.matterId === 0) {
                 return this.$http.post(

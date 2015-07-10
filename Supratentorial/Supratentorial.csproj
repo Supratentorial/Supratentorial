@@ -292,6 +292,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\MattersController.cs" />
     <Compile Include="Controllers\MatterTypeController.cs" />
+    <Compile Include="Controllers\RelationshipTypeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Migrations\201507070809527_0.cs" />
     <Compile Include="Migrations\201507070809527_0.Designer.cs">

@@ -8,6 +8,7 @@
         clients: interfaces.IContact[];
         peopleResponsible: interfaces.IUserDTO[];
         primaryPerson: interfaces.IUserDTO;
+        matterTypes: interfaces.IMatterType[];
 
         static $inject = ["userService", "contactsService", "mattersService"];
         constructor(private userService : interfaces.IUserService, private contactsService : interfaces.IContactsService, private mattersService :interfaces.IMattersService){
@@ -20,6 +21,7 @@
                 relationships: [],
                 userMatterAssociations: []
             }
+            this.getMatterTypes();
         }
 
 
@@ -33,10 +35,17 @@
             
         }
 
+        getMatterTypes() {
+            return this.mattersService.getMatterTypes().then((matterTypes : interfaces.IMatterType[]) => {
+                this.matterTypes = matterTypes;
+            });
+        }
+
         saveMatter() {
             for (var i = 0; i < this.clients.length; i++) {
                 var relationship = <interfaces.IRelationship>{
-                    relationshipTypeId: this.mattersService.MATTER_STATUS_ACTIVE()
+                    relationshipId: this.mattersService.MATTER_STATUS_ACTIVE(),
+                    relationshipType: this
                 };
                 console.log(relationship.relationshipTypeId);
                 console.log(relationship.relationshipId);
