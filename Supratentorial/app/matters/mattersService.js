@@ -7,12 +7,20 @@ var matters;
             function MatterService($http) {
                 this.$http = $http;
             }
-            MatterService.prototype.MATTER_STATUS_ACTIVE = function () { return 1; };
+            MatterService.prototype.getMatters = function () {
+                return this.$http.get("api/matters").then(function (response) { return response.data; });
+            };
             MatterService.prototype.getMatterTypes = function () {
-                return this.$http.get("api/matterTypes").then(function (response) { return response.data; });
+                return this.$http.get("api/mattertypes").then(function (response) { return response.data; });
             };
             MatterService.prototype.getMatterTypeById = function (matterTypeId) {
-                return this.$http.get("api/matterType/" + matterTypeId).then(function (response) { return response.data; });
+                return this.$http.get("api/mattertypes/" + matterTypeId).then(function (response) { return response.data; });
+            };
+            MatterService.prototype.getRelationshipTypes = function () {
+                return this.$http.get("api/relationshiptypes").then(function (response) { return response.data; });
+            };
+            MatterService.prototype.getMatterById = function (matterId) {
+                return this.$http.get("api/matters/" + matterId).then(function (response) { return response.data; });
             };
             MatterService.prototype.saveMatter = function (matter) {
                 if (matter.matterId === 0) {

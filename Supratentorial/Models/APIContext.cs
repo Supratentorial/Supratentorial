@@ -20,6 +20,7 @@ namespace Supratentorial.Models
         public DbSet<RelationshipType> RelationshipTypes { get; set; }
         public DbSet<EventType> EventTypes { get; set; }
         public DbSet<MatterType> MatterTypes { get; set; }
+        public DbSet<Relationship> Relationships { get; set; }
         public DbSet<ContactStatus> ContactStatuses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

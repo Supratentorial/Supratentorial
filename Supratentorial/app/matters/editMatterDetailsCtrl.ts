@@ -1,27 +1,38 @@
 ﻿module matters.controllers {
     "use strict"
     export class EditMatterDetailsCtrl {
-        
+
         users = [];
         matter: interfaces.IMatter;
         isEditMode: boolean;
         clients: interfaces.IContact[];
-        peopleResponsible: interfaces.IUserDTO[];
-        primaryPerson: interfaces.IUserDTO;
+        peopleInvolved: interfaces.IUserDTO[] = [];
+        creditTo: interfaces.IUserDTO;
         matterTypes: interfaces.IMatterType[];
+        relationshipTypes: interfaces.IRelationshipType[] = [];
 
-        static $inject = ["userService", "contactsService", "mattersService"];
-        constructor(private userService : interfaces.IUserService, private contactsService : interfaces.IContactsService, private mattersService :interfaces.IMattersService){
+        static $inject = ["userService", "contactsService", "mattersService", "$state"];
+        constructor(private userService: interfaces.IUserService, private contactsService: interfaces.IContactsService, private mattersService: interfaces.IMattersService, private $state: ng.ui.IStateService) {
             this.userService.getUsers().then((response: interfaces.IUserDTO[]) => {
                 this.users = response;
-            })
+            });
+            var matterId = this.$state.params["matterId"];
             this.matter = {
-                matterId: 0,
+                matterId: matterId, 
                 name: "",
                 relationships: [],
                 userMatterAssociations: []
             }
             this.getMatterTypes();
+            this.getRelationshipTypes();
+            if (this.matter.matterId !== 0) {
+                this.mattersService.getMatterById(this.matter.matterId).then((matter: interfaces.IMatter) : void => {
+                    this.matter = matter;
+                });
+            }
+            if (this.matter.relationships.length === 0) {
+
+            }
         }
 
 
@@ -30,29 +41,64 @@
         }
 
         getUsers() {
-            console.log();
             return this.userService.getUsers();
-            
+
         }
 
         getMatterTypes() {
-            return this.mattersService.getMatterTypes().then((matterTypes : interfaces.IMatterType[]) => {
+            return this.mattersService.getMatterTypes().then((matterTypes: interfaces.IMatterType[]) => {
                 this.matterTypes = matterTypes;
             });
         }
 
+        getRelationshipTypes() {
+            return this.mattersService.getRelationshipTypes().then((relationshipTypes: interfaces.IRelationshipType[]) => {
+                this.relationshipTypes = relationshipTypes;
+            });
+        }
+
         saveMatter() {
-            for (var i = 0; i < this.clients.length; i++) {
-                var relationship = <interfaces.IRelationship>{
-                    relationshipId: this.mattersService.MATTER_STATUS_ACTIVE(),
-                    relationshipType: this
-                };
-                console.log(relationship.relationshipTypeId);
-                console.log(relationship.relationshipId);
+
+            var clientRelationshipType: interfaces.IRelationshipType;
+            for (var i = 0; i < this.relationshipTypes.length; i++) {
+                if (this.relationshipTypes[i].name === "Client") {
+                    clientRelationshipType = this.relationshipTypes[i];
+                }
             }
 
-            console.log(this.matter.relationships);
-            //this.mattersService.saveMatter(this.matter);
+            for (var i = 0; i < this.peopleInvolved.length; i++) {
+                var userId = this.peopleInvolved[i].userId;
+                var isCredit: boolean = false;
+                if (userId === this.creditTo.userId) {
+                    isCredit = true;
+                } 
+                var userMatterAssociation = <interfaces.IUserMatterAssociation>{
+                    isPrimaryPerson: isCredit,
+                    matterId: this.matter.matterId,
+                    userId: userId
+                }
+                this.matter.userMatterAssociations.push(userMatterAssociation);
+            }
+
+            
+            for (var i = 0; i < this.clients.length; i++) {
+                var relationship = <interfaces.IRelationship>{
+                    relationshipTypeId: clientRelationshipType.relationshipTypeId,
+                    contactId: this.clients[i].contactId,
+                    relationshipId: 0,
+                    dateCreated: moment().toDate(),
+                    status: "active"
+                }
+                this.matter.relationships.push(relationship);
+            }
+            var matter = <interfaces.IMatter>{
+                matterId: this.matter.matterId,
+                name: this.matter.name,
+                userMatterAssociations: this.matter.userMatterAssociations,
+                relationships: this.matter.relationships
+            }
+            console.log(JSON.stringify(this.matter, null, 4));
+            this.mattersService.saveMatter(this.matter);
         }
     }
     angular.module("app.matters").controller("EditMatterDetailsCtrl", matters.controllers.EditMatterDetailsCtrl);

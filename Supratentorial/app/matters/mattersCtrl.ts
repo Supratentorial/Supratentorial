@@ -13,6 +13,9 @@ module matters.controllers {
         static $inject = ["mattersService"];
         constructor(private mattersService: interfaces.IMattersService) {
             this.matters = [];
+            this.mattersService.getMatters().then((matters: interfaces.IMatter[]) => {
+                this.matters = matters;
+            });
             this.tabData = [
                 {
                     heading: "My Matters",

@@ -6,6 +6,7 @@ namespace Supratentorial.Models
     public class Matter
     {
         public int MatterId { get; set; }
+        public string Name { get; set; }
         public string Type { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? InstructionsReceived { get; set; }

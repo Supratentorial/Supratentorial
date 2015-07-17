@@ -14,11 +14,11 @@ module app {
                 controller: "MattersCtrl as vm",
                 requireADLogin: true
             }).state("matters.my-matters", <ng.ui.IState>{
-                url: "/matters/my-matters",
-                templateUrl: "/html/matters/matters.my-matters.html",
+                url: "/my-matters",
+                templateUrl: "/html/matters/my-matters.html",
                 controller: "MattersCtrl as vm"
             }).state("matters.archived", <ng.ui.IState>{
-                url: "/matters/archived",
+                url: "/archived",
                 templateUrl: "/html/matters/matters.archived.html"
             }).state("view-matter-details", <ng.ui.IState>{
                 url: "/matter-details/view/{matterId :int}",
@@ -84,8 +84,7 @@ module app {
             this.$locationProvider.html5Mode(true);
             this.adalAuthenticationServiceProvider.init({
                 tenant: "supratentorial.onmicrosoft.com",
-                clientId: "b25d39ee-e012-434a-8660-2f61f0ec764e",
-                cacheLocation: 'localStorage' 
+                clientId: "b25d39ee-e012-434a-8660-2f61f0ec764e"
             }, this.$httpProvider);
         }
     }

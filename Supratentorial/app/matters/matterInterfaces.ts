@@ -12,9 +12,11 @@
 
     export interface IMattersService {
         saveMatter(matter: IMatter): any;
-        MATTER_STATUS_ACTIVE(): number;
         getMatterTypes(): ng.IPromise<interfaces.IMatterType[]>;
         getMatterTypeById(matterTypeId: number): ng.IPromise<interfaces.IMatterType>;
+        getRelationshipTypes(): ng.IPromise<interfaces.IRelationshipType[]>;
+        getMatterById(matterId: number): ng.IPromise<interfaces.IMatter>;
+        getMatters(): ng.IPromise<interfaces.IMatter[]>;
     }
 
     export interface IMatterType {
@@ -41,7 +43,7 @@
         relationshipId: number;
         dateCreated: Date;
         status: string;
-        relationshipType: IRelationshipType;
+        relationshipTypeId: number;
         contactId?: number;
     }
 

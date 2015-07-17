@@ -160,12 +160,13 @@
     <Content Include="app\matters\directives\button-chip.html" />
     <Content Include="app\matters\directives\contact-chip.html" />
     <Content Include="app\matters\directives\matter-detail-chip.html" />
+    <Content Include="app\matters\directives\matter-list-item.html" />
     <Content Include="app\matters\directives\matter-relationship.html" />
     <Content Include="app\matters\matter-add-relationship.html" />
     <Content Include="app\matters\matter-details.html" />
     <Content Include="app\matters\matters.archived.html" />
     <Content Include="app\matters\matters.html" />
-    <Content Include="app\matters\matters.my-matters.html" />
+    <Content Include="app\matters\my-matters.html" />
     <Content Include="app\matters\edit-matter-details.html" />
     <Content Include="app\settings\matter-type-details.html" />
     <Content Include="app\settings\user-details.html" />
@@ -212,7 +213,7 @@
     <Content Include="dist\html\matters\matter-details.html" />
     <Content Include="dist\html\matters\matters.archived.html" />
     <Content Include="dist\html\matters\matters.html" />
-    <Content Include="dist\html\matters\matters.my-matters.html" />
+    <Content Include="dist\html\matters\my-matters.html" />
     <Content Include="dist\html\settings\directives\user-list-item.html" />
     <Content Include="dist\html\settings\matter-type-details.html" />
     <Content Include="dist\html\settings\matter-types.html" />
@@ -322,6 +323,10 @@
     <Compile Include="Migrations\201507091525105_6.Designer.cs">
       <DependentUpon>201507091525105_6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507160857277_7.cs" />
+    <Compile Include="Migrations\201507160857277_7.Designer.cs">
+      <DependentUpon>201507160857277_7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\Address.cs" />
@@ -404,6 +409,7 @@
     <TypeScriptCompile Include="app\matters\directives\buttonChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\contactChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterDetailChip.ts" />
+    <TypeScriptCompile Include="app\matters\directives\matterListItem.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterRelationship.ts" />
     <TypeScriptCompile Include="app\matters\matterDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\matters\matterInterfaces.ts" />
@@ -449,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507091525105_6.resx">
       <DependentUpon>201507091525105_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507160857277_7.resx">
+      <DependentUpon>201507160857277_7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

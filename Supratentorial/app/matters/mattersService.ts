@@ -7,7 +7,9 @@ module matters.services {
 
         constructor(private $http: angular.IHttpService) { }
 
-        MATTER_STATUS_ACTIVE(): number { return 1; }
+        getMatters(): ng.IPromise<interfaces.IMatter[]> {
+            return this.$http.get("api/matters").then((response: any) => { return response.data; })
+        }
 
         getMatterTypes(): ng.IPromise<interfaces.IMatterType[]> {
             return this.$http.get("api/mattertypes").then((response: any) => { return response.data; });
@@ -17,8 +19,12 @@ module matters.services {
             return this.$http.get("api/mattertypes/" + matterTypeId).then((response: any) => { return response.data; });
         }
 
-        getRelationshipTypes(): ng.IPromise<interfaces.IRelationshipType> {
-            return this.$http.get("api/relationshiptypes").then((response) => { return response.data })
+        getRelationshipTypes(): ng.IPromise<interfaces.IRelationshipType[]> {
+            return this.$http.get("api/relationshiptypes").then((response: any) => { return response.data });
+        }
+
+        getMatterById(matterId: number): ng.IPromise<interfaces.IMatter> {
+            return this.$http.get("api/matters/" + matterId).then((response: any) => { return response.data });
         }
 
         saveMatter(matter: interfaces.IMatter) {
@@ -35,7 +41,6 @@ module matters.services {
                 });
             }
         }
-
     }
     angular.module("app.matters").service("mattersService", services.MatterService);
 }

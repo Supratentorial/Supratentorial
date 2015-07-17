@@ -13,10 +13,10 @@ namespace Supratentorial.Controllers
     {
         private APIContext context = new APIContext();
         [Route("api/relationshiptypes")]
-        [ResponseType(typeof(MatterType))]
+        [ResponseType(typeof(RelationshipType))]
         [HttpGet]
         // GET: api/mattertypes
-        public IHttpActionResult GetMatterTypes()
+        public IHttpActionResult GetRelationshipTypes()
         {
             return Ok(context.RelationshipTypes);
         }
