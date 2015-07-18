@@ -5,6 +5,13 @@
         relationships: IRelationship[];
         userMatterAssociations: IUserMatterAssociation[];
     }
+    export interface IMatterDTO {
+        name: string;
+        matterId: number;
+        clients: IContactSearchResult[];
+        status: string;
+        peopleInvolved: IUserDTO[];
+    }
 
     export interface IMattersCtrl {
 

@@ -10,10 +10,6 @@ var matters;
             function MattersCtrl(mattersService) {
                 var _this = this;
                 this.mattersService = mattersService;
-                this.matters = [];
-                this.mattersService.getMatters().then(function (matters) {
-                    _this.matters = matters;
-                });
                 this.tabData = [
                     {
                         heading: "My Matters",
@@ -23,6 +19,10 @@ var matters;
                         route: "matters.archived"
                     }
                 ];
+                this.matters = [];
+                this.mattersService.getMatters().then(function (matters) {
+                    _this.matters = matters;
+                });
             }
             MattersCtrl.$inject = ["mattersService"];
             return MattersCtrl;
