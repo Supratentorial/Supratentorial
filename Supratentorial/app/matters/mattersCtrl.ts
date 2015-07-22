@@ -22,9 +22,9 @@ module matters.controllers {
 
         static $inject = ["mattersService"];
         constructor(private mattersService: interfaces.IMattersService) {
-            //this.mattersService.getMatters().then((matters: interfaces.IMatterDTO[]) => {
-            //    this.matters = matters;
-            //});
+            this.mattersService.getMatters().then((matters: interfaces.IMatterDTO[]) => {
+                this.matters = matters;
+            });
         }
 
         getTableHeight = function () {
