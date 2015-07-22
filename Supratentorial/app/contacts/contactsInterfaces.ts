@@ -20,7 +20,7 @@ module interfaces {
         contactStatus: number;
     }
 
-    export interface IContactSearchResult {
+    export interface IContactDTO {
         contactId: number;
         displayName: string;
         type: string;
@@ -101,7 +101,7 @@ module interfaces {
     export interface IContactsService {
         saveContact(person: IContact): ng.IPromise<IContact>;
         getContactById(id: number): ng.IPromise<IContact>;
-        getRecentContacts(): ng.IPromise<IContactSearchResult[]>;
-        searchContacts(searchString :string): ng.IPromise<IContactSearchResult[]>;
+        getRecentContacts(): ng.IPromise<IContactDTO[]>;
+        searchContacts(searchString :string): ng.IPromise<IContactDTO[]>;
     }
 }

@@ -8,7 +8,7 @@
     export interface IMatterDTO {
         name: string;
         matterId: number;
-        clients: IContactSearchResult[];
+        clients: IContactDTO[];
         status: string;
         peopleInvolved: IUserDTO[];
     }
@@ -23,7 +23,7 @@
         getMatterTypeById(matterTypeId: number): ng.IPromise<interfaces.IMatterType>;
         getRelationshipTypes(): ng.IPromise<interfaces.IRelationshipType[]>;
         getMatterById(matterId: number): ng.IPromise<interfaces.IMatter>;
-        getMatters(): ng.IPromise<interfaces.IMatter[]>;
+        getMatters(): ng.IPromise<interfaces.IMatterDTO[]>;
     }
 
     export interface IMatterType {

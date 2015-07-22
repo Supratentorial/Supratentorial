@@ -7,7 +7,7 @@ module matters.services {
 
         constructor(private $http: angular.IHttpService) { }
 
-        getMatters(): ng.IPromise<interfaces.IMatter[]> {
+        getMatters(): ng.IPromise<interfaces.IMatterDTO[]> {
             return this.$http.get("api/matters").then((response: any) => { return response.data; })
         }
 

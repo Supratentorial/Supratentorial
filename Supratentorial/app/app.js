@@ -15,24 +15,18 @@ var app;
                 templateUrl: "/html/matters/matters.html",
                 controller: "MattersCtrl as vm",
                 requireADLogin: true
-            }).state("matters.my-matters", {
-                url: "/my-matters",
-                templateUrl: "/html/matters/my-matters.html",
-                controller: "MattersCtrl as vm"
-            }).state("matters.archived", {
-                url: "/archived",
-                templateUrl: "/html/matters/matters.archived.html"
-            }).state("view-matter-details", {
-                url: "/matter-details/view/{matterId :int}",
-                templateUrl: "html/matters/matter-details.html",
+            }).state("matter-details", {
+                url: "/matter-details",
                 controller: "MatterDetailsCtrl as vm"
-            }).state("edit-matter-details", {
-                url: "/matter-details/edit/{matterId:int}",
-                templateUrl: "html/matters/edit-matter-details.html",
-                controller: "EditMatterDetailsCtrl as vm"
+            }).state("matter-details.view", {
+                url: "/{matterId :int}/view",
+                templateUrl: "html/matters/matter-details.html",
+            }).state("matter-details.edit", {
+                url: "/{matterId:int}/edit",
+                templateUrl: "html/matters/edit-matter-details.html"
             }).state("dashboard", {
                 url: "/",
-                templateUrl: "/html/dashboard/dashboardPartial.html",
+                templateUrl: "/html/dashboard/dashboardPartial.html"
             }).state("contacts", {
                 url: "/contacts",
                 templateUrl: "/html/contacts/contacts.html",
@@ -81,7 +75,7 @@ var app;
         return StateConfig;
     })();
     app.StateConfig = StateConfig;
-    app.appModule = angular.module("app", ["ui.router", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
+    app.appModule = angular.module("app", ["ui.router", "ui.grid", "ui.grid.autoResize", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
     app.appModule.config(StateConfig);
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map

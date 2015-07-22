@@ -17,7 +17,7 @@ module contacts.services {
             });
         }
 
-        searchContacts(searchString: string): ng.IPromise<interfaces.IContactSearchResult[]> {
+        searchContacts(searchString: string): ng.IPromise<interfaces.IContactDTO[]> {
             return this.$http.get("api/contacts?searchString=" + searchString).then((response: any) => { return response.data; });
         }
 

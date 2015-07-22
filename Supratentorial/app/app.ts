@@ -13,26 +13,22 @@ module app {
                 templateUrl: "/html/matters/matters.html",
                 controller: "MattersCtrl as vm",
                 requireADLogin: true
-            }).state("matters.my-matters", <ng.ui.IState>{
-                url: "/my-matters",
-                templateUrl: "/html/matters/my-matters.html",
-                controller: "MattersCtrl as vm"
-            }).state("matters.archived", <ng.ui.IState>{
-                url: "/archived",
-                templateUrl: "/html/matters/matters.archived.html"
-            }).state("view-matter-details", <ng.ui.IState>{
-                url: "/matter-details/view/{matterId :int}",
-                templateUrl: "html/matters/matter-details.html",
+
+            }).state("matter-details", <ng.ui.IState>{
+                url: "/matter-details",
                 controller: "MatterDetailsCtrl as vm"
 
-            }).state("edit-matter-details", <ng.ui.IState>{
-                url: "/matter-details/edit/{matterId:int}",
-                templateUrl: "html/matters/edit-matter-details.html",
-                controller: "EditMatterDetailsCtrl as vm"
+            }).state("matter-details.view", <ng.ui.IState>{
+                url: "/{matterId :int}/view",
+                templateUrl: "html/matters/matter-details.html",
+
+            }).state("matter-details.edit", <ng.ui.IState>{
+                url: "/{matterId:int}/edit",
+                templateUrl: "html/matters/edit-matter-details.html"
 
             }).state("dashboard", <ng.ui.IState>{
                 url: "/",
-                templateUrl: "/html/dashboard/dashboardPartial.html",
+                templateUrl: "/html/dashboard/dashboardPartial.html"
 
             }).state("contacts", <ng.ui.IState>{
                 url: "/contacts",
@@ -88,6 +84,6 @@ module app {
             }, this.$httpProvider);
         }
     }
-    export var appModule: ng.IModule = angular.module("app", ["ui.router", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
+    export var appModule: ng.IModule = angular.module("app", ["ui.router","ui.grid","ui.grid.autoResize", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
     appModule.config(StateConfig);
 }

@@ -6,25 +6,35 @@ module matters.controllers {
     "use strict"
     export class MattersCtrl {
 
-        tabData = [
-            {
-                heading: "My Matters",
-                route: "matters.my-matters"
-            }, {
-                heading: "Archived Matters",
-                route: "matters.archived"
-            }
-        ]
         title: string;
-        matters: interfaces.IMatter[] = [];
+        matters: interfaces.IMatterDTO[] = [];
+        gridOptions: any = {
+            columnDefs: [
+                { displayName: "Matter ID", name: "matterId" },
+                { displayName: "Name", name: "name" },
+                { displayName: "Clients", name: "clients" },
+                { displayName: "People Involved", name: "peopleInvolved"},
+                { displayName: "Type", name: "type" },
+                { displayName: "Status", name: "status" }
+            ]
+
+        }
 
         static $inject = ["mattersService"];
         constructor(private mattersService: interfaces.IMattersService) {
-            this.mattersService.getMatters().then((matters: interfaces.IMatter[]) => {
-                this.matters = matters;
-            });
-            
+            //this.mattersService.getMatters().then((matters: interfaces.IMatterDTO[]) => {
+            //    this.matters = matters;
+            //});
         }
+
+        getTableHeight = function () {
+            var rowHeight = 30;
+            var headerHeight = 30;
+            return {
+                height: (this.matters.length * rowHeight + headerHeight) + "px"
+            };
+        };
+
     }
     angular.module("app.matters").controller("MattersCtrl", matters.controllers.MattersCtrl);
 }

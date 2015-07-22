@@ -172,7 +172,6 @@
     <Content Include="app\matters\matter-details.html" />
     <Content Include="app\matters\matters.archived.html" />
     <Content Include="app\matters\matters.html" />
-    <Content Include="app\matters\my-matters.html" />
     <Content Include="app\matters\edit-matter-details.html" />
     <Content Include="app\settings\matter-type-details.html" />
     <Content Include="app\settings\user-details.html" />
@@ -201,7 +200,9 @@
     <Content Include="dist\css\ng-tags-input.bootstrap.min.css" />
     <Content Include="dist\css\ng-tags-input.min.css" />
     <Content Include="dist\css\select.css" />
+    <Content Include="dist\css\ui-grid.css" />
     <Content Include="dist\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="dist\fonts\ui-grid\ui-grid.svg" />
     <Content Include="dist\html\contacts\contact-basic.html" />
     <Content Include="dist\html\contacts\contact-biographical.html" />
     <Content Include="dist\html\contacts\contact-financial.html" />
@@ -392,6 +393,9 @@
     <Content Include="app\styles\_app-mixins.scss" />
     <Content Include="app\styles\_app-sidebar.scss" />
     <Content Include="app\styles\_app-list-item.scss" />
+    <Content Include="dist\fonts\ui-grid\ui-grid.eot" />
+    <Content Include="dist\fonts\ui-grid\ui-grid.ttf" />
+    <Content Include="dist\fonts\ui-grid\ui-grid.woff" />
     <None Include="Properties\PublishProfiles\supratentorial.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -418,12 +422,11 @@
     <TypeScriptCompile Include="app\matters\directives\matterDetailChip.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterListItem.ts" />
     <TypeScriptCompile Include="app\matters\directives\matterRelationship.ts" />
-    <TypeScriptCompile Include="app\matters\matterDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\matters\matterInterfaces.ts" />
     <TypeScriptCompile Include="app\matters\app.matters.ts" />
     <TypeScriptCompile Include="app\matters\mattersCtrl.ts" />
     <TypeScriptCompile Include="app\matters\mattersService.ts" />
-    <TypeScriptCompile Include="app\matters\editMatterDetailsCtrl.ts" />
+    <TypeScriptCompile Include="app\matters\matterDetailsCtrl.ts" />
     <TypeScriptCompile Include="app\matters\relationshipsCtrl.ts" />
     <TypeScriptCompile Include="app\settings\app.settings.ts" />
     <TypeScriptCompile Include="app\settings\directives\user-list-item.ts" />

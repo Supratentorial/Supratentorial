@@ -19,8 +19,8 @@
                         </div>
                     </form>
                     <div ng-show=""></div>
-                    <div class="contacts-list" ng-repeat="contact in vm.contactsList">
-                        <contact-list-item contact="contact"></contact-list-item>
+                    <div class="contacts-grid" ui-grid="{data: vm.contactsList}">
+                       
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@ using Supratentorial.Models.DTOs;
 using System.Threading.Tasks;
 using Microsoft.Azure.ActiveDirectory.GraphClient;
 using Supratentorial.Utils;
+using System.Web;
 
 namespace Supratentorial.Controllers
 {
@@ -25,22 +26,34 @@ namespace Supratentorial.Controllers
         {
             var matters = db.Matters.Include(matter => matter.Relationships).Include(matter => matter.UserMatterAssociations);
             var matterDTOs = new List<MatterDTO>();
+            var clientDTOs = new List<ContactDTO>();
             var staffDTOs = new List<UserDTO>();
-            foreach (Matter matter in matters) { 
-                var clientRelationships = await matter.Relationships.Where(r => r.RelationshipType.Name == "Client").ToListAsync();
-                var clients = new List<ContactDTO>();
-                foreach(Relationship relationship in clientRelationships){
+            foreach (Matter matter in matters)
+            {
+                var clientRelationships = await db.Relationships.AsQueryable()
+                    .Where(r => r.RelationshipType.Name == "Client")
+                    .Take(50)
+                    .Include(r => r.Contact)
+                    .Include(r => r.Contact.Person)
+                    .Include(r => r.Contact.Company)
+                    .ToListAsync();
+                foreach (Relationship relationship in clientRelationships)
+                {
                     var displayName = "";
                     var type = "";
-                    
-                    if(relationship.Contact.Person != null){
+
+                    if (relationship.Contact.Person != null)
+                    {
                         displayName = relationship.Contact.Person.FirstName + " " + relationship.Contact.Person.LastName;
                         type = "Person";
-                    } else if(relationship.Contact.Company != null){
+                    }
+                    else if (relationship.Contact.Company != null)
+                    {
                         displayName = relationship.Contact.Company.TradingName + " " + relationship.Contact.Company.TradingSuffix;
                         type = "Company";
                     }
-                    var clientDTO = new ContactDTO(){
+                    var clientDTO = new ContactDTO()
+                    {
                         ContactId = relationship.ContactId.GetValueOrDefault(),
                         DisplayName = displayName,
                         PhoneNumbers = relationship.Contact.PhoneNumbers,
@@ -48,25 +61,39 @@ namespace Supratentorial.Controllers
                         Addresses = relationship.Contact.Addresses,
                         Type = type
                     };
-                    clients.Add(clientDTO);
+                    clientDTOs.Add(clientDTO);
                 }
-                foreach (UserMatterAssociation uma in matter.UserMatterAssociations) { 
-                    ActiveDirectoryClient activeDirectoryClient = AuthenticationHelper.GetActiveDirectoryClient();
-                    IUser user = activeDirectoryClient.Users.GetByObjectId(uma.UserId.ToString()).ExecuteAsync().Result;
+                foreach (UserMatterAssociation uma in matter.UserMatterAssociations)
+                {
+                    IUser user = null;
+                    try
+                    {
+                        ActiveDirectoryClient activeDirectoryClient = AuthenticationHelper.GetActiveDirectoryClient();
+                        user = (User)await activeDirectoryClient.Users.GetByObjectId(uma.UserId.ToString()).ExecuteAsync();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+
+                    }
                     var userDTO = new UserDTO()
                     {
+                        UserId = new Guid(user.ObjectId),
                         DisplayName = user.DisplayName,
                         JobTitle = user.JobTitle,
                         FirstName = user.GivenName,
                         LastName = user.Surname
                     };
+                    staffDTOs.Add(userDTO);
                 }
-                var matterDTO = new MatterDTO(){
-                    Clients = clients,
+                var matterDTO = new MatterDTO()
+                {
+                    Clients = clientDTOs,
                     MatterId = matter.MatterId,
                     MatterType = matter.Type,
                     Name = matter.Name,
-                    PeopleInvolved = staffDTOs
+                    PeopleInvolved = staffDTOs,
+
                 };
                 matterDTOs.Add(matterDTO);
             }
