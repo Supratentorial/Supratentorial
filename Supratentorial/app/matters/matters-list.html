@@ -1,0 +1,12 @@
+﻿<div class="toolbar">
+    <button class="btn btn-default btn-sm" ui-sref="matters.details.edit({matterId:0})"><span class="glyphicon glyphicon-plus"></span> Add Matter</button>
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="matters-grid" ui-grid-auto-resize ui-grid="{data:vm.matters}" ng-style="vm.getTableHeight()"></div>
+        </div>
+    </div>
+</div>
+ 

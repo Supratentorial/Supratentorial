@@ -3,7 +3,6 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 /// <reference path="../typings/angular-ui-router/angular-ui-router.d.ts" />
 
-
 module contacts.controllers {
     "use strict"
     interface IContactDetailsCtrl {
@@ -57,21 +56,21 @@ module contacts.controllers {
             this.tabData = [
                 {
                     heading: "Basic Details",
-                    route: "contact-details.basic",
+                    route: "contacts.details.basic",
                     params: {
                         contactId: this.contact.contactId
                     }
                 },
                 {
                     heading: "Biographical",
-                    route: "contact-details.biographical",
+                    route: "contacts.details.biographical",
                     params: {
                         contactId: this.contact.contactId
                     }
                 },
                 {
                     heading: "Financial",
-                    route: "contact-details.financial",
+                    route: "contacts.details.financial",
                     parmas: {
                         contactId: this.contact.contactId
                     }

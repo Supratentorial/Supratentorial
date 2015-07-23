@@ -158,7 +158,7 @@
     <Content Include="app\contacts\contact-shell.html" />
     <Content Include="app\contacts\contact-basic.html" />
     <Content Include="app\contacts\contact-biographical.html" />
-    <Content Include="app\contacts\contacts.html" />
+    <Content Include="app\contacts\contacts-list.html" />
     <Content Include="app\contacts\directives\contact-list-item.html" />
     <Content Include="app\dashboard\dashboard.js" />
     <Content Include="app\dashboard\dashboardPartial.html" />
@@ -169,9 +169,8 @@
     <Content Include="app\matters\directives\matter-list-item.html" />
     <Content Include="app\matters\directives\matter-relationship.html" />
     <Content Include="app\matters\matter-add-relationship.html" />
-    <Content Include="app\matters\matter-details.html" />
-    <Content Include="app\matters\matters.archived.html" />
-    <Content Include="app\matters\matters.html" />
+    <Content Include="app\matters\view-matter-details.html" />
+    <Content Include="app\matters\matters-list.html" />
     <Content Include="app\matters\edit-matter-details.html" />
     <Content Include="app\settings\matter-type-details.html" />
     <Content Include="app\settings\user-details.html" />

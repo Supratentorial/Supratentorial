@@ -12,37 +12,51 @@ var app;
             this.$stateProvider
                 .state("matters", {
                 url: "/matters",
-                templateUrl: "/html/matters/matters.html",
-                controller: "MattersCtrl as vm",
-                requireADLogin: true
-            }).state("matter-details", {
-                url: "/matter-details",
+                template: "<ui-view/>",
+                abstract: true
+            }).state("matters.list", {
+                url: "/list",
+                templateUrl: "html/matters/matters-list.html",
+                controller: "MattersCtrl as vm"
+            }).state("matters.details", {
+                url: "/{matterId:int}",
+                template: "<ui-view/>",
+                abstract: true,
                 controller: "MatterDetailsCtrl as vm"
-            }).state("matter-details.view", {
-                url: "/{matterId :int}/view",
-                templateUrl: "html/matters/matter-details.html",
-            }).state("matter-details.edit", {
-                url: "/{matterId:int}/edit",
-                templateUrl: "html/matters/edit-matter-details.html"
+            }).state("matters.details.view", {
+                url: "/view",
+                templateUrl: "html/matters/view-matter-details.html",
+                controller: "MatterDetailsCtrl as vm",
+                requireADLogin: true
+            }).state("matters.details.edit", {
+                url: "/edit",
+                templateUrl: "html/matters/edit-matter-details.html",
+                controller: "MatterDetailsCtrl as vm",
+                requireADLogin: true
             }).state("dashboard", {
                 url: "/",
                 templateUrl: "/html/dashboard/dashboardPartial.html"
             }).state("contacts", {
+                abstract: true,
                 url: "/contacts",
-                templateUrl: "/html/contacts/contacts.html",
-                controller: "ContactsCtrl as vm",
-                requireADLogin: true
-            }).state("contact-details", {
+                template: "<ui-view/>"
+            }).state("contacts.list", {
+                url: "/list",
+                templateUrl: "html/contacts/contacts-list.html",
+                controller: "ContactsCtrl as vm"
+            })
+                .state("contacts.details", {
+                abstract: true,
                 url: "/contact-details",
                 templateUrl: "html/contacts/contact-shell.html",
                 controller: "ContactDetailsCtrl as vm"
-            }).state("contact-details.basic", {
+            }).state("contacts.details.basic", {
                 url: "/{contactId:int}/basic",
                 templateUrl: "html/contacts/contact-basic.html"
-            }).state("contact-details.biographical", {
+            }).state("contacts.details.biographical", {
                 url: "/{contactId:int}/biographical",
                 templateUrl: "html/contacts/contact-biographical.html"
-            }).state("contact-details.financial", {
+            }).state("contacts.details.financial", {
                 url: "/{contactId:int}/financial",
                 templateUrl: "html/contacts/contact-financial.html"
             }).state("settings", {

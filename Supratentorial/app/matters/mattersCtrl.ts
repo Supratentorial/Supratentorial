@@ -9,15 +9,6 @@ module matters.controllers {
         title: string;
         matters: interfaces.IMatterDTO[] = [];
         gridOptions: any = {
-            columnDefs: [
-                { displayName: "Matter ID", name: "matterId" },
-                { displayName: "Name", name: "name" },
-                { displayName: "Clients", name: "clients" },
-                { displayName: "People Involved", name: "peopleInvolved"},
-                { displayName: "Type", name: "type" },
-                { displayName: "Status", name: "status" }
-            ]
-
         }
 
         static $inject = ["mattersService"];
@@ -28,8 +19,8 @@ module matters.controllers {
         }
 
         getTableHeight = function () {
-            var rowHeight = 30;
-            var headerHeight = 30;
+            var rowHeight = 35;
+            var headerHeight = 35;
             return {
                 height: (this.matters.length * rowHeight + headerHeight) + "px"
             };

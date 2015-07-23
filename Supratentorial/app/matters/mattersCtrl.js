@@ -2,40 +2,32 @@
 /// <reference path="../typings/angularjs/angular.d.ts" />
 /// <reference path="mattersservice.ts" />
 var matters;
-(function (matters) {
+(function (matters_1) {
     var controllers;
     (function (controllers) {
         "use strict";
         var MattersCtrl = (function () {
             function MattersCtrl(mattersService) {
+                var _this = this;
                 this.mattersService = mattersService;
                 this.matters = [];
-                this.gridOptions = {
-                    columnDefs: [
-                        { displayName: "Matter ID", name: "matterId" },
-                        { displayName: "Name", name: "name" },
-                        { displayName: "Clients", name: "clients" },
-                        { displayName: "People Involved", name: "peopleInvolved" },
-                        { displayName: "Type", name: "type" },
-                        { displayName: "Status", name: "status" }
-                    ]
-                };
+                this.gridOptions = {};
                 this.getTableHeight = function () {
-                    var rowHeight = 30;
-                    var headerHeight = 30;
+                    var rowHeight = 35;
+                    var headerHeight = 35;
                     return {
                         height: (this.matters.length * rowHeight + headerHeight) + "px"
                     };
                 };
-                //this.mattersService.getMatters().then((matters: interfaces.IMatterDTO[]) => {
-                //    this.matters = matters;
-                //});
+                this.mattersService.getMatters().then(function (matters) {
+                    _this.matters = matters;
+                });
             }
             MattersCtrl.$inject = ["mattersService"];
             return MattersCtrl;
         })();
         controllers.MattersCtrl = MattersCtrl;
         angular.module("app.matters").controller("MattersCtrl", matters.controllers.MattersCtrl);
-    })(controllers = matters.controllers || (matters.controllers = {}));
+    })(controllers = matters_1.controllers || (matters_1.controllers = {}));
 })(matters || (matters = {}));
 //# sourceMappingURL=mattersctrl.js.map

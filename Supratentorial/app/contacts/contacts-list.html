@@ -1,0 +1,38 @@
+﻿<div class="toolbar">
+    <button class="btn btn-default btn-sm" ui-sref="contacts.details.basic({contactId:0})"><span class="glyphicon glyphicon-plus"></span> Add Individual</button>
+    <button class="btn btn-default btn-sm" ui-sref="contacts.details.basic({contactId:0})"><span class="glyphicon glyphicon-plus"></span> Add Organisation</button>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><span class="glyphicon glyphicon-user"></span> Search Contacts</h1>
+                </div>
+                <div class="panel-body">
+                    <form ng-submit="vm.searchContacts ()">
+                        <div class="input-group">
+                            <input autofocus-element type="text" class="form-control" placeholder="Last name, first name, organisation name..." ng-model="vm.searchString">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span> Search</button>
+                            </span>
+                        </div>
+                    </form>
+                    <div class="contacts-grid" ui-grid="{data: vm.contactsList}">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><span class="glyphicon glyphicon-star"></span> Favourites</h1>
+                </div>
+                <div class="panel-body">
+                    You don't have a favourite person?
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

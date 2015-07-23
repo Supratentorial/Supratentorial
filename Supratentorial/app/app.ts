@@ -10,46 +10,61 @@ module app {
             this.$stateProvider
                 .state("matters", <ng.ui.IState>{
                 url: "/matters",
-                templateUrl: "/html/matters/matters.html",
-                controller: "MattersCtrl as vm",
-                requireADLogin: true
+                template: "<ui-view/>",
+                abstract: true
 
-            }).state("matter-details", <ng.ui.IState>{
-                url: "/matter-details",
+            }).state("matters.list", <ng.ui.IState>{
+                url: "/list",
+                templateUrl: "html/matters/matters-list.html",
+                controller: "MattersCtrl as vm"
+
+            }).state("matters.details", <ng.ui.IState>{
+                url: "/{matterId:int}",
+                template: "<ui-view/>",
+                abstract: true,
                 controller: "MatterDetailsCtrl as vm"
 
-            }).state("matter-details.view", <ng.ui.IState>{
-                url: "/{matterId :int}/view",
-                templateUrl: "html/matters/matter-details.html",
+            }).state("matters.details.view", <ng.ui.IState>{
+                url: "/view",
+                templateUrl: "html/matters/view-matter-details.html",
+                controller: "MatterDetailsCtrl as vm",
+                requireADLogin: true
 
-            }).state("matter-details.edit", <ng.ui.IState>{
-                url: "/{matterId:int}/edit",
-                templateUrl: "html/matters/edit-matter-details.html"
+            }).state("matters.details.edit", <ng.ui.IState>{
+                url: "/edit",
+                templateUrl: "html/matters/edit-matter-details.html",
+                controller: "MatterDetailsCtrl as vm",
+                requireADLogin: true
 
             }).state("dashboard", <ng.ui.IState>{
                 url: "/",
                 templateUrl: "/html/dashboard/dashboardPartial.html"
 
             }).state("contacts", <ng.ui.IState>{
+                abstract: true,
                 url: "/contacts",
-                templateUrl: "/html/contacts/contacts.html",
-                controller: "ContactsCtrl as vm",
-                requireADLogin: true
+                template: "<ui-view/>"
 
-            }).state("contact-details", <ng.ui.IState>{
+            }).state("contacts.list", <ng.ui.IState>{
+                url: "/list",
+                templateUrl: "html/contacts/contacts-list.html",
+                controller: "ContactsCtrl as vm"
+            })
+                .state("contacts.details", <ng.ui.IState>{
+                abstract: true,
                 url: "/contact-details",
                 templateUrl: "html/contacts/contact-shell.html",
                 controller: "ContactDetailsCtrl as vm"
 
-            }).state("contact-details.basic", <ng.ui.IState>{
+            }).state("contacts.details.basic", <ng.ui.IState>{
                 url: "/{contactId:int}/basic",
                 templateUrl: "html/contacts/contact-basic.html"
 
-            }).state("contact-details.biographical", <ng.ui.IState>{
+            }).state("contacts.details.biographical", <ng.ui.IState>{
                 url: "/{contactId:int}/biographical",
                 templateUrl: "html/contacts/contact-biographical.html"
 
-            }).state("contact-details.financial", <ng.ui.IState>{
+            }).state("contacts.details.financial", <ng.ui.IState>{
                 url: "/{contactId:int}/financial",
                 templateUrl: "html/contacts/contact-financial.html"
 
@@ -84,6 +99,6 @@ module app {
             }, this.$httpProvider);
         }
     }
-    export var appModule: ng.IModule = angular.module("app", ["ui.router","ui.grid","ui.grid.autoResize", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
+    export var appModule: ng.IModule = angular.module("app", ["ui.router", "ui.grid", "ui.grid.autoResize", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
     appModule.config(StateConfig);
 }
