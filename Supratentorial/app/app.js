@@ -89,7 +89,7 @@ var app;
         return StateConfig;
     })();
     app.StateConfig = StateConfig;
-    app.appModule = angular.module("app", ["ui.router", "ui.grid", "ui.grid.autoResize", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
+    app.appModule = angular.module("app", ["ui.router", "ui.grid", "ui.grid.autoResize", "ui.grid.selection", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
     app.appModule.config(StateConfig);
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map

@@ -104,8 +104,7 @@
 
         editMatter() {
             this.isEditMode = true;
-            var state = "matters.details.edit({" + this.matter.matterId + "})";
-            this.$state.go(state);
+            this.$state.go("matters.details.edit", {matterId: this.matter.matterId});
         }
 
         closeMatter() {

@@ -8,14 +8,39 @@ module matters.controllers {
 
         title: string;
         matters: interfaces.IMatterDTO[] = [];
+        gridAPI: any;
+        clientCellTemplate: string = '<div class="ngCellText" ng-class="col.colIndex()"><button ui-sref="contacts.details.basic({contactId: {{client.contactId}}})" ng-click="$event.stopPropagation()" class="btn btn-link" ng-repeat="client in row.entity.clients">{{client.displayName}}</button></div>';
         gridOptions: any = {
+            rowHeight: 35,
+            enableHorizontalScrollbar: 0,
+            enableVerticalScrollbar: 0,
+            enableFullRowSelection: true,
+            enableRowSelection: true,
+            multiSelect: false,
+            enableRowHeaderSelection: false,
+            data: "vm.matters",
+            columnDefs: [
+                { field: "matterId", displayName: "Matter ID", width: 100 },
+                { field: "name", displayName: "Matter Name" },
+                { field: "clients", displayName: "Clients", width: 500, cellTemplate: this.clientCellTemplate },
+                { field: "matterType", displayName: "Matter Type" },
+                { field: "status", displayName: "Status" }
+            ]
         }
 
-        static $inject = ["mattersService"];
-        constructor(private mattersService: interfaces.IMattersService) {
+
+        static $inject = ["mattersService", "$scope", "$state"];
+        constructor(private mattersService: interfaces.IMattersService, private $scope : ng.IScope, private $state : ng.ui.IStateService) {
             this.mattersService.getMatters().then((matters: interfaces.IMatterDTO[]) => {
                 this.matters = matters;
             });
+            this.gridOptions.onRegisterApi = function (gridApi) {
+                //set gridApi on scope
+                this.gridApi = gridApi;
+                gridApi.selection.on.rowSelectionChanged($scope, function (row) {
+                    $state.go("matters.details.view", {matterId: row.entity.matterId});
+                });
+            }
         }
 
         getTableHeight = function () {

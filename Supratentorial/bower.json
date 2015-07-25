@@ -15,7 +15,8 @@
     "adal-angular": "1.0.4",
     "international-phone-number": "~0.0.7",
     "lodash": "~3.10.0",
-    "angular-ui-grid": "~3.0.1"
+    "angular-ui-grid": "~3.0.1",
+    "ng-lodash": "~0.2.3"
   },
   "devDependencies": {}
 }

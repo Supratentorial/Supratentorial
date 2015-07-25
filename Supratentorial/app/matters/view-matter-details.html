@@ -12,9 +12,9 @@
                         <h4 class="sidebar-title">{{vm.matter.matterId}} - {{vm.matter.name}}</h4>
                     </div>
                     <table class="table table-condensed">
-                        <tr><td class="sidebar-label">Matter Type</td><td class="sidebar-content">Conveyancing - Purchase</td></tr>
-                        <tr><td class="sidebar-label">People Responsible</td><td><contact-chip ng-repeat="staff in vm.peopleResponsible" contact="staff"></contact-chip></td></tr>
-                        <tr><td class="sidebar-label">Client(s)</td><td><contact-chip ng-repeat="client in vm.clients" contact="client"></contact-chip></td></tr>
+                        <tr><td class="sidebar-label">Matter Type</td><td class="sidebar-content">{{vm.matter.matterType}}</td></tr>
+                        <tr><td class="sidebar-label">People Responsible</td><td><button class="btn btn-link" ng-repeat="staff in vm.peopleResponsible"></button></td></tr>
+                        <tr><td class="sidebar-label">Client(s)</td><td><contact-chip ng-repeat="client in vm.matter.clients" contact="client"></contact-chip></td></tr>
                     </table>
                 </div>
             </div>

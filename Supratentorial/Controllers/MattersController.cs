@@ -22,16 +22,19 @@ namespace Supratentorial.Controllers
         private APIContext db = new APIContext();
 
         // GET: api/Matters
+        [Route("api/matters")]
+        [ResponseType(typeof(MatterDTO))]
+        [HttpGet]
         public async Task<IHttpActionResult> GetMatters()
         {
             var matters = db.Matters.Include(matter => matter.Relationships).Include(matter => matter.UserMatterAssociations);
             var matterDTOs = new List<MatterDTO>();
-            var clientDTOs = new List<ContactDTO>();
-            var staffDTOs = new List<UserDTO>();
             foreach (Matter matter in matters)
             {
+                var clientDTOs = new List<ContactDTO>();
+                var staffDTOs = new List<UserDTO>();
                 var clientRelationships = await db.Relationships.AsQueryable()
-                    .Where(r => r.RelationshipType.Name == "Client")
+                    .Where(r => r.RelationshipType.Name == "Client" && r.MatterId == matter.MatterId)
                     .Take(50)
                     .Include(r => r.Contact)
                     .Include(r => r.Contact.Person)
@@ -100,11 +103,12 @@ namespace Supratentorial.Controllers
             return Ok(matterDTOs);
         }
 
+        [Route("api/matters/{matterId}")]
         // GET: api/Matters/5
         [ResponseType(typeof(Matter))]
-        public IHttpActionResult GetMatter(int id)
+        public IHttpActionResult GetMatter(int matterId)
         {
-            Matter matter = db.Matters.Find(id);
+            Matter matter = db.Matters.SingleOrDefault(m => m.MatterId == matterId);
             if (matter == null)
             {
                 return NotFound();
