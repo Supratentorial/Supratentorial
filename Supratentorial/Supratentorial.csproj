@@ -440,6 +440,7 @@
     <TypeScriptCompile Include="app\typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="app\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="app\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="app\typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="app\typings\moment\moment.d.ts" />
     <TypeScriptCompile Include="app\typings\tsd.d.ts" />
   </ItemGroup>

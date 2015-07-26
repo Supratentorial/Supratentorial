@@ -99,6 +99,6 @@ module app {
             }, this.$httpProvider);
         }
     }
-    export var appModule: ng.IModule = angular.module("app", ["ui.router", "ui.grid", "ui.grid.autoResize","ui.grid.selection", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular"]);
+    export var appModule: ng.IModule = angular.module("app", ["ui.router", "ui.grid", "ui.grid.autoResize", "ui.grid.selection", "ui.router.tabs", "app.contacts", "app.matters", "app.settings", "app.common", "AdalAngular", "ngLodash"]);
     appModule.config(StateConfig);
 }

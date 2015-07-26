@@ -1,4 +1,7 @@
-﻿module matters.controllers {
+﻿/// <reference path="../typings/lodash/lodash.d.ts" />
+
+
+module matters.controllers {
     "use strict"
     export class MatterDetailsCtrl {
 
@@ -11,8 +14,8 @@
         matterTypes: interfaces.IMatterType[];
         relationshipTypes: interfaces.IRelationshipType[] = [];
 
-        static $inject = ["userService", "contactsService", "mattersService", "$state"];
-        constructor(private userService: interfaces.IUserService, private contactsService: interfaces.IContactsService, private mattersService: interfaces.IMattersService, private $state: ng.ui.IStateService) {
+        static $inject = ["userService", "contactsService", "mattersService", "$state", "lodash"];
+        constructor(private userService: interfaces.IUserService, private contactsService: interfaces.IContactsService, private mattersService: interfaces.IMattersService, private $state: ng.ui.IStateService, private _: _.LoDashStatic) {
             this.userService.getUsers().then((response: interfaces.IUserDTO[]) => {
                 this.users = response;
             });
@@ -29,9 +32,13 @@
                 this.mattersService.getMatterById(this.matter.matterId).then((matter: interfaces.IMatter) : void => {
                     this.matter = matter;
                 });
+                var clientRelationshipType: interfaces.IRelationshipType = this._.findWhere(this.relationshipTypes, { name: "Client" });
+                console.log(clientRelationshipType);
+                var clientRelationships: interfaces.IRelationship[] = this._.where(this.matter.relationships, { relationshipTypeId: clientRelationshipType.relationshipTypeId });
+                
             }
             if (this.matter.relationships.length === 0) {
-
+                
             }
         }
 
